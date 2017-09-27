@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import AVFoundation
 import NVActivityIndicatorView
-
+//
 class SignInViewController: UIViewController,UINavigationControllerDelegate{
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var usernameTextview: UITextField!
