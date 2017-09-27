@@ -1,0 +1,632 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84329F321F5FCAED0063CBD3 /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84329F311F5FCAED0063CBD3 /* SubCategoryCollectionViewCell.swift */; };
+		8439D2151F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439D2141F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift */; };
+		8439D2171F43D89500F00FF8 /* BeautyExpertSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */; };
+		8439D2191F43FA6000F00FF8 /* CategorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439D2181F43FA6000F00FF8 /* CategorySelectViewController.swift */; };
+		8439D21B1F43FD2200F00FF8 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439D21A1F43FD2200F00FF8 /* CategoryTableViewCell.swift */; };
+		8439D21D1F44002C00F00FF8 /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8439D21C1F44002C00F00FF8 /* Lobster-Regular.ttf */; };
+		8449BDDD1F2DBCC200DD9E20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449BDDC1F2DBCC200DD9E20 /* AppDelegate.swift */; };
+		8449BDDF1F2DBCC200DD9E20 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449BDDE1F2DBCC200DD9E20 /* SignInViewController.swift */; };
+		8449BDE21F2DBCC200DD9E20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8449BDE01F2DBCC200DD9E20 /* Main.storyboard */; };
+		8449BDE51F2DBCC200DD9E20 /* Briize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8449BDE31F2DBCC200DD9E20 /* Briize.xcdatamodeld */; };
+		8449BDE71F2DBCC300DD9E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8449BDE61F2DBCC300DD9E20 /* Assets.xcassets */; };
+		8449BDEA1F2DBCC300DD9E20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8449BDE81F2DBCC300DD9E20 /* LaunchScreen.storyboard */; };
+		8449BDF51F2DBCC300DD9E20 /* BriizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449BDF41F2DBCC300DD9E20 /* BriizeTests.swift */; };
+		8449BE001F2FED3600DD9E20 /* briizeBGV.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8449BDFF1F2FEA7400DD9E20 /* briizeBGV.mp4 */; };
+		8449BE011F2FED3800DD9E20 /* briizeBGV.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8449BDFF1F2FEA7400DD9E20 /* briizeBGV.mp4 */; };
+		8449BE031F34232600DD9E20 /* ChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449BE021F34232600DD9E20 /* ChooseAccountViewController.swift */; };
+		8494A02C1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */; };
+		84ADB6B41F5F418500ED0C75 /* SubCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */; };
+		84D4759C1F5B5BA400994D16 /* UserMenuProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */; };
+		95EC54819FAD28AB3CCB711A /* Pods_Briize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0751B44A8A60252C957F53 /* Pods_Briize.framework */; };
+		96992FF108BC72791D2FB28A /* Pods_BriizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A200BF1BCDD5E9FF84BAA44D /* Pods_BriizeTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8449BDF11F2DBCC300DD9E20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8449BDD11F2DBCC100DD9E20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8449BDD81F2DBCC200DD9E20;
+			remoteInfo = Briize;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		29D2850FCA7BD7C0DC1F2635 /* Pods-BriizeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BriizeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BriizeTests/Pods-BriizeTests.release.xcconfig"; sourceTree = "<group>"; };
+		4E0751B44A8A60252C957F53 /* Pods_Briize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Briize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E26F5E853E33AF36ADF2E9B /* Pods-Briize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Briize.release.xcconfig"; path = "Pods/Target Support Files/Pods-Briize/Pods-Briize.release.xcconfig"; sourceTree = "<group>"; };
+		84329F311F5FCAED0063CBD3 /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		8439D2141F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeautyExpertResultTableCell.swift; sourceTree = "<group>"; };
+		8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeautyExpertSearchViewController.swift; sourceTree = "<group>"; };
+		8439D2181F43FA6000F00FF8 /* CategorySelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectViewController.swift; sourceTree = "<group>"; };
+		8439D21A1F43FD2200F00FF8 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		8439D21C1F44002C00F00FF8 /* Lobster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster-Regular.ttf"; sourceTree = "<group>"; };
+		8449BDD91F2DBCC200DD9E20 /* Briize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Briize.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8449BDDC1F2DBCC200DD9E20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8449BDDE1F2DBCC200DD9E20 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		8449BDE11F2DBCC200DD9E20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8449BDE41F2DBCC200DD9E20 /* Briize.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Briize.xcdatamodel; sourceTree = "<group>"; };
+		8449BDE61F2DBCC300DD9E20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8449BDE91F2DBCC300DD9E20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8449BDEB1F2DBCC300DD9E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8449BDF01F2DBCC300DD9E20 /* BriizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BriizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8449BDF41F2DBCC300DD9E20 /* BriizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriizeTests.swift; sourceTree = "<group>"; };
+		8449BDF61F2DBCC300DD9E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8449BDFF1F2FEA7400DD9E20 /* briizeBGV.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = briizeBGV.mp4; path = ../briizeBGV.mp4; sourceTree = "<group>"; };
+		8449BE021F34232600DD9E20 /* ChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseAccountViewController.swift; sourceTree = "<group>"; };
+		8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpertProfilePageViewController.swift; sourceTree = "<group>"; };
+		84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategorySelectionViewController.swift; sourceTree = "<group>"; };
+		84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMenuProfileViewController.swift; sourceTree = "<group>"; };
+		A200BF1BCDD5E9FF84BAA44D /* Pods_BriizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BriizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB1F0811F17BD2AA33E2C39 /* Pods-Briize.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Briize.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Briize/Pods-Briize.debug.xcconfig"; sourceTree = "<group>"; };
+		CFC82FEB28FC10FD3C1AEB08 /* Pods-BriizeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BriizeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BriizeTests/Pods-BriizeTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8449BDD61F2DBCC200DD9E20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95EC54819FAD28AB3CCB711A /* Pods_Briize.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8449BDED1F2DBCC300DD9E20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96992FF108BC72791D2FB28A /* Pods_BriizeTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4AED10E20D04D8E74430E34F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CFB1F0811F17BD2AA33E2C39 /* Pods-Briize.debug.xcconfig */,
+				6E26F5E853E33AF36ADF2E9B /* Pods-Briize.release.xcconfig */,
+				CFC82FEB28FC10FD3C1AEB08 /* Pods-BriizeTests.debug.xcconfig */,
+				29D2850FCA7BD7C0DC1F2635 /* Pods-BriizeTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8449BDD01F2DBCC100DD9E20 = {
+			isa = PBXGroup;
+			children = (
+				8449BDDB1F2DBCC200DD9E20 /* Briize */,
+				8449BDF31F2DBCC300DD9E20 /* BriizeTests */,
+				8449BDDA1F2DBCC200DD9E20 /* Products */,
+				4AED10E20D04D8E74430E34F /* Pods */,
+				8DDC7EBFC7072813CBFDF808 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8449BDDA1F2DBCC200DD9E20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8449BDD91F2DBCC200DD9E20 /* Briize.app */,
+				8449BDF01F2DBCC300DD9E20 /* BriizeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8449BDDB1F2DBCC200DD9E20 /* Briize */ = {
+			isa = PBXGroup;
+			children = (
+				8439D21C1F44002C00F00FF8 /* Lobster-Regular.ttf */,
+				8449BDFF1F2FEA7400DD9E20 /* briizeBGV.mp4 */,
+				8449BDDC1F2DBCC200DD9E20 /* AppDelegate.swift */,
+				8449BDDE1F2DBCC200DD9E20 /* SignInViewController.swift */,
+				8449BE021F34232600DD9E20 /* ChooseAccountViewController.swift */,
+				8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */,
+				8439D2141F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift */,
+				8439D21A1F43FD2200F00FF8 /* CategoryTableViewCell.swift */,
+				8439D2181F43FA6000F00FF8 /* CategorySelectViewController.swift */,
+				84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */,
+				8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */,
+				84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */,
+				84329F311F5FCAED0063CBD3 /* SubCategoryCollectionViewCell.swift */,
+				8449BDE61F2DBCC300DD9E20 /* Assets.xcassets */,
+				8449BDE01F2DBCC200DD9E20 /* Main.storyboard */,
+				8449BDE81F2DBCC300DD9E20 /* LaunchScreen.storyboard */,
+				8449BDEB1F2DBCC300DD9E20 /* Info.plist */,
+				8449BDE31F2DBCC200DD9E20 /* Briize.xcdatamodeld */,
+			);
+			path = Briize;
+			sourceTree = "<group>";
+		};
+		8449BDF31F2DBCC300DD9E20 /* BriizeTests */ = {
+			isa = PBXGroup;
+			children = (
+				8449BDF41F2DBCC300DD9E20 /* BriizeTests.swift */,
+				8449BDF61F2DBCC300DD9E20 /* Info.plist */,
+			);
+			path = BriizeTests;
+			sourceTree = "<group>";
+		};
+		8DDC7EBFC7072813CBFDF808 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E0751B44A8A60252C957F53 /* Pods_Briize.framework */,
+				A200BF1BCDD5E9FF84BAA44D /* Pods_BriizeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8449BDD81F2DBCC200DD9E20 /* Briize */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8449BDF91F2DBCC300DD9E20 /* Build configuration list for PBXNativeTarget "Briize" */;
+			buildPhases = (
+				61A3189F6B4216192FAA4A6B /* [CP] Check Pods Manifest.lock */,
+				8449BDD51F2DBCC200DD9E20 /* Sources */,
+				8449BDD61F2DBCC200DD9E20 /* Frameworks */,
+				8449BDD71F2DBCC200DD9E20 /* Resources */,
+				E4B06DA0C41F5D82361575C7 /* [CP] Embed Pods Frameworks */,
+				A21F9ECD59F91267E82920B1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Briize;
+			productName = Briize;
+			productReference = 8449BDD91F2DBCC200DD9E20 /* Briize.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8449BDEF1F2DBCC300DD9E20 /* BriizeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8449BDFC1F2DBCC300DD9E20 /* Build configuration list for PBXNativeTarget "BriizeTests" */;
+			buildPhases = (
+				7B80A5630D1EFDA5D96D3740 /* [CP] Check Pods Manifest.lock */,
+				8449BDEC1F2DBCC300DD9E20 /* Sources */,
+				8449BDED1F2DBCC300DD9E20 /* Frameworks */,
+				8449BDEE1F2DBCC300DD9E20 /* Resources */,
+				2FDDEE1DB9D3914C51F3BFC9 /* [CP] Embed Pods Frameworks */,
+				FBAC9FC750F7AD1330AB16F9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8449BDF21F2DBCC300DD9E20 /* PBXTargetDependency */,
+			);
+			name = BriizeTests;
+			productName = BriizeTests;
+			productReference = 8449BDF01F2DBCC300DD9E20 /* BriizeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8449BDD11F2DBCC100DD9E20 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Miles Fishman";
+				TargetAttributes = {
+					8449BDD81F2DBCC200DD9E20 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = CNUA8JREHJ;
+						ProvisioningStyle = Automatic;
+					};
+					8449BDEF1F2DBCC300DD9E20 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8449BDD81F2DBCC200DD9E20;
+					};
+				};
+			};
+			buildConfigurationList = 8449BDD41F2DBCC100DD9E20 /* Build configuration list for PBXProject "Briize" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8449BDD01F2DBCC100DD9E20;
+			productRefGroup = 8449BDDA1F2DBCC200DD9E20 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8449BDD81F2DBCC200DD9E20 /* Briize */,
+				8449BDEF1F2DBCC300DD9E20 /* BriizeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8449BDD71F2DBCC200DD9E20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8439D21D1F44002C00F00FF8 /* Lobster-Regular.ttf in Resources */,
+				8449BE001F2FED3600DD9E20 /* briizeBGV.mp4 in Resources */,
+				8449BDEA1F2DBCC300DD9E20 /* LaunchScreen.storyboard in Resources */,
+				8449BDE71F2DBCC300DD9E20 /* Assets.xcassets in Resources */,
+				8449BDE21F2DBCC200DD9E20 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8449BDEE1F2DBCC300DD9E20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8449BE011F2FED3800DD9E20 /* briizeBGV.mp4 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FDDEE1DB9D3914C51F3BFC9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BriizeTests/Pods-BriizeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61A3189F6B4216192FAA4A6B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7B80A5630D1EFDA5D96D3740 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A21F9ECD59F91267E82920B1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Briize/Pods-Briize-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4B06DA0C41F5D82361575C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Briize/Pods-Briize-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBAC9FC750F7AD1330AB16F9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BriizeTests/Pods-BriizeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8449BDD51F2DBCC200DD9E20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84D4759C1F5B5BA400994D16 /* UserMenuProfileViewController.swift in Sources */,
+				8449BDDF1F2DBCC200DD9E20 /* SignInViewController.swift in Sources */,
+				8439D2191F43FA6000F00FF8 /* CategorySelectViewController.swift in Sources */,
+				8439D2151F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift in Sources */,
+				8439D2171F43D89500F00FF8 /* BeautyExpertSearchViewController.swift in Sources */,
+				84329F321F5FCAED0063CBD3 /* SubCategoryCollectionViewCell.swift in Sources */,
+				84ADB6B41F5F418500ED0C75 /* SubCategorySelectionViewController.swift in Sources */,
+				8494A02C1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift in Sources */,
+				8449BDE51F2DBCC200DD9E20 /* Briize.xcdatamodeld in Sources */,
+				8449BDDD1F2DBCC200DD9E20 /* AppDelegate.swift in Sources */,
+				8449BE031F34232600DD9E20 /* ChooseAccountViewController.swift in Sources */,
+				8439D21B1F43FD2200F00FF8 /* CategoryTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8449BDEC1F2DBCC300DD9E20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8449BDF51F2DBCC300DD9E20 /* BriizeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8449BDF21F2DBCC300DD9E20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8449BDD81F2DBCC200DD9E20 /* Briize */;
+			targetProxy = 8449BDF11F2DBCC300DD9E20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8449BDE01F2DBCC200DD9E20 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8449BDE11F2DBCC200DD9E20 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8449BDE81F2DBCC300DD9E20 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8449BDE91F2DBCC300DD9E20 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8449BDF71F2DBCC300DD9E20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8449BDF81F2DBCC300DD9E20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8449BDFA1F2DBCC300DD9E20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFB1F0811F17BD2AA33E2C39 /* Pods-Briize.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNUA8JREHJ;
+				INFOPLIST_FILE = Briize/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.milesFishman.Briize-Admin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8449BDFB1F2DBCC300DD9E20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E26F5E853E33AF36ADF2E9B /* Pods-Briize.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNUA8JREHJ;
+				INFOPLIST_FILE = Briize/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.milesFishman.Briize-Admin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		8449BDFD1F2DBCC300DD9E20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFC82FEB28FC10FD3C1AEB08 /* Pods-BriizeTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BriizeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.milesFishman.BriizeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Briize.app/Briize";
+			};
+			name = Debug;
+		};
+		8449BDFE1F2DBCC300DD9E20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29D2850FCA7BD7C0DC1F2635 /* Pods-BriizeTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BriizeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.milesFishman.BriizeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Briize.app/Briize";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8449BDD41F2DBCC100DD9E20 /* Build configuration list for PBXProject "Briize" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8449BDF71F2DBCC300DD9E20 /* Debug */,
+				8449BDF81F2DBCC300DD9E20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8449BDF91F2DBCC300DD9E20 /* Build configuration list for PBXNativeTarget "Briize" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8449BDFA1F2DBCC300DD9E20 /* Debug */,
+				8449BDFB1F2DBCC300DD9E20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8449BDFC1F2DBCC300DD9E20 /* Build configuration list for PBXNativeTarget "BriizeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8449BDFD1F2DBCC300DD9E20 /* Debug */,
+				8449BDFE1F2DBCC300DD9E20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8449BDE31F2DBCC200DD9E20 /* Briize.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8449BDE41F2DBCC200DD9E20 /* Briize.xcdatamodel */,
+			);
+			currentVersion = 8449BDE41F2DBCC200DD9E20 /* Briize.xcdatamodel */;
+			path = Briize.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8449BDD11F2DBCC100DD9E20 /* Project object */;
+}
