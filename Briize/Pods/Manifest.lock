@@ -1,0 +1,18 @@
+PODS:
+  - NVActivityIndicatorView (3.6.1)
+  - RAMPaperSwitch (2.0.5)
+  - SideMenu (2.3.2)
+
+DEPENDENCIES:
+  - NVActivityIndicatorView
+  - RAMPaperSwitch (~> 2.0.4)
+  - SideMenu
+
+SPEC CHECKSUMS:
+  NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
+  RAMPaperSwitch: 8e547186be122e858aa060596708f0dcbfe7593f
+  SideMenu: 3fa07dd05d4bade2b6f9889fb1877e312e1ba319
+
+PODFILE CHECKSUM: 2a1993c7925ea7866118b92409ed4a26a7329b82
+
+COCOAPODS: 1.1.0.rc.2

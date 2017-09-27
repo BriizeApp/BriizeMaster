@@ -1,0 +1,15 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target 'Briize' do
+
+pod 'SideMenu'
+pod 'RAMPaperSwitch', '~> 2.0.4'
+pod 'NVActivityIndicatorView'
+
+  target 'BriizeTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
