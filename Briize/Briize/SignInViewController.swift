@@ -39,6 +39,11 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         view.addGestureRecognizer(tap)
         self.usernameTextview.borderStyle = UITextBorderStyle.none
         self.passwordTextview.borderStyle = UITextBorderStyle.none
+        self.usernameTextview.attributedPlaceholder = NSAttributedString(string: "Username",
+                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white])
+        self.passwordTextview.attributedPlaceholder = NSAttributedString(string: "Password",
+                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white])
+        
         
         self.createAccountButtonOutlet.layer.cornerRadius  = 10
         self.forgotPasswordButtonOutlet.layer.cornerRadius = 10
