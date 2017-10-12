@@ -43,6 +43,7 @@ class CategorySelectViewController: UIViewController, UITableViewDelegate, UITab
     
     
     
+    
     var menuOpened:Bool = false
     let titles:[String]  = ["Nails", "Make-Up", "Eyelashes", "Eyebrows", "Hair"]
     let pics  :[UIImage] = [#imageLiteral(resourceName: "cat1"),#imageLiteral(resourceName: "cat5"),#imageLiteral(resourceName: "cat2"),#imageLiteral(resourceName: "cat4"),#imageLiteral(resourceName: "cat3")]
