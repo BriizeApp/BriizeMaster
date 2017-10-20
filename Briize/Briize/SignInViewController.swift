@@ -31,8 +31,6 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +58,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         
         self.usernameTextview.borderStyle = UITextBorderStyle.none
         self.passwordTextview.borderStyle = UITextBorderStyle.none
-        self.usernameTextview.attributedPlaceholder = NSAttributedString(string: "Username",
+        self.usernameTextview.attributedPlaceholder = NSAttributedString(string: "Email",
                                                                          attributes: [NSForegroundColorAttributeName: UIColor.white])
         self.passwordTextview.attributedPlaceholder = NSAttributedString(string: "Password",
                                                                          attributes: [NSForegroundColorAttributeName: UIColor.white])
@@ -136,6 +134,11 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    @IBAction func createAccountButtonPressed(_ sender: Any) {
+        let alertManager = AlertManager(VC: self)
+        alertManager.openCreateAccountAlert()
     }
     
     @IBAction func testAnimation(_ sender: Any) {
