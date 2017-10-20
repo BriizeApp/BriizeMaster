@@ -10,8 +10,11 @@ import UIKit
 import AVKit
 import AVFoundation
 import NVActivityIndicatorView
-//
+import Parse
+
 class SignInViewController: UIViewController,UINavigationControllerDelegate{
+    
+    fileprivate var player = AVPlayer()
     
     @IBOutlet weak var logoImageView             : UIImageView!
     @IBOutlet weak var usernameTextview          : UITextField!
@@ -25,18 +28,36 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     
     @IBOutlet weak var loader: NVActivityIndicatorView!
     
-    fileprivate var player = AVPlayer()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupUI()
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupBGVideo()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setupSubViewsAndPlayVideo()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    private func setupUI() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                                  action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         self.signInBUttonOutlet.layer.borderWidth  = 2
         self.signInBUttonOutlet.layer.borderColor  = UIColor.white.cgColor
         self.signInBUttonOutlet.layer.cornerRadius = 25
         
-        view.addGestureRecognizer(tap)
         self.usernameTextview.borderStyle = UITextBorderStyle.none
         self.passwordTextview.borderStyle = UITextBorderStyle.none
         self.usernameTextview.attributedPlaceholder = NSAttributedString(string: "Username",
@@ -54,7 +75,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.addBottomBorderToTextField(myTextField: self.passwordTextview)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    private func setupBGVideo() {
         let vu = UIView(frame: self.view.frame)
         vu.backgroundColor = .black
         vu.alpha = 0.6
@@ -77,7 +98,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.view.addSubview(vu)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    private func setupSubViewsAndPlayVideo() {
         self.view.bringSubview(toFront: self.logoImageView)
         self.view.bringSubview(toFront: self.createAccountButtonOutlet)
         //self.view.bringSubview(toFront: self.eulaButtonOutlet)
@@ -91,11 +112,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.loopVideo(player: player)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    func loopVideo(player:AVPlayer) {
+    private func loopVideo(player:AVPlayer) {
         NotificationCenter
             .default
             .addObserver(forName : NSNotification.Name.AVPlayerItemDidPlayToEndTime,
@@ -106,7 +123,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         }
     }
     
-    func addBottomBorderToTextField(myTextField:UITextField) {
+    private func addBottomBorderToTextField(myTextField:UITextField) {
         let bottomLine   = CALayer()
         bottomLine.frame = CGRect(x:0.0,y: myTextField.frame.height - 1,
                                   width  : myTextField.frame.width + 30,
@@ -117,12 +134,12 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         myTextField.layer.addSublayer(bottomLine)
     }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     @IBAction func testAnimation(_ sender: Any) {
         loader.startAnimating()
     }
     
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
 }
-
