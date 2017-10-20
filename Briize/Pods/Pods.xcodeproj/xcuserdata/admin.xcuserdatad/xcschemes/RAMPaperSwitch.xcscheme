@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4106322FF7ABB6EE34B19F79A909B7C"
+               BlueprintIdentifier = "28DD4A3604DC613555523860D30BFC4E"
                BuildableName = "RAMPaperSwitch.framework"
                BlueprintName = "RAMPaperSwitch"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4106322FF7ABB6EE34B19F79A909B7C"
+            BlueprintIdentifier = "28DD4A3604DC613555523860D30BFC4E"
             BuildableName = "RAMPaperSwitch.framework"
             BlueprintName = "RAMPaperSwitch"
             ReferencedContainer = "container:Pods.xcodeproj">

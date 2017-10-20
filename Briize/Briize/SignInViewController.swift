@@ -12,26 +12,26 @@ import AVFoundation
 import NVActivityIndicatorView
 //
 class SignInViewController: UIViewController,UINavigationControllerDelegate{
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var usernameTextview: UITextField!
-    @IBOutlet weak var passwordTextview: UITextField!
-    @IBOutlet weak var signInBUttonOutlet: UIButton!
-    @IBOutlet weak var fillerTextLabel: UILabel!
-    @IBOutlet weak var createAccountButtonOutlet: UIButton!
-    @IBOutlet weak var eulaButtonOutlet: UIButton!
+    
+    @IBOutlet weak var logoImageView             : UIImageView!
+    @IBOutlet weak var usernameTextview          : UITextField!
+    @IBOutlet weak var passwordTextview          : UITextField!
+    @IBOutlet weak var signInBUttonOutlet        : UIButton!
+    @IBOutlet weak var fillerTextLabel           : UILabel!
+    @IBOutlet weak var createAccountButtonOutlet : UIButton!
+    @IBOutlet weak var eulaButtonOutlet          : UIButton!
     @IBOutlet weak var forgotPasswordButtonOutlet: UIButton!
-    @IBOutlet weak var logInLabel: UILabel!
+    @IBOutlet weak var logInLabel                : UILabel!
     
     @IBOutlet weak var loader: NVActivityIndicatorView!
-    
     
     fileprivate var player = AVPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(dismissKeyboard))
         self.signInBUttonOutlet.layer.borderWidth  = 2
         self.signInBUttonOutlet.layer.borderColor  = UIColor.white.cgColor
         self.signInBUttonOutlet.layer.cornerRadius = 25
@@ -43,8 +43,6 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
                                                                          attributes: [NSForegroundColorAttributeName: UIColor.white])
         self.passwordTextview.attributedPlaceholder = NSAttributedString(string: "Password",
                                                                          attributes: [NSForegroundColorAttributeName: UIColor.white])
-        
-        
         self.createAccountButtonOutlet.layer.cornerRadius  = 10
         self.forgotPasswordButtonOutlet.layer.cornerRadius = 10
         self.createAccountButtonOutlet.layer.borderWidth   = 1.0
@@ -79,7 +77,6 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.view.addSubview(vu)
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         self.view.bringSubview(toFront: self.logoImageView)
         self.view.bringSubview(toFront: self.createAccountButtonOutlet)
@@ -103,34 +100,28 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
             .default
             .addObserver(forName : NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                          object  : nil,
-                         queue   : nil) {
-                            notification in
-                            
+                         queue   : nil) { notification in
                             player.seek(to: kCMTimeZero)
                             player.play()
         }
     }
     
     func addBottomBorderToTextField(myTextField:UITextField) {
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x:0.0,y: myTextField.frame.height - 1, width:myTextField.frame.width + 30, height: 1.0)
+        let bottomLine   = CALayer()
+        bottomLine.frame = CGRect(x:0.0,y: myTextField.frame.height - 1,
+                                  width  : myTextField.frame.width + 30,
+                                  height : 1.0)
         bottomLine.backgroundColor = UIColor.white.cgColor
+        
         myTextField.borderStyle = UITextBorderStyle.none
         myTextField.layer.addSublayer(bottomLine)
     }
     
     @IBAction func testAnimation(_ sender: Any) {
-        
         loader.startAnimating()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
 }

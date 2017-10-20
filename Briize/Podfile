@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '10.0'
 use_frameworks!
 
 target 'Briize' do
@@ -6,6 +6,8 @@ target 'Briize' do
 pod 'SideMenu'
 pod 'RAMPaperSwitch', '~> 2.0.4'
 pod 'NVActivityIndicatorView'
+pod 'Parse'
+pod 'Bolts-Swift'
 
   target 'BriizeTests' do
     inherit! :search_paths
