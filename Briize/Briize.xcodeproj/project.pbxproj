@@ -25,7 +25,6 @@
 		8449BDF51F2DBCC300DD9E20 /* BriizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449BDF41F2DBCC300DD9E20 /* BriizeTests.swift */; };
 		8449BE001F2FED3600DD9E20 /* briizeBGV.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8449BDFF1F2FEA7400DD9E20 /* briizeBGV.mp4 */; };
 		8449BE011F2FED3800DD9E20 /* briizeBGV.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8449BDFF1F2FEA7400DD9E20 /* briizeBGV.mp4 */; };
-		8449BE031F34232600DD9E20 /* ChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449BE021F34232600DD9E20 /* ChooseAccountViewController.swift */; };
 		8494A02C1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */; };
 		84ADB6B41F5F418500ED0C75 /* SubCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */; };
 		84D4759C1F5B5BA400994D16 /* UserMenuProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */; };
@@ -68,7 +67,6 @@
 		8449BDF41F2DBCC300DD9E20 /* BriizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriizeTests.swift; sourceTree = "<group>"; };
 		8449BDF61F2DBCC300DD9E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8449BDFF1F2FEA7400DD9E20 /* briizeBGV.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = briizeBGV.mp4; path = ../briizeBGV.mp4; sourceTree = "<group>"; };
-		8449BE021F34232600DD9E20 /* ChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseAccountViewController.swift; sourceTree = "<group>"; };
 		8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpertProfilePageViewController.swift; sourceTree = "<group>"; };
 		84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategorySelectionViewController.swift; sourceTree = "<group>"; };
 		84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMenuProfileViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				8449BDDC1F2DBCC200DD9E20 /* AppDelegate.swift */,
 				8449BDDE1F2DBCC200DD9E20 /* SignInViewController.swift */,
 				8401FFFF1F99F967005C0119 /* CreateAccountViewController.swift */,
-				8449BE021F34232600DD9E20 /* ChooseAccountViewController.swift */,
 				8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */,
 				8439D2141F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift */,
 				8439D21A1F43FD2200F00FF8 /* CategoryTableViewCell.swift */,
@@ -419,7 +416,6 @@
 				8449BDE51F2DBCC200DD9E20 /* Briize.xcdatamodeld in Sources */,
 				8449BDDD1F2DBCC200DD9E20 /* AppDelegate.swift in Sources */,
 				8401FFFC1F99ED25005C0119 /* APIManager.swift in Sources */,
-				8449BE031F34232600DD9E20 /* ChooseAccountViewController.swift in Sources */,
 				8401FFFE1F99F659005C0119 /* AlertManager.swift in Sources */,
 				8439D21B1F43FD2200F00FF8 /* CategoryTableViewCell.swift in Sources */,
 			);

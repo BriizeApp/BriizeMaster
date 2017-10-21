@@ -113,13 +113,14 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func photoOfCertButtonPressed(_ sender: Any) {
-        
-        
+        //Upload Image Certification
     }
-    
     
     @IBAction func addAccountButtonPressed(_ sender: Any) {
-        self.view.endEditing(true)
+      
     }
     
+    @IBAction func exitButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
