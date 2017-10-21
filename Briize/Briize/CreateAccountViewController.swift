@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import BoltsSwift
 
 class CreateAccountViewController:UIViewController, UITextFieldDelegate {
     
@@ -27,18 +28,17 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
         self.setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.signingUpAsExpert()
+    }
+    
     deinit {
         self.cleanUpUI()
     }
     
+    //Helper Methods
     private func setupUI() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.keyboardWillShow),
-                                               name    : NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.keyboardWillHide),
-                                               name    : NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
         self.photoOfCertButtonOutlet.layer.cornerRadius = 8
         
         self.myTextFields.append(self.firstNameTextField)
@@ -47,6 +47,23 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
         self.myTextFields.append(self.passwordTextField)
         self.myTextFields.append(self.phoneNumberTextField)
         self.setupTextFields(textFields: self.myTextFields)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWillShow),
+                                               name    : NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWillHide),
+                                               name    : NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    private func signingUpAsExpert() {
+        let isExpert = UserDefaults.standard.bool(forKey: "isExpert")
+        if isExpert != true {
+            self.photoOfCertButtonOutlet.isHidden = true
+        }
+        else {
+            self.photoOfCertButtonOutlet.isHidden = false
+        }
     }
     
     private func setupTextFields(textFields:[UITextField]) {
@@ -54,9 +71,7 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
             field.delegate = self
             
             let bottomLine   = CALayer()
-            bottomLine.frame = CGRect(x:0.0,y: field.frame.height - 1,
-                                      width  : field.frame.width + 30,
-                                      height : 1.0)
+            bottomLine.frame = CGRect(x: 0.0,y: field.frame.height - 1, width: field.frame.width + 30, height: 1.0)
             bottomLine.backgroundColor = UIColor.white.cgColor
             
             field.borderStyle = UITextBorderStyle.none
@@ -79,8 +94,41 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
                 field.attributedPlaceholder = NSAttributedString(string: "Phone Number",
                                                                  attributes: [NSForegroundColorAttributeName: UIColor.white])
             default:
-                print("Error on textFields")
+                fatalError("textFields Magically don't exist on create account controller")
             }
+        }
+    }
+    
+    private func createAccount() {
+        let apiManager = APIManager()
+        let alertmanager = AlertManager(VC: self)
+        
+        for i in self.myTextFields {
+            guard i.text != "" else {
+                return alertmanager.errorOnSignUp()
+            }
+            guard let firstName   = self.firstNameTextField.text,
+                let lastName      = self.lastNameTextField.text,
+                let email         = self.emailTextField.text,
+                let password      = self.passwordTextField.text,
+                let phoneNumber   = self.phoneNumberTextField.text
+                else {
+                    return
+            }
+            apiManager
+                .createUserAccount(firstname: firstName,
+                                   lastname : lastName,
+                                   email    : email,
+                                   password : password,
+                                   phone    : phoneNumber)
+                .continueWith(continuation: { (isSignedUp) in
+                    if isSignedUp.result == true {
+                        alertmanager.successOnSignUp()
+                    }
+                    else {
+                        alertmanager.errorOnSignUp()
+                    }
+                })
         }
     }
     
@@ -89,15 +137,15 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
         guard var keyboardFrame: CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         
-        var contentInset:UIEdgeInsets = scrollView.contentInset
-        contentInset.bottom = 226
-        scrollView.contentInset = contentInset
+        var contentInset:UIEdgeInsets    = scrollView.contentInset
+        contentInset.bottom              = 226
+        scrollView.contentInset          = contentInset
         scrollView.scrollIndicatorInsets = contentInset
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        let contentInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInsets
+        let contentInsets                = UIEdgeInsets.zero
+        scrollView.contentInset          = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
     
@@ -105,6 +153,7 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     
+    //Textfield Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         scrollView.becomeFirstResponder()
@@ -112,12 +161,14 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
         return false
     }
     
+    //Button Methods
     @IBAction func photoOfCertButtonPressed(_ sender: Any) {
         //Upload Image Certification
     }
     
     @IBAction func addAccountButtonPressed(_ sender: Any) {
-      
+        self.view.endEditing(true)
+        self.createAccount()
     }
     
     @IBAction func exitButtonPressed(_ sender: Any) {

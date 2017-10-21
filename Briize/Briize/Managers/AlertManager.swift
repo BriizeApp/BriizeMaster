@@ -29,10 +29,42 @@ public class AlertManager {
         let actionTwo = UIAlertAction(title: "User",
                                       style: .default) { _ in
                                         UserDefaults.standard.set(false, forKey: "isExpert")
-                                         self.viewController.performSegue(withIdentifier: "openCreateAccount", sender: self.viewController)
+                                        self.viewController.performSegue(withIdentifier: "openCreateAccount", sender: self.viewController)
         }
         alert.addAction(actionOne)
         alert.addAction(actionTwo)
+        
+        DispatchQueue.main.async {
+            self.viewController.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func errorOnSignUp() {
+        let alert = UIAlertController(title: "Something went wrong",
+                                      message: "Please check your internet connection or make sure you filled out all the appropriate fields",
+                                      preferredStyle: .alert)
+        
+        let actionOne = UIAlertAction(title: "Ok",
+                                      style: .default)
+        alert.addAction(actionOne)
+        
+        DispatchQueue.main.async {
+            self.viewController.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func successOnSignUp() {
+        let alert = UIAlertController(title: "Congrats!",
+                                      message: "Please go ahead and login using the email and password you registered with ",
+                                      preferredStyle: .alert)
+        
+        let actionOne = UIAlertAction(title: "Got It",
+                                      style: .default) { _ in
+                                        DispatchQueue.main.async {
+                                            self.viewController.dismiss(animated: true, completion: nil)
+                                        }
+        }
+        alert.addAction(actionOne)
         
         DispatchQueue.main.async {
             self.viewController.present(alert, animated: true, completion: nil)
