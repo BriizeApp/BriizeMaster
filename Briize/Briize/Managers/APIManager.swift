@@ -12,10 +12,8 @@ import BoltsSwift
 
 public class APIManager {
     
-    func createUserAccount(firstname:String,lastname:String,email:String,password:String,phone:String) -> Task<Bool> {
-        let completionSource = TaskCompletionSource<Bool>()
-        
-        let isExpert = UserDefaults.standard.bool(forKey: "isExpert")
+    func createUserAccount(firstname:String,lastname:String,email:String,password:String,phone:String, sender:UIViewController) {
+        let isExpert     = UserDefaults.standard.bool(forKey: "isExpert")
         
         let user = PFUser()
         user.username = email
@@ -26,16 +24,27 @@ public class APIManager {
         user["fullName"] = firstname + " " + lastname
         user["isExpert"] = isExpert
         
-        user.signUpInBackground(block: { (success, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                completionSource.set(result: false)
-            } else {
-                completionSource.set(result: true)
-            }
-        })
-        return completionSource.task
+        self.userSignUp(user: user, sender: sender)
     }
     
+    func userSignUp(user:PFUser, sender:UIViewController) {
+        let alertManager = AlertManager(VC: sender)
+        user.signUpInBackground(block: { (success, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                DispatchQueue.main.async {
+                    let alert = alertManager.errorOnSignUp()
+                    sender.present(alert, animated: true, completion: nil)
+                    return
+                }
+            } else {
+                DispatchQueue.main.async {
+                    let alert = alertManager.successOnSignUp()
+                    sender.present(alert, animated: true, completion: nil)
+                    return
+                }
+            }
+        })
+    }
     
 }

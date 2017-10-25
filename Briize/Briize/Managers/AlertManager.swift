@@ -39,7 +39,7 @@ public class AlertManager {
         }
     }
     
-    func errorOnSignUp() {
+    func errorOnSignUp() -> UIAlertController {
         let alert = UIAlertController(title: "Something went wrong",
                                       message: "Please check your internet connection or make sure you filled out all the appropriate fields",
                                       preferredStyle: .alert)
@@ -48,12 +48,10 @@ public class AlertManager {
                                       style: .default)
         alert.addAction(actionOne)
         
-        DispatchQueue.main.async {
-            self.viewController.present(alert, animated: true, completion: nil)
-        }
+        return alert
     }
     
-    func successOnSignUp() {
+    func successOnSignUp() -> UIAlertController {
         let alert = UIAlertController(title: "Congrats!",
                                       message: "Please go ahead and login using the email and password you registered with ",
                                       preferredStyle: .alert)
@@ -66,9 +64,7 @@ public class AlertManager {
         }
         alert.addAction(actionOne)
         
-        DispatchQueue.main.async {
-            self.viewController.present(alert, animated: true, completion: nil)
-        }
+       return alert
     }
     
 }

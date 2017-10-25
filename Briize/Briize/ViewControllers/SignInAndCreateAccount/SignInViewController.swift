@@ -43,6 +43,13 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.setupSubViewsAndPlayVideo()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.player.pause()
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -141,8 +148,9 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         alertManager.openCreateAccountAlert()
     }
     
-    @IBAction func testAnimation(_ sender: Any) {
-        loader.startAnimating()
+    @IBAction func signInButtonPressed(_ sender: Any) {
+        
     }
+    
     
 }

@@ -101,35 +101,20 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
     
     private func createAccount() {
         let apiManager = APIManager()
-        let alertmanager = AlertManager(VC: self)
-        
-        for i in self.myTextFields {
-            guard i.text != "" else {
-                return alertmanager.errorOnSignUp()
-            }
-            guard let firstName   = self.firstNameTextField.text,
-                let lastName      = self.lastNameTextField.text,
-                let email         = self.emailTextField.text,
-                let password      = self.passwordTextField.text,
-                let phoneNumber   = self.phoneNumberTextField.text
-                else {
-                    return
-            }
-            apiManager
-                .createUserAccount(firstname: firstName,
-                                   lastname : lastName,
-                                   email    : email,
-                                   password : password,
-                                   phone    : phoneNumber)
-                .continueWith(continuation: { (isSignedUp) in
-                    if isSignedUp.result == true {
-                        alertmanager.successOnSignUp()
-                    }
-                    else {
-                        alertmanager.errorOnSignUp()
-                    }
-                })
+        guard let firstName  = self.firstNameTextField.text,
+            let lastName     = self.lastNameTextField.text,
+            let email        = self.emailTextField.text,
+            let password     = self.passwordTextField.text,
+            let phoneNumber  = self.phoneNumberTextField.text
+            else {
+                return
         }
+        apiManager.createUserAccount(firstname: firstName,
+                                     lastname : lastName,
+                                     email    : email,
+                                     password : password,
+                                     phone    : phoneNumber,
+                                     sender   : self)
     }
     
     func keyboardWillShow(notification: NSNotification) {
