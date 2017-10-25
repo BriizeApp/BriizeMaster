@@ -4,7 +4,6 @@ use_frameworks!
 target 'Briize' do
 
 pod 'SideMenu'
-pod 'RAMPaperSwitch', '~> 2.0.4'
 pod 'NVActivityIndicatorView'
 pod 'Parse'
 pod 'Bolts-Swift'

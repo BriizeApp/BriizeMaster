@@ -15,6 +15,8 @@ import Parse
 class SignInViewController: UIViewController,UINavigationControllerDelegate{
     
     fileprivate var player = AVPlayer()
+    fileprivate var overlay : UIView?
+    fileprivate var loader  : NVActivityIndicatorView?
     
     @IBOutlet weak var logoImageView             : UIImageView!
     @IBOutlet weak var usernameTextview          : UITextField!
@@ -25,8 +27,6 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     @IBOutlet weak var eulaButtonOutlet          : UIButton!
     @IBOutlet weak var forgotPasswordButtonOutlet: UIButton!
     @IBOutlet weak var logInLabel                : UILabel!
-    
-    @IBOutlet weak var loader: NVActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +43,17 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.setupSubViewsAndPlayVideo()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        self.player.pause()
-        NotificationCenter.default.removeObserver(self)
+    deinit {
+        self.cleanupVC()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    private func cleanupVC() {
+        self.collapseLoading()
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func setupUI() {
@@ -65,6 +67,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         
         self.usernameTextview.borderStyle = UITextBorderStyle.none
         self.passwordTextview.borderStyle = UITextBorderStyle.none
+        
         self.usernameTextview.attributedPlaceholder = NSAttributedString(string: "Email",
                                                                          attributes: [NSForegroundColorAttributeName: UIColor.white])
         self.passwordTextview.attributedPlaceholder = NSAttributedString(string: "Password",
@@ -80,6 +83,33 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.addBottomBorderToTextField(myTextField: self.passwordTextview)
     }
     
+    private func setupLoading() {
+        self.player.pause()
+        
+        overlay = UIView(frame: view.frame)
+        overlay!.backgroundColor = .black
+        overlay!.alpha = 0.8
+        
+        loader = NVActivityIndicatorView(frame: CGRect(x: 0,
+                                                       y: 0,
+                                                       width: 60.0,
+                                                       height: 60.0),
+                                         type   : .ballGridPulse,
+                                         color  : kPinkColor,
+                                         padding: nil)
+        loader!.center = overlay!.center
+        overlay?.addSubview(loader!)
+        
+        view.addSubview(overlay!)
+        
+        loader!.startAnimating()
+    }
+    
+    private func collapseLoading() {
+        loader!.stopAnimating()
+        overlay?.removeFromSuperview()
+    }
+    
     private func setupBGVideo() {
         let vu = UIView(frame: self.view.frame)
         vu.backgroundColor = .black
@@ -93,13 +123,13 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
                 debugPrint("briizeBGV.mp4 not found")
                 return
         }
-        
         let videoURL = URL(fileURLWithPath: path)
         self.player = AVPlayer(url: videoURL)
         let playerLayer = AVPlayerLayer(player: self.player)
         playerLayer.frame = self.view.frame
         playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         self.view.layer.addSublayer(playerLayer)
+        
         self.view.addSubview(vu)
     }
     
@@ -123,8 +153,10 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
             .addObserver(forName : NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                          object  : nil,
                          queue   : nil) { notification in
-                            player.seek(to: kCMTimeZero)
-                            player.play()
+                            DispatchQueue.main.async {
+                                player.seek(to: kCMTimeZero)
+                                player.play()
+                            }
         }
     }
     
@@ -139,8 +171,21 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         myTextField.layer.addSublayer(bottomLine)
     }
     
-    func dismissKeyboard() {
-        view.endEditing(true)
+    private func login() {
+        guard self.usernameTextview.text != nil && self.passwordTextview.text != nil else {
+            let alertManager = AlertManager(VC:self)
+            let alert = alertManager.errorOnSignUp()
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        let apiManager = APIManager()
+        apiManager.logIn(username: self.usernameTextview.text!,
+                         password: self.passwordTextview.text!,
+                         sender  : self)
+    }
+    
+    @objc private func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     @IBAction func createAccountButtonPressed(_ sender: Any) {
@@ -149,8 +194,8 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     }
     
     @IBAction func signInButtonPressed(_ sender: Any) {
-        
+        self.setupLoading()
+        self.login()
     }
-    
     
 }

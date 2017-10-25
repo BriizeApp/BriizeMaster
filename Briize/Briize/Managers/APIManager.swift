@@ -47,4 +47,30 @@ public class APIManager {
         })
     }
     
+    func logIn(username:String, password:String, sender:UIViewController) {
+        PFUser.logInWithUsername(inBackground: username,
+                                 password    : password) { (user, error) in
+                                    if error != nil {
+                                        print(error!.localizedDescription)
+                                    } else {
+                                        guard let user = user,
+                                            let fullName = user["fullName"] as? String
+                                            else {
+                                                return
+                                        }
+                                        if user["isExpert"] as? Bool == true {
+                                            DispatchQueue.main.async {
+                                                ExpertModel.shared.fullName = fullName
+                                                sender.performSegue(withIdentifier: "showExpertProfile", sender: sender)
+                                            }
+                                        } else {
+                                            DispatchQueue.main.async {
+                                                UserModel.shared.fullName = fullName
+                                                sender.performSegue(withIdentifier: "showUserProfile", sender: sender)
+                                            }
+                                        }
+                                    }
+        }
+    }
+    
 }

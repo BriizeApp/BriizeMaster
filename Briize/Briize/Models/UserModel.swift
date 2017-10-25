@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+
+struct UserModel {
+    var fullName:String?
+    
+    static var shared:UserModel = UserModel()
+    
+}

@@ -28,6 +28,7 @@
 		8494A02C1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */; };
 		8497E4E71FA0468E006F0DC4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4E61FA0468E006F0DC4 /* UserModel.swift */; };
 		8497E4E91FA0469A006F0DC4 /* ExpertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4E81FA0469A006F0DC4 /* ExpertModel.swift */; };
+		8497E4EB1FA07AED006F0DC4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4EA1FA07AED006F0DC4 /* Constants.swift */; };
 		84ADB6B41F5F418500ED0C75 /* SubCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */; };
 		84D4759C1F5B5BA400994D16 /* UserMenuProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */; };
 		95EC54819FAD28AB3CCB711A /* Pods_Briize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0751B44A8A60252C957F53 /* Pods_Briize.framework */; };
@@ -72,6 +73,7 @@
 		8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpertProfilePageViewController.swift; sourceTree = "<group>"; };
 		8497E4E61FA0468E006F0DC4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8497E4E81FA0469A006F0DC4 /* ExpertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertModel.swift; sourceTree = "<group>"; };
+		8497E4EA1FA07AED006F0DC4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategorySelectionViewController.swift; sourceTree = "<group>"; };
 		84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMenuProfileViewController.swift; sourceTree = "<group>"; };
 		A200BF1BCDD5E9FF84BAA44D /* Pods_BriizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BriizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +185,7 @@
 				8497E4E41FA04605006F0DC4 /* ExpertViewControllers */,
 				8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */,
 				8439D2141F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift */,
+				8497E4EA1FA07AED006F0DC4 /* Constants.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -411,7 +414,6 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
-				"${BUILT_PRODUCTS_DIR}/RAMPaperSwitch/RAMPaperSwitch.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -420,7 +422,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMPaperSwitch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				840100001F99F967005C0119 /* CreateAccountViewController.swift in Sources */,
+				8497E4EB1FA07AED006F0DC4 /* Constants.swift in Sources */,
 				84D4759C1F5B5BA400994D16 /* UserMenuProfileViewController.swift in Sources */,
 				8449BDDF1F2DBCC200DD9E20 /* SignInViewController.swift in Sources */,
 				8439D2191F43FA6000F00FF8 /* CategorySelectViewController.swift in Sources */,

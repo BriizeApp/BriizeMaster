@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct ExpertModel {
+    var fullName:String?
+    
+    static var shared:ExpertModel = ExpertModel()
+}
