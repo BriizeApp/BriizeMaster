@@ -13,24 +13,31 @@ var tempPic:UIImage  = #imageLiteral(resourceName: "c")
 var tempTitle:String = "title"
 
 class SubCategorySelectionViewController: UIViewController {
-    var testArray:[String] = ["Cut","Blowdry","Updue", "Color", "Braiding","Custom"]
+    fileprivate let briizeManager = BriizeManager.shared
     
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var suategoryCollectionView: UICollectionView!
     @IBOutlet weak var mainPhoto: UIImageView!
     
-    
     override func viewDidLoad() {
-        
-        self.mainPhoto.image = tempPic
+        self.setupUI()
+    }
+    
+    private func setupUI() {
         self.suategoryCollectionView.delegate   = self
         self.suategoryCollectionView.dataSource = self
-        self.subTitle.text = tempTitle
+        
+        guard let img = self.briizeManager.categoryImage else {return}
+        let title = self.briizeManager.chosenCategoryTitle
+        
+        self.mainPhoto.image = img
+        self.subTitle.text = title
     }
     
     @IBAction func closeButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
 }
 
 extension SubCategorySelectionViewController: UICollectionViewDelegate,UICollectionViewDataSource {
@@ -40,18 +47,16 @@ extension SubCategorySelectionViewController: UICollectionViewDelegate,UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       print("ha")
+       print("Sub category selected")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.testArray.count
+        return self.briizeManager.subCategoryArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subCategoryCell", for: indexPath) as! SubCategoryCollectionViewCell
-        
-        cell.titleLabel.text = self.testArray[indexPath.row]
+        cell.titleLabel.text = self.briizeManager.subCategoryArray[indexPath.row]
         
         return cell
     }

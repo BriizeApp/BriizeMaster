@@ -29,6 +29,7 @@
 		8497E4E71FA0468E006F0DC4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4E61FA0468E006F0DC4 /* UserModel.swift */; };
 		8497E4E91FA0469A006F0DC4 /* ExpertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4E81FA0469A006F0DC4 /* ExpertModel.swift */; };
 		8497E4EB1FA07AED006F0DC4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4EA1FA07AED006F0DC4 /* Constants.swift */; };
+		8497E4EE1FA1B8A5006F0DC4 /* BriizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4ED1FA1B8A5006F0DC4 /* BriizeManager.swift */; };
 		84ADB6B41F5F418500ED0C75 /* SubCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */; };
 		84D4759C1F5B5BA400994D16 /* UserMenuProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */; };
 		95EC54819FAD28AB3CCB711A /* Pods_Briize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0751B44A8A60252C957F53 /* Pods_Briize.framework */; };
@@ -74,6 +75,7 @@
 		8497E4E61FA0468E006F0DC4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8497E4E81FA0469A006F0DC4 /* ExpertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertModel.swift; sourceTree = "<group>"; };
 		8497E4EA1FA07AED006F0DC4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8497E4ED1FA1B8A5006F0DC4 /* BriizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriizeManager.swift; sourceTree = "<group>"; };
 		84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategorySelectionViewController.swift; sourceTree = "<group>"; };
 		84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMenuProfileViewController.swift; sourceTree = "<group>"; };
 		A200BF1BCDD5E9FF84BAA44D /* Pods_BriizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BriizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 			children = (
 				8401FFFB1F99ED25005C0119 /* APIManager.swift */,
 				8401FFFD1F99F659005C0119 /* AlertManager.swift */,
+				8497E4ED1FA1B8A5006F0DC4 /* BriizeManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -193,11 +196,10 @@
 		8497E4E31FA045EC006F0DC4 /* UserViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8439D21A1F43FD2200F00FF8 /* CategoryTableViewCell.swift */,
 				8439D2181F43FA6000F00FF8 /* CategorySelectViewController.swift */,
-				84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */,
 				84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */,
-				84329F311F5FCAED0063CBD3 /* SubCategoryCollectionViewCell.swift */,
+				84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */,
+				8497E4EC1FA1B5B7006F0DC4 /* Cells */,
 			);
 			path = UserViewControllers;
 			sourceTree = "<group>";
@@ -217,6 +219,15 @@
 				8497E4E81FA0469A006F0DC4 /* ExpertModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8497E4EC1FA1B5B7006F0DC4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8439D21A1F43FD2200F00FF8 /* CategoryTableViewCell.swift */,
+				84329F311F5FCAED0063CBD3 /* SubCategoryCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		8DDC7EBFC7072813CBFDF808 /* Frameworks */ = {
@@ -467,6 +478,7 @@
 				8401FFFC1F99ED25005C0119 /* APIManager.swift in Sources */,
 				8401FFFE1F99F659005C0119 /* AlertManager.swift in Sources */,
 				8497E4E71FA0468E006F0DC4 /* UserModel.swift in Sources */,
+				8497E4EE1FA1B8A5006F0DC4 /* BriizeManager.swift in Sources */,
 				8439D21B1F43FD2200F00FF8 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

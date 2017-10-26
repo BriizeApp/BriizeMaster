@@ -12,6 +12,7 @@ import UIKit
 class CategorySelectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var menuImage: UIImageView!
+    @IBOutlet weak var catTableView: UITableView!
     
     let blurEffectView = UIVisualEffectView()
     
@@ -39,28 +40,21 @@ class CategorySelectViewController: UIViewController, UITableViewDelegate, UITab
         return .lightContent
     }
     
-    @IBOutlet weak var catTableView: UITableView!
-    
-    
-    
-    
     var menuOpened:Bool = false
-    let titles:[String]  = ["Nails", "Make-Up", "Eyelashes", "Eyebrows", "Hair"]
-    let pics  :[UIImage] = [#imageLiteral(resourceName: "cat1"),#imageLiteral(resourceName: "cat5"),#imageLiteral(resourceName: "cat2"),#imageLiteral(resourceName: "cat4"),#imageLiteral(resourceName: "cat3")]
+    let titles:[String]  = ["Make-Up", "Eyes & Brows", "Hair", "Nails"]
+    let pics  :[UIImage] = [#imageLiteral(resourceName: "cat2"),#imageLiteral(resourceName: "cat4"),#imageLiteral(resourceName: "cat3"),#imageLiteral(resourceName: "cat1")]
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let cell  = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
-        let image = cell.catImage.image
-        let text  = cell.catTitle.text
+        guard  let cell  = tableView.cellForRow(at: indexPath) as? CategoryTableViewCell else {return}
+        let image = cell.catImage.image!
+        let text  = cell.catTitle.text!
         let txt   = text
         let img = image
-        tempPic = img!
-        tempTitle = txt!
+        BriizeManager.shared.subCategoriesForCategory(category: txt, img:img)
         
         self.performSegue(withIdentifier: "openSubCats", sender: self)
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

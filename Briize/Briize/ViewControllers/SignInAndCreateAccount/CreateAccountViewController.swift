@@ -40,6 +40,7 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
     //Helper Methods
     private func setupUI() {
         self.photoOfCertButtonOutlet.layer.cornerRadius = 8
+        self.photoOfCertButtonOutlet.backgroundColor    = kPinkColor
         
         self.myTextFields.append(self.firstNameTextField)
         self.myTextFields.append(self.lastNameTextField)
