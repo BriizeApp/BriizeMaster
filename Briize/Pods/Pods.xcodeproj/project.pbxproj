@@ -829,7 +829,7 @@
 		01F3A35AB471B5246E1671035C431295 /* UISegmentedControl+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISegmentedControl+Rx.swift"; path = "RxCocoa/iOS/UISegmentedControl+Rx.swift"; sourceTree = "<group>"; };
 		025AAF2CF0B582F79F0B644B38DB87BC /* PFEncoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFEncoder.h; path = Parse/PFEncoder.h; sourceTree = "<group>"; };
 		02666E9735960EACAE1F260B03EF6CE0 /* AddRef.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddRef.swift; path = RxSwift/Observables/AddRef.swift; sourceTree = "<group>"; };
-		028ABF601F0FC1CB98AC9619B30958D7 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NVActivityIndicatorView.framework; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		028ABF601F0FC1CB98AC9619B30958D7 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C76910C60F985027AC53FF818CBDD3 /* Maybe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Maybe.swift; path = RxSwift/Traits/Maybe.swift; sourceTree = "<group>"; };
 		02CA09B9770D771A84E0509295BBDE01 /* PriorityQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PriorityQueue.swift; path = Platform/DataStructures/PriorityQueue.swift; sourceTree = "<group>"; };
 		02D633B348365B2A11C2B8D013AEF6BC /* Pods-Briize-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Briize-dummy.m"; sourceTree = "<group>"; };
@@ -905,7 +905,7 @@
 		181F5D333E235907F7C7D0FFF555C9EE /* PFRESTCloudCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTCloudCommand.m; path = Parse/Internal/Commands/PFRESTCloudCommand.m; sourceTree = "<group>"; };
 		188F07ABDDB103F3C156421D5ED365F6 /* PFProductsRequestHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFProductsRequestHandler.m; path = Parse/Internal/Product/ProductsRequestHandler/PFProductsRequestHandler.m; sourceTree = "<group>"; };
 		18C8CD1E84539CBDA1B3B985CB7F2D5E /* _RXKVOObserver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _RXKVOObserver.h; path = RxCocoa/Runtime/include/_RXKVOObserver.h; sourceTree = "<group>"; };
-		1945811CCA5F555D797155C04BF4C250 /* SideMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SideMenu.modulemap; sourceTree = "<group>"; };
+		1945811CCA5F555D797155C04BF4C250 /* SideMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SideMenu.modulemap; sourceTree = "<group>"; };
 		1998211024EE517DCC01EB4FA90B641F /* SubjectType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SubjectType.swift; path = RxSwift/Subjects/SubjectType.swift; sourceTree = "<group>"; };
 		19A1239D48EC04F7D1C696F412EE8523 /* Pods-BriizeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BriizeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		19F8A9933A23B4BEC96E580C92D950EE /* PFMultiProcessFileLock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMultiProcessFileLock.h; path = Parse/Internal/MultiProcessLock/PFMultiProcessFileLock.h; sourceTree = "<group>"; };
@@ -939,22 +939,22 @@
 		235F9AA570BF2F37FAB9353218ED878C /* PFPurchase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPurchase.h; path = Parse/PFPurchase.h; sourceTree = "<group>"; };
 		236EAF11557DD8C825AB28060BF93A65 /* Lock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = RxSwift/Concurrency/Lock.swift; sourceTree = "<group>"; };
 		23FDA9698E5699AF31AD1BF518D40C32 /* PFObjectLocalIdStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectLocalIdStore.h; path = Parse/Internal/Object/LocalIdStore/PFObjectLocalIdStore.h; sourceTree = "<group>"; };
-		2427B81CABA5175784E9FCA003D1E10F /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxCocoa.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2427B81CABA5175784E9FCA003D1E10F /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24D8851DE622C5B07D562CB0EFCED7C7 /* PFFieldOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFieldOperation.m; path = Parse/Internal/FieldOperation/PFFieldOperation.m; sourceTree = "<group>"; };
 		25A146A4A893324DC97A558C1D48EE5D /* SynchronizedDisposeType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SynchronizedDisposeType.swift; path = RxSwift/Concurrency/SynchronizedDisposeType.swift; sourceTree = "<group>"; };
 		25D5CA5A0BB5B9ADC6FBD884DA48458B /* ConcurrentDispatchQueueScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConcurrentDispatchQueueScheduler.swift; path = RxSwift/Schedulers/ConcurrentDispatchQueueScheduler.swift; sourceTree = "<group>"; };
 		2737A22EC8FB981EF7C9F777029D842F /* UINavigationController+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationController+Rx.swift"; path = "RxCocoa/iOS/UINavigationController+Rx.swift"; sourceTree = "<group>"; };
 		27BAB2A843C5B85D33A064B60E214169 /* PFCommandCache_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandCache_Private.h; path = Parse/Internal/PFCommandCache_Private.h; sourceTree = "<group>"; };
-		27DE175ED2085A8795C1F58FC9A3C151 /* SideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SideMenu.framework; path = SideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27DE175ED2085A8795C1F58FC9A3C151 /* SideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27EA3F1802109A8DDC3864B463FC0F2F /* _RXObjCRuntime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _RXObjCRuntime.h; path = RxCocoa/Runtime/include/_RXObjCRuntime.h; sourceTree = "<group>"; };
 		289319C7C8A8F7A463F0E860EBF18D60 /* PFConfig_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConfig_Private.h; path = Parse/Internal/Config/PFConfig_Private.h; sourceTree = "<group>"; };
 		28AADB4F3501B995302FB16CDB9A782A /* LockOwnerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LockOwnerType.swift; path = RxSwift/Concurrency/LockOwnerType.swift; sourceTree = "<group>"; };
 		28E17715CA4DA3F4AA4C21B0636D1C02 /* AnonymousDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnonymousDisposable.swift; path = RxSwift/Disposables/AnonymousDisposable.swift; sourceTree = "<group>"; };
 		290F25C770C8D205441C0CBFEC6393CF /* RxTextStorageDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTextStorageDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxTextStorageDelegateProxy.swift; sourceTree = "<group>"; };
-		2962DA10FF5560F8BB56BF18C309002B /* Pods-Briize.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Briize.modulemap"; sourceTree = "<group>"; };
+		2962DA10FF5560F8BB56BF18C309002B /* Pods-Briize.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Briize.modulemap"; sourceTree = "<group>"; };
 		296AFA43D432C78DD04516F8FE35473B /* UIActivityIndicatorView+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIActivityIndicatorView+Rx.swift"; path = "RxCocoa/iOS/UIActivityIndicatorView+Rx.swift"; sourceTree = "<group>"; };
 		2A9046212B8EA73BF2D52371EBDA24A8 /* PFQueryController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryController.m; path = Parse/Internal/Query/Controller/PFQueryController.m; sourceTree = "<group>"; };
-		2AE822FE67DB1E3F61A3389F8069FE90 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BoltsSwift.framework; path = "Bolts-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AE822FE67DB1E3F61A3389F8069FE90 /* BoltsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoltsSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B80868E7366D11BF109A02862EA7A7E /* SideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SideMenu-dummy.m"; sourceTree = "<group>"; };
 		2C121904C1AF9F099207DF4E56057FF6 /* PFInstallationConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFInstallationConstants.m; path = Parse/Internal/Installation/Constants/PFInstallationConstants.m; sourceTree = "<group>"; };
 		2C16896A0FCFE98648077C61F91B3039 /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationLineSpinFadeLoader.swift; path = NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationLineSpinFadeLoader.swift; sourceTree = "<group>"; };
@@ -1003,7 +1003,7 @@
 		3C1E9EBF2E78A2057CB893D2FA628B8B /* PFCachedQueryController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCachedQueryController.m; path = Parse/Internal/Query/Controller/PFCachedQueryController.m; sourceTree = "<group>"; };
 		3C2C860F3C4388787A605E51FEE0222D /* ConcurrentMainScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConcurrentMainScheduler.swift; path = RxSwift/Schedulers/ConcurrentMainScheduler.swift; sourceTree = "<group>"; };
 		3C5C545CF7855C28ADC2938927A200B7 /* UIGestureRecognizer+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIGestureRecognizer+Rx.swift"; path = "RxCocoa/iOS/UIGestureRecognizer+Rx.swift"; sourceTree = "<group>"; };
-		3D6C668A0F2EE7F8778E83FE06C7DD05 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = Parse/Resources/en.lproj; sourceTree = "<group>"; };
+		3D6C668A0F2EE7F8778E83FE06C7DD05 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = Parse/Resources/en.lproj; sourceTree = "<group>"; };
 		3DDA0576B5981C43AB10A279B077A23B /* Catch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Catch.swift; path = RxSwift/Observables/Catch.swift; sourceTree = "<group>"; };
 		3F090A8AA29AE9CEFD7F39F58C42B5BC /* ShareReplayScope.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShareReplayScope.swift; path = RxSwift/Observables/ShareReplayScope.swift; sourceTree = "<group>"; };
 		3FA950EF399D1B3025D3A4E44381CD0C /* PFRESTAnalyticsCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTAnalyticsCommand.m; path = Parse/Internal/Commands/PFRESTAnalyticsCommand.m; sourceTree = "<group>"; };
@@ -1106,7 +1106,7 @@
 		61405BCB6B7861626A9E5B8BEE7AE067 /* UIAlertAction+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIAlertAction+Rx.swift"; path = "RxCocoa/iOS/UIAlertAction+Rx.swift"; sourceTree = "<group>"; };
 		62A80C10EC85DC25B26623E27DEC0902 /* PFPushPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPushPrivate.h; path = Parse/Internal/Push/PFPushPrivate.h; sourceTree = "<group>"; };
 		62B6E578042ECDB561DC64446247A0BF /* BFExecutor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFExecutor.m; path = Bolts/Common/BFExecutor.m; sourceTree = "<group>"; };
-		62C12EF40B0329A0C89F73C4AE2C9410 /* NVActivityIndicatorView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = NVActivityIndicatorView.modulemap; sourceTree = "<group>"; };
+		62C12EF40B0329A0C89F73C4AE2C9410 /* NVActivityIndicatorView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = NVActivityIndicatorView.modulemap; sourceTree = "<group>"; };
 		62E1DC4554D1BD908893EB0BCC12BAD1 /* PFCommandResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandResult.h; path = Parse/Internal/PFCommandResult.h; sourceTree = "<group>"; };
 		62F60C5C7DB5041060350830951ECE4A /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62FBF96726DF7F5E09386C5DDB7855E1 /* NVActivityIndicatorAnimationOrbit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationOrbit.swift; path = NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationOrbit.swift; sourceTree = "<group>"; };
@@ -1147,7 +1147,7 @@
 		6A1DF638B82F5583A3872422F9576F43 /* PFOperationSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFOperationSet.m; path = Parse/Internal/Object/OperationSet/PFOperationSet.m; sourceTree = "<group>"; };
 		6A94CBA7F02EC065647D1CC97E5397B3 /* PFObject+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFObject+Deprecated.h"; path = "Parse/PFObject+Deprecated.h"; sourceTree = "<group>"; };
 		6AAB3B97B2EEC0823EAECF1021204B06 /* BFTaskCompletionSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTaskCompletionSource.m; path = Bolts/Common/BFTaskCompletionSource.m; sourceTree = "<group>"; };
-		6AD5CDB415E2F72B03CEF816A825129B /* Bolts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Bolts.modulemap; sourceTree = "<group>"; };
+		6AD5CDB415E2F72B03CEF816A825129B /* Bolts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Bolts.modulemap; sourceTree = "<group>"; };
 		6AFA093A3E3E37DE34EDA7806BE2B6F0 /* PFCurrentConfigController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCurrentConfigController.m; path = Parse/Internal/Config/Controller/PFCurrentConfigController.m; sourceTree = "<group>"; };
 		6B0F1F2D6232E637D401FDFCDBD67DDC /* PFAnalytics.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAnalytics.m; path = Parse/PFAnalytics.m; sourceTree = "<group>"; };
 		6BB9733C3F689A945FA74EDF2CC8564E /* PFPurchaseController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPurchaseController.h; path = Parse/Internal/Purchase/Controller/PFPurchaseController.h; sourceTree = "<group>"; };
@@ -1158,7 +1158,7 @@
 		6D64BB92CB4F7AEB11109E33CE62F6C7 /* RxTableViewDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTableViewDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxTableViewDelegateProxy.swift; sourceTree = "<group>"; };
 		6D8C1AAA04466B55D616289794AD1213 /* PFRole.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRole.m; path = Parse/PFRole.m; sourceTree = "<group>"; };
 		6DB4B169E6F6A1A6D546EC1826A1A80E /* NVActivityIndicatorAnimationLineScalePulseOut.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationLineScalePulseOut.swift; path = NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationLineScalePulseOut.swift; sourceTree = "<group>"; };
-		6DEE1237799EB5399E6456FF25111E57 /* Pods_Briize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Briize.framework; path = "Pods-Briize.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DEE1237799EB5399E6456FF25111E57 /* Pods_Briize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Briize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E2CCFF37D752AD3AEBEF7E8B6FE7C6F /* Debounce.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debounce.swift; path = RxSwift/Observables/Debounce.swift; sourceTree = "<group>"; };
 		6E3B5CC374395980F1A85FB74DC1567D /* PFRESTCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTCommand.m; path = Parse/Internal/Commands/PFRESTCommand.m; sourceTree = "<group>"; };
 		6E3E18FAC186CD90CF01E484475A58B6 /* PFOfflineQueryController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFOfflineQueryController.m; path = Parse/Internal/Query/Controller/PFOfflineQueryController.m; sourceTree = "<group>"; };
@@ -1169,7 +1169,7 @@
 		6E7C138E4F92488547033D8C7784426E /* PFAnalytics_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnalytics_Private.h; path = Parse/Internal/Analytics/PFAnalytics_Private.h; sourceTree = "<group>"; };
 		6E9B53CDB46FF731304D7112A87232FE /* SideMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SideMenu-umbrella.h"; sourceTree = "<group>"; };
 		6EB287F7E71D2E547E1C96516E1FCDE6 /* NVActivityIndicatorAnimationPacman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationPacman.swift; path = NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationPacman.swift; sourceTree = "<group>"; };
-		6F16C86F43C5BC46BF86169985CECE4B /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Bolts.framework; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F16C86F43C5BC46BF86169985CECE4B /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F304DB70F9D94113AB26CBF6A4BB39D /* PFMutableQueryState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMutableQueryState.h; path = Parse/Internal/Query/State/PFMutableQueryState.h; sourceTree = "<group>"; };
 		6F3D31536238FF27633D60731A7A370A /* PFRESTCloudCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTCloudCommand.h; path = Parse/Internal/Commands/PFRESTCloudCommand.h; sourceTree = "<group>"; };
 		6F766C284620EFB8665EDE07E24084B7 /* UISearchBar+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISearchBar+Rx.swift"; path = "RxCocoa/iOS/UISearchBar+Rx.swift"; sourceTree = "<group>"; };
@@ -1242,7 +1242,7 @@
 		863788F7A051A2D2B0B55B5A2535BE5A /* PFURLSession_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSession_Private.h; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/PFURLSession_Private.h; sourceTree = "<group>"; };
 		864A471DD772024A83C29BA9CC3692AE /* PFRESTObjectCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTObjectCommand.h; path = Parse/Internal/Commands/PFRESTObjectCommand.h; sourceTree = "<group>"; };
 		865D2BB517C979FFF1DCA8125C1B7C78 /* BinaryDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryDisposable.swift; path = RxSwift/Disposables/BinaryDisposable.swift; sourceTree = "<group>"; };
-		8680B8B829D3C4C041876C5B55B8A17C /* Bolts-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Bolts-Swift.modulemap"; sourceTree = "<group>"; };
+		8680B8B829D3C4C041876C5B55B8A17C /* Bolts-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Bolts-Swift.modulemap"; sourceTree = "<group>"; };
 		86C35D99568C1168987065DD98BD3CEA /* BFCancellationToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationToken.h; path = Bolts/Common/BFCancellationToken.h; sourceTree = "<group>"; };
 		86CA58429D8D374E44A8F4AB98E2DC60 /* GroupedObservable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GroupedObservable.swift; path = RxSwift/GroupedObservable.swift; sourceTree = "<group>"; };
 		8714FF1BBEA6833F460E01DE32CDB388 /* PFTaskQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTaskQueue.h; path = Parse/Internal/PFTaskQueue.h; sourceTree = "<group>"; };
@@ -1291,7 +1291,7 @@
 		9272ABED3721789DE85263B8B0ACFDA7 /* PFEventuallyPin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFEventuallyPin.m; path = Parse/Internal/PFEventuallyPin.m; sourceTree = "<group>"; };
 		92E19DC650840413FC0D9967F061DA45 /* PFAnalyticsUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAnalyticsUtilities.m; path = Parse/Internal/Analytics/Utilities/PFAnalyticsUtilities.m; sourceTree = "<group>"; };
 		9353E7716CA3A2AA97B64DA3448DB13D /* ObservableType+PrimitiveSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ObservableType+PrimitiveSequence.swift"; path = "RxSwift/Traits/ObservableType+PrimitiveSequence.swift"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94154631792C5EF52078ACC824FC832C /* PFInstallationIdentifierStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFInstallationIdentifierStore.m; path = Parse/Internal/Installation/InstallationIdentifierStore/PFInstallationIdentifierStore.m; sourceTree = "<group>"; };
 		952322875061EE4AA37C55ED5046FC11 /* TakeLast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TakeLast.swift; path = RxSwift/Observables/TakeLast.swift; sourceTree = "<group>"; };
 		955EBDFC3847B9C7BBA7C9C990D67F85 /* RxPickerViewAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxPickerViewAdapter.swift; path = RxCocoa/iOS/DataSources/RxPickerViewAdapter.swift; sourceTree = "<group>"; };
@@ -1330,13 +1330,13 @@
 		9F96A53796B0346FB858514133FC02C3 /* PFObject+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFObject+Synchronous.h"; path = "Parse/PFObject+Synchronous.h"; sourceTree = "<group>"; };
 		9FA3CF9EEC977FAAC167DC0782A3F10D /* UIImageView+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImageView+Rx.swift"; path = "RxCocoa/iOS/UIImageView+Rx.swift"; sourceTree = "<group>"; };
 		9FA588EAFF048C88BE2CABAF67F320CF /* PFUser+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFUser+Synchronous.h"; path = "Parse/PFUser+Synchronous.h"; sourceTree = "<group>"; };
-		9FB3A0396617DC8BC07D2AEE9ABEEA43 /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Parse.framework; path = Parse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FB3A0396617DC8BC07D2AEE9ABEEA43 /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Parse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02B44C10904767B44481E98738C2523 /* NSObject+Rx+RawRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Rx+RawRepresentable.swift"; path = "RxCocoa/Foundation/NSObject+Rx+RawRepresentable.swift"; sourceTree = "<group>"; };
 		A11A6270E9536C0CB008E91127BDEF72 /* AsSingle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsSingle.swift; path = RxSwift/Observables/AsSingle.swift; sourceTree = "<group>"; };
 		A19152ECF50B6DCD11FC3E251782244F /* SerialDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SerialDisposable.swift; path = RxSwift/Disposables/SerialDisposable.swift; sourceTree = "<group>"; };
 		A1B5FE1A6EE4173197F6322349944B88 /* RecursiveLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecursiveLock.swift; path = Platform/RecursiveLock.swift; sourceTree = "<group>"; };
 		A1F42F98407C90B7C5C621D5A215EE5E /* PFQueryState_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQueryState_Private.h; path = Parse/Internal/Query/State/PFQueryState_Private.h; sourceTree = "<group>"; };
-		A28AA38B296CCFFCA2A7719E5EFD9751 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxSwift.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A28AA38B296CCFFCA2A7719E5EFD9751 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33523D70BE4846689B019D42AB36919 /* ParseClientConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseClientConfiguration.h; path = Parse/ParseClientConfiguration.h; sourceTree = "<group>"; };
 		A35F5C87655DB6A2AAF6C0FAEB969331 /* PFInstallationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFInstallationController.m; path = Parse/Internal/Installation/Controller/PFInstallationController.m; sourceTree = "<group>"; };
 		A38704E744FAB2801857DF7E39F12D78 /* RxCocoa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RxCocoa.xcconfig; sourceTree = "<group>"; };
@@ -1373,11 +1373,11 @@
 		AD3D5FDFF5A871E4B0D1603A3430D45A /* PFURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSession.h; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/PFURLSession.h; sourceTree = "<group>"; };
 		ADBDF32FC63F212CDC43F18BD07C907B /* Bolts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Bolts-dummy.m"; sourceTree = "<group>"; };
 		AE95B8C238B4F98621B9E166244C5C42 /* BFTask+Exceptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "BFTask+Exceptions.m"; path = "Bolts/Common/BFTask+Exceptions.m"; sourceTree = "<group>"; };
-		AEA14470DAF0336929D862627172B8A6 /* RxSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = RxSwift.modulemap; sourceTree = "<group>"; };
+		AEA14470DAF0336929D862627172B8A6 /* RxSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = RxSwift.modulemap; sourceTree = "<group>"; };
 		AF3ED78F1494CDBB8CD299C09835B33C /* PFQuery+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFQuery+Synchronous.h"; path = "Parse/PFQuery+Synchronous.h"; sourceTree = "<group>"; };
 		AF62C4211A4967A42A9AF6247120DF2A /* PublishRelay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PublishRelay.swift; path = RxCocoa/Traits/PublishRelay.swift; sourceTree = "<group>"; };
 		B025298881A8E5227549B09D056ABC4E /* PFSessionUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSessionUtilities.m; path = Parse/Internal/Session/Utilities/PFSessionUtilities.m; sourceTree = "<group>"; };
-		B04BCA24F5620E4C32E112C91E697905 /* Parse.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Parse.modulemap; sourceTree = "<group>"; };
+		B04BCA24F5620E4C32E112C91E697905 /* Parse.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Parse.modulemap; sourceTree = "<group>"; };
 		B07CA0BB961F611F8A5A2D6F27825520 /* Pods-BriizeTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BriizeTests-umbrella.h"; sourceTree = "<group>"; };
 		B08DBCEB4D7679ED19C39A371956CCC1 /* PFInstallation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFInstallation.m; path = Parse/PFInstallation.m; sourceTree = "<group>"; };
 		B0DD8A56983299C5AE1BD0C8E35BF4DC /* ControlProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ControlProperty.swift; path = RxCocoa/Traits/ControlProperty.swift; sourceTree = "<group>"; };
@@ -1446,7 +1446,7 @@
 		C46F430CD583D2A8C959A18F61F9562A /* AsMaybe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsMaybe.swift; path = RxSwift/Observables/AsMaybe.swift; sourceTree = "<group>"; };
 		C526F94BAE9C3639A745DF7F4DB9BDB0 /* NVActivityIndicatorAnimationBallClipRotate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallClipRotate.swift; path = NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationBallClipRotate.swift; sourceTree = "<group>"; };
 		C5686221E66A8522AB91B8585EAD7322 /* SwiftSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSupport.swift; path = RxSwift/SwiftSupport/SwiftSupport.swift; sourceTree = "<group>"; };
-		C62C084E3F79B86E1B08CB850C43968A /* Pods-BriizeTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BriizeTests.modulemap"; sourceTree = "<group>"; };
+		C62C084E3F79B86E1B08CB850C43968A /* Pods-BriizeTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BriizeTests.modulemap"; sourceTree = "<group>"; };
 		C637A126674929FCE70E61C52708EA17 /* ControlEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ControlEvent.swift; path = RxCocoa/Traits/ControlEvent.swift; sourceTree = "<group>"; };
 		C649F48830519DBA937384E38A7D1FAC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C65448C24A96683D915DF6988911461E /* PFProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFProduct.h; path = Parse/PFProduct.h; sourceTree = "<group>"; };
@@ -1458,7 +1458,7 @@
 		C735839F577684D60811CCA1B5E575A3 /* PFPush+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFPush+Synchronous.h"; path = "Parse/PFPush+Synchronous.h"; sourceTree = "<group>"; };
 		C73C8A78C176829405975CE4270F04C8 /* BehaviorRelay+Driver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BehaviorRelay+Driver.swift"; path = "RxCocoa/Traits/Driver/BehaviorRelay+Driver.swift"; sourceTree = "<group>"; };
 		C77BCF0704DE9519C8587DF4C10C6BEF /* Pods-Briize-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Briize-resources.sh"; sourceTree = "<group>"; };
-		C7A42AC47C299F4380C713DD31B305AA /* Pods_BriizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BriizeTests.framework; path = "Pods-BriizeTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7A42AC47C299F4380C713DD31B305AA /* Pods_BriizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BriizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F81F7CFBD87B02588813687E7D5C2F /* PFUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUser.h; path = Parse/PFUser.h; sourceTree = "<group>"; };
 		C89655B20AC30FA42F6568ECF203B596 /* SingleAssignmentDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleAssignmentDisposable.swift; path = RxSwift/Disposables/SingleAssignmentDisposable.swift; sourceTree = "<group>"; };
 		C9090489D8BC394B51B5B34110C48112 /* Buffer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Buffer.swift; path = RxSwift/Observables/Buffer.swift; sourceTree = "<group>"; };
@@ -1552,7 +1552,7 @@
 		E981BF49598534A16DD27182B2B3D756 /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallSpinFadeLoader.swift; path = NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationBallSpinFadeLoader.swift; sourceTree = "<group>"; };
 		E99E76242C45AF3DF07465AA9FE94C64 /* Parse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Parse.h; path = Parse/Parse.h; sourceTree = "<group>"; };
 		E9D3E45FB70AF98CBE3453CF0B4AACC8 /* Disposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disposable.swift; path = RxSwift/Disposable.swift; sourceTree = "<group>"; };
-		EA2C20A582DC3B00D82602074FBE41EC /* RxCocoa.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = RxCocoa.modulemap; sourceTree = "<group>"; };
+		EA2C20A582DC3B00D82602074FBE41EC /* RxCocoa.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = RxCocoa.modulemap; sourceTree = "<group>"; };
 		EA31FF6F27A49990D9C403D1F7603624 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD751ACDCE446B8809C7D468E163771 /* PFGeoPoint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFGeoPoint.m; path = Parse/PFGeoPoint.m; sourceTree = "<group>"; };
 		EADACC3AD75A9E62E1FEE71498CA9347 /* Bolts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bolts-prefix.pch"; sourceTree = "<group>"; };
@@ -1755,7 +1755,6 @@
 				7032E5393846A965B14276E1136AB0A5 /* NVActivityIndicatorViewable.swift */,
 				6938DF167ED286E9163312D0F4000947 /* Support Files */,
 			);
-			name = NVActivityIndicatorView;
 			path = NVActivityIndicatorView;
 			sourceTree = "<group>";
 		};
@@ -1765,7 +1764,6 @@
 				AD78A4113A3D0CAADF23725C6E2A3617 /* Support Files */,
 				9ECF146D95DC7FCBC18BC0A3F792BA9F /* Tasks */,
 			);
-			name = Bolts;
 			path = Bolts;
 			sourceTree = "<group>";
 		};
@@ -1922,7 +1920,6 @@
 				CBA3C777D14F7E49300A9F9B42E1309A /* Zip+Collection.swift */,
 				AC5CFDF47C270CBC7CBBDBAF7F2EC584 /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -1953,7 +1950,6 @@
 				681505EE8711B0CA3E885EFD1EAE373B /* TaskCompletionSource.swift */,
 				4C842A9CAAED07BB881110BEE3C8A387 /* Support Files */,
 			);
-			name = "Bolts-Swift";
 			path = "Bolts-Swift";
 			sourceTree = "<group>";
 		};
@@ -2126,7 +2122,6 @@
 				635580F30BC14BD38134DA78D637E223 /* URLSession+Rx.swift */,
 				36C0006A315BB918C4B78E803FE0662C /* Support Files */,
 			);
-			name = RxCocoa;
 			path = RxCocoa;
 			sourceTree = "<group>";
 		};
@@ -2164,7 +2159,6 @@
 				E73055D0184352FECE45B9ED4A25B3D5 /* UITableViewVibrantCell.swift */,
 				4F882B9F0E4564643F121F55FFFAC39C /* Support Files */,
 			);
-			name = SideMenu;
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
@@ -2589,7 +2583,6 @@
 				E745D24B6E1B19BBACCC1072C1CE2D94 /* Resources */,
 				55C4E4C6841C5CFE7C102DB2D946E86F /* Support Files */,
 			);
-			name = Parse;
 			path = Parse;
 			sourceTree = "<group>";
 		};
@@ -3171,7 +3164,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0910;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -4330,6 +4323,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
