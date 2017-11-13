@@ -10,11 +10,15 @@ import Foundation
 import UIKit
 import SideMenu
 import Parse
+import NVActivityIndicatorView
 
 class UserMenuProfileViewController : UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
     
     @IBOutlet weak var userTableView: UITableView!
     @IBOutlet weak var userProfileImage: UIImageView!
+    
+    fileprivate var overlay : UIView?
+    fileprivate var loader  : NVActivityIndicatorView?
     
     var randomArray: [String] = ["Find An Expert","Previous Orders","Settings","Log Out"]
     var imagePicker: UIImagePickerController!
@@ -66,13 +70,36 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
     
     //MARK: UIPicker Delegate Methods
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {return}
-        UserModel.shared.profileImage = image
-        kRxMenuImage.value = image
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage,
+            let compressedImageData = image.jpeg(.lowest)
+            else {
+                return
+        }
+        let imageData = compressedImageData
+        let imageFile = PFFile(name:"profileImage.png", data:imageData)
         
-        self.imagePicker.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let photo = UIImage(data: compressedImageData)
+            UserModel.shared.profileImage = photo
+            kRxMenuImage.value            = photo
+            kRxLoadingData.value          = true
+            
+            self.imagePicker.dismiss(animated: true, completion: nil)
+        }
+        guard let userPhoto = PFUser.current() else {return}
+        userPhoto["profilePhoto"] = imageFile
+        userPhoto.saveInBackground { (success, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            else {
+                DispatchQueue.main.async {
+                    kRxLoadingData.value = false
+                }
+            }
+        }
     }
-    
+ 
 }
 
 extension UserMenuProfileViewController : UITableViewDelegate, UITableViewDataSource {

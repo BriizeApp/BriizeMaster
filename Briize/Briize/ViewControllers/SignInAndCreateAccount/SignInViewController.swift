@@ -52,6 +52,9 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     }
     
     private func cleanupVC() {
+        self.usernameTextview.text?.removeAll()
+        self.passwordTextview.text?.removeAll()
+        
         self.collapseLoading()
         NotificationCenter.default.removeObserver(self)
     }
@@ -90,10 +93,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         overlay!.backgroundColor = .black
         overlay!.alpha = 0.8
         
-        loader = NVActivityIndicatorView(frame  : CGRect(x: 0,
-                                                         y: 0,
-                                                         width: 60.0,
-                                                         height: 60.0),
+        loader = NVActivityIndicatorView(frame  : CGRect(x: 0,y: 0,width: 60.0,height: 60.0),
                                          type   : .ballGridPulse,
                                          color  : kPinkColor,
                                          padding: nil)

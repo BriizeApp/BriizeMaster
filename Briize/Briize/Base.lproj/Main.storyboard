@@ -306,10 +306,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8x-tc-uc5">
-                                <rect key="frame" x="0.0" y="368.5" width="375" height="99.5"/>
+                                <rect key="frame" x="0.0" y="368.5" width="375" height="101"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clients" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfB-7z-g00">
-                                        <rect key="frame" x="0.0" y="62" width="101" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="62" width="101" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="101" id="Qin-lH-AqA"/>
                                         </constraints>
@@ -318,7 +318,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puf-op-e0f">
-                                        <rect key="frame" x="161" y="62" width="54" height="22.5"/>
+                                        <rect key="frame" x="161" y="62" width="54" height="24"/>
                                         <fontDescription key="fontDescription" name="Lobster-Regular" family="Lobster" pointSize="19"/>
                                         <color key="textColor" red="1" green="0.76470588240000004" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -333,7 +333,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E66-ht-CI1">
-                                        <rect key="frame" x="282" y="62" width="93" height="22.5"/>
+                                        <rect key="frame" x="282" y="62" width="93" height="24"/>
                                         <fontDescription key="fontDescription" name="Lobster-Regular" family="Lobster" pointSize="19"/>
                                         <color key="textColor" red="1" green="0.76470588240000004" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -351,11 +351,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="694-LE-dWF">
-                                        <rect key="frame" x="113" y="20" width="1" height="64.5"/>
+                                        <rect key="frame" x="113" y="20" width="1" height="66"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwh-IE-KXY">
-                                        <rect key="frame" x="255" y="20" width="1" height="64.5"/>
+                                        <rect key="frame" x="255" y="20" width="1" height="66"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -475,7 +475,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Your Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vF5-Ox-CSh">
-                                        <rect key="frame" x="76.5" y="93" width="222" height="75"/>
+                                        <rect key="frame" x="92" y="93" width="191" height="75"/>
                                         <fontDescription key="fontDescription" name="Lobster-Regular" family="Lobster" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -635,7 +635,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqf-O3-PCx">
-                                <rect key="frame" x="16" y="293" width="343" height="47"/>
+                                <rect key="frame" x="16" y="290" width="343" height="50"/>
                                 <fontDescription key="fontDescription" name="Lobster-Regular" family="Lobster" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -997,7 +997,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nails" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dL-cd-eQO">
-                                                    <rect key="frame" x="41" y="72.5" width="292" height="49"/>
+                                                    <rect key="frame" x="41" y="71" width="292" height="52.5"/>
                                                     <fontDescription key="fontDescription" name="Lobster-Regular" family="Lobster" pointSize="42"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1082,7 +1082,6 @@
                     <connections>
                         <outlet property="catTableView" destination="l8d-61-sHV" id="spM-8E-Ra3"/>
                         <outlet property="menuImage" destination="YH9-Ut-fwu" id="0Vt-oT-wLM"/>
-                        <outlet property="profilePhotoButtonOutlet" destination="G6W-xe-9Gx" id="M3E-wq-nYb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMg-MK-Pjq" userLabel="First Responder" sceneMemberID="firstResponder"/>

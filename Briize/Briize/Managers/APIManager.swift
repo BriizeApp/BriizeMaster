@@ -68,6 +68,7 @@ public class APIManager {
                                             else {
                                                 return
                                         }
+                                        
                                         let imageFile = user["profilePhoto"] as! PFFile
                                         self.pullPfrofilePhoto(file: imageFile)
                                             .continueWith(continuation: { (image) in
@@ -87,6 +88,7 @@ public class APIManager {
                                                 else {
                                                     DispatchQueue.main.async {
                                                         if let img = picture {
+                                                            kRxMenuImage.value = img
                                                             UserModel.shared.profileImage = img
                                                         }
                                                         UserModel.shared.fullName = fullName
@@ -96,6 +98,22 @@ public class APIManager {
                                             })
                                     }
         }
+    }
+    
+    private func uploadProfilePhoto(file:PFFile) -> Task<UIImage?> {
+        let completionSource = TaskCompletionSource<UIImage?>()
+        
+        var image:UIImage? = nil
+        
+        file.getDataInBackground { (data, error) in
+            if error == nil {
+                if let imageData = data {
+                    image = UIImage(data:imageData)
+                    completionSource.set(result: image)
+                }
+            }
+        }
+        return completionSource.task
     }
     
     private func pullPfrofilePhoto(file:PFFile) -> Task<UIImage?> {
