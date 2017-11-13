@@ -38,5 +38,14 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Please let Briize access your camera to be able to change and update your profile photo.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please let Briize access your photo library to be able to change and update your profile photo.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

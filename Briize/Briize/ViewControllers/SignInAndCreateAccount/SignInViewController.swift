@@ -90,10 +90,10 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         overlay!.backgroundColor = .black
         overlay!.alpha = 0.8
         
-        loader = NVActivityIndicatorView(frame: CGRect(x: 0,
-                                                       y: 0,
-                                                       width: 60.0,
-                                                       height: 60.0),
+        loader = NVActivityIndicatorView(frame  : CGRect(x: 0,
+                                                         y: 0,
+                                                         width: 60.0,
+                                                         height: 60.0),
                                          type   : .ballGridPulse,
                                          color  : kPinkColor,
                                          padding: nil)
@@ -105,7 +105,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         loader!.startAnimating()
     }
     
-    private func collapseLoading() {
+    func collapseLoading() {
         loader!.stopAnimating()
         overlay?.removeFromSuperview()
     }

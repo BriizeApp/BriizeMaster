@@ -33,6 +33,7 @@ public class APIManager {
             if error != nil {
                 print(error!.localizedDescription)
                 DispatchQueue.main.async {
+                    
                     let alert = alertManager.errorOnSignUp()
                     sender.present(alert, animated: true, completion: nil)
                     return
@@ -47,30 +48,70 @@ public class APIManager {
         })
     }
     
-    func logIn(username:String, password:String, sender:UIViewController) {
-        PFUser.logInWithUsername(inBackground: username,
-                                 password    : password) { (user, error) in
+    func logIn(username:String, password:String, sender: SignInViewController) {
+        PFUser.logInWithUsername(inBackground : username,
+                                 password     : password) { (user, error) in
                                     if error != nil {
-                                        print(error!.localizedDescription)
-                                    } else {
+                                        DispatchQueue.main.async {
+                                            print(error!.localizedDescription)
+                                            sender.collapseLoading()
+                                            
+                                            let alertManager = AlertManager(VC: sender)
+                                            let alert = alertManager.errorOnSignUp()
+                                            sender.present(alert, animated: true, completion: nil)
+                                        }
+                                        return
+                                    }
+                                    else {
                                         guard let user = user,
                                             let fullName = user["fullName"] as? String
                                             else {
                                                 return
                                         }
-                                        if user["isExpert"] as? Bool == true {
-                                            DispatchQueue.main.async {
-                                                ExpertModel.shared.fullName = fullName
-                                                sender.performSegue(withIdentifier: "showExpertProfile", sender: sender)
-                                            }
-                                        } else {
-                                            DispatchQueue.main.async {
-                                                UserModel.shared.fullName = fullName
-                                                sender.performSegue(withIdentifier: "showUserProfile", sender: sender)
-                                            }
-                                        }
+                                        let imageFile = user["profilePhoto"] as! PFFile
+                                        self.pullPfrofilePhoto(file: imageFile)
+                                            .continueWith(continuation: { (image) in
+                                                var picture:UIImage?
+                                                if let profilePic = image.result {
+                                                    picture = profilePic
+                                                }
+                                                if user["isExpert"] as? Bool == true {
+                                                    DispatchQueue.main.async {
+                                                        if let img = picture {
+                                                            ExpertModel.shared.profileImage = img
+                                                        }
+                                                        ExpertModel.shared.fullName = fullName
+                                                        sender.performSegue(withIdentifier: "showExpertProfile", sender: sender)
+                                                    }
+                                                }
+                                                else {
+                                                    DispatchQueue.main.async {
+                                                        if let img = picture {
+                                                            UserModel.shared.profileImage = img
+                                                        }
+                                                        UserModel.shared.fullName = fullName
+                                                        sender.performSegue(withIdentifier: "showUserProfile", sender: sender)
+                                                    }
+                                                }
+                                            })
                                     }
         }
+    }
+    
+    private func pullPfrofilePhoto(file:PFFile) -> Task<UIImage?> {
+        let completionSource = TaskCompletionSource<UIImage?>()
+        
+        var image:UIImage? = nil
+        
+        file.getDataInBackground { (data, error) in
+            if error == nil {
+                if let imageData = data {
+                    image = UIImage(data:imageData)
+                    completionSource.set(result: image)
+                }
+            }
+        }
+        return completionSource.task
     }
     
 }

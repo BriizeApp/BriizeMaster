@@ -19,7 +19,6 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
-    
     @IBOutlet weak var photoOfCertButtonOutlet: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     

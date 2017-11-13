@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct ExpertModel {
     var fullName:String?
+    var profileImage: UIImage?
     
     static var shared:ExpertModel = ExpertModel()
+    
 }

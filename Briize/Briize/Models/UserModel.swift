@@ -7,10 +7,11 @@
 //
 
 import Foundation
-
+import UIKit
 
 struct UserModel {
     var fullName:String?
+    var profileImage:UIImage?
     
     static var shared:UserModel = UserModel()
     

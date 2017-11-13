@@ -8,11 +8,19 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CategorySelectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var catTableView: UITableView!
+    
+    //Delete
+    @IBOutlet weak var profilePhotoButtonOutlet: UIButton!
+    //
+    
+    let rxDisposeBag = DisposeBag()
     
     let blurEffectView = UIVisualEffectView()
     
@@ -22,8 +30,9 @@ class CategorySelectViewController: UIViewController, UITableViewDelegate, UITab
         self.menuImage.layer.borderWidth = 2.0
         self.catTableView.delegate = self
         self.catTableView.dataSource = self
+        
+        self.bindObservables()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         //
@@ -38,6 +47,23 @@ class CategorySelectViewController: UIViewController, UITableViewDelegate, UITab
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func bindObservables() {
+       kRxMenuImage.asObservable().subscribe(onNext: { [weak self] (profilePicture) in
+            guard let strongSelf = self else {return}
+    
+            switch profilePicture != nil {
+            case true :
+                DispatchQueue.main.async {
+                    guard let profilePic = profilePicture else {return}
+                    strongSelf.menuImage.image = profilePic
+                }
+                
+            case false:
+                return
+            }
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.rxDisposeBag)
     }
     
     var menuOpened:Bool = false

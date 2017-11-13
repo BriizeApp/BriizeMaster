@@ -8,16 +8,15 @@
 
 import Foundation
 import UIKit
+import Parse
 
-class ExpertProfilePageViewController :  UIViewController {
+class ExpertProfilePageViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
     
     @IBOutlet weak var expertNameLabel: UILabel!
     @IBOutlet weak var expertClientLabel: UILabel!
     @IBOutlet weak var expertRevenueLabel: UILabel!
     @IBOutlet weak var expertRatingLabel: UILabel!
-    
     @IBOutlet weak var expertProfilePic: UIImageView!
-    
     @IBOutlet weak var phPic1: UIImageView!
     @IBOutlet weak var phPic2: UIImageView!
     @IBOutlet weak var phPic3: UIImageView!

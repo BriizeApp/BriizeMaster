@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -184,6 +184,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3066.4000000000001" y="-1372.263868065967"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SZh-Sj-L76">
+            <objects>
+                <viewController id="rwD-2P-fMK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="isU-UD-Kqc"/>
+                        <viewControllerLayoutGuide type="bottom" id="MFf-CB-O0W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y6K-xm-jis">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M9X-EW-1Ur" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1994" y="-2425"/>
         </scene>
         <!--Expert Profile Page View Controller-->
         <scene sceneID="R9X-hO-wV5">
@@ -751,19 +769,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="briizeBGImage" translatesAutoresizingMaskIntoConstraints="NO" id="DEw-qf-0jM">
-                                                    <rect key="frame" x="8" y="26" width="50" height="50"/>
+                                                    <rect key="frame" x="15" y="29" width="50" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="GFk-sa-Z8t"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michelle Rodriguez" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C70-Jf-y4c">
-                                                    <rect key="frame" x="116" y="8" width="259" height="26"/>
+                                                    <rect key="frame" x="123" y="11" width="245" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating ex: 4.5 stars" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTb-jN-Mt7">
-                                                    <rect key="frame" x="116" y="40" width="251" height="22"/>
+                                                    <rect key="frame" x="123" y="37.5" width="237" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="Xh7-Jx-UPW"/>
                                                     </constraints>
@@ -772,7 +790,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.4 miles away" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkw-3i-OkR">
-                                                    <rect key="frame" x="116" y="70" width="251" height="22"/>
+                                                    <rect key="frame" x="123" y="67.5" width="237" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="u5V-fY-8dI"/>
                                                     </constraints>
@@ -979,7 +997,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nails" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dL-cd-eQO">
-                                                    <rect key="frame" x="34" y="72.5" width="306" height="49"/>
+                                                    <rect key="frame" x="41" y="72.5" width="292" height="49"/>
                                                     <fontDescription key="fontDescription" name="Lobster-Regular" family="Lobster" pointSize="42"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1064,6 +1082,7 @@
                     <connections>
                         <outlet property="catTableView" destination="l8d-61-sHV" id="spM-8E-Ra3"/>
                         <outlet property="menuImage" destination="YH9-Ut-fwu" id="0Vt-oT-wLM"/>
+                        <outlet property="profilePhotoButtonOutlet" destination="G6W-xe-9Gx" id="M3E-wq-nYb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMg-MK-Pjq" userLabel="First Responder" sceneMemberID="firstResponder"/>

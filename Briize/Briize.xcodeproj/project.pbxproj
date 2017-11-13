@@ -25,6 +25,7 @@
 		8449BDF51F2DBCC300DD9E20 /* BriizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449BDF41F2DBCC300DD9E20 /* BriizeTests.swift */; };
 		8449BE001F2FED3600DD9E20 /* briizeBGV.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8449BDFF1F2FEA7400DD9E20 /* briizeBGV.mp4 */; };
 		8449BE011F2FED3800DD9E20 /* briizeBGV.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8449BDFF1F2FEA7400DD9E20 /* briizeBGV.mp4 */; };
+		847D326F1FB90D9B0063D976 /* BeautyExpertSettingsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D326E1FB90D9B0063D976 /* BeautyExpertSettingsMenuViewController.swift */; };
 		8494A02C1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */; };
 		8497E4E71FA0468E006F0DC4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4E61FA0468E006F0DC4 /* UserModel.swift */; };
 		8497E4E91FA0469A006F0DC4 /* ExpertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4E81FA0469A006F0DC4 /* ExpertModel.swift */; };
@@ -71,6 +72,7 @@
 		8449BDF41F2DBCC300DD9E20 /* BriizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriizeTests.swift; sourceTree = "<group>"; };
 		8449BDF61F2DBCC300DD9E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8449BDFF1F2FEA7400DD9E20 /* briizeBGV.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = briizeBGV.mp4; path = ../briizeBGV.mp4; sourceTree = "<group>"; };
+		847D326E1FB90D9B0063D976 /* BeautyExpertSettingsMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyExpertSettingsMenuViewController.swift; sourceTree = "<group>"; };
 		8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpertProfilePageViewController.swift; sourceTree = "<group>"; };
 		8497E4E61FA0468E006F0DC4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8497E4E81FA0469A006F0DC4 /* ExpertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertModel.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				8401FFFB1F99ED25005C0119 /* APIManager.swift */,
 				8401FFFD1F99F659005C0119 /* AlertManager.swift */,
 				8497E4ED1FA1B8A5006F0DC4 /* BriizeManager.swift */,
+				8497E4EA1FA07AED006F0DC4 /* Constants.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -186,9 +189,6 @@
 				8497E4E11FA04584006F0DC4 /* SignInAndCreateAccount */,
 				8497E4E31FA045EC006F0DC4 /* UserViewControllers */,
 				8497E4E41FA04605006F0DC4 /* ExpertViewControllers */,
-				8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */,
-				8439D2141F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift */,
-				8497E4EA1FA07AED006F0DC4 /* Constants.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -208,6 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */,
+				8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */,
+				8439D2141F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift */,
+				847D326E1FB90D9B0063D976 /* BeautyExpertSettingsMenuViewController.swift */,
 			);
 			path = ExpertViewControllers;
 			sourceTree = "<group>";
@@ -425,6 +428,8 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -433,6 +438,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +485,7 @@
 				8401FFFC1F99ED25005C0119 /* APIManager.swift in Sources */,
 				8401FFFE1F99F659005C0119 /* AlertManager.swift in Sources */,
 				8497E4E71FA0468E006F0DC4 /* UserModel.swift in Sources */,
+				847D326F1FB90D9B0063D976 /* BeautyExpertSettingsMenuViewController.swift in Sources */,
 				8497E4EE1FA1B8A5006F0DC4 /* BriizeManager.swift in Sources */,
 				8439D21B1F43FD2200F00FF8 /* CategoryTableViewCell.swift in Sources */,
 			);

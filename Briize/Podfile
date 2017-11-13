@@ -7,6 +7,8 @@ pod 'SideMenu'
 pod 'NVActivityIndicatorView'
 pod 'Parse'
 pod 'Bolts-Swift'
+pod 'RxSwift',    '~> 4.0'
+pod 'RxCocoa',    '~> 4.0'
 
   target 'BriizeTests' do
     inherit! :search_paths

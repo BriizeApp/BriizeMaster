@@ -9,30 +9,68 @@
 import Foundation
 import UIKit
 import SideMenu
+import Parse
 
-class UserMenuProfileViewController : UIViewController {
+class UserMenuProfileViewController : UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
+    
     @IBOutlet weak var userTableView: UITableView!
     @IBOutlet weak var userProfileImage: UIImageView!
     
-    var randomArray:[String] = ["Find An Expert","Previous Orders","Settings","Log Out"]
+    var randomArray: [String] = ["Find An Expert","Previous Orders","Settings","Log Out"]
+    var imagePicker: UIImagePickerController!
+    var imageToSave: UIImage?
     
+    //MARK:
     override func viewDidLoad() {
-        self.navigationController?.navigationBar.isHidden = true
-        
-        self.userTableView.delegate   = self
-        self.userTableView.dataSource = self
-        
-        SideMenuManager.menuFadeStatusBar = false
+        self.setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.userProfileImage.layer.cornerRadius = 75
-        self.userProfileImage.layer.borderWidth  = 1
-        self.userProfileImage.layer.borderColor  = UIColor.white.cgColor
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        userProfileImage.isUserInteractionEnabled = true
+        userProfileImage.addGestureRecognizer(tapGestureRecognizer)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    //MARK: Helper Methods
+    private func setupUI () {
+        self.navigationController?.navigationBar.isHidden = true
+        
+        self.userTableView.delegate   = self
+        self.userTableView.dataSource = self
+        self.userProfileImage.layer.cornerRadius = 75
+        self.userProfileImage.layer.borderWidth  = 1
+        self.userProfileImage.layer.borderColor  = UIColor.white.cgColor
+        
+        SideMenuManager.menuFadeStatusBar = false
+        
+        let userModel = UserModel.shared
+        if userModel.profileImage == nil {
+            return
+        }
+        else {
+            guard let profilePic = userModel.profileImage else {return}
+            self.userProfileImage.image = profilePic
+        }
+    }
+    
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    //MARK: UIPicker Delegate Methods
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {return}
+        UserModel.shared.profileImage = image
+        kRxMenuImage.value = image
+        
+        self.imagePicker.dismiss(animated: true, completion: nil)
     }
     
 }
@@ -55,6 +93,5 @@ extension UserMenuProfileViewController : UITableViewDelegate, UITableViewDataSo
         
         return cell
     }
-    
     
 }
