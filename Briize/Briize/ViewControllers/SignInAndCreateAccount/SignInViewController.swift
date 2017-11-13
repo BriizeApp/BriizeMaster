@@ -40,6 +40,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.logOutCurrentUser()
         self.setupSubViewsAndPlayVideo()
     }
     
@@ -49,6 +50,10 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    private func logOutCurrentUser() {
+        PFUser.logOut()
     }
     
     private func cleanupVC() {
