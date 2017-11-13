@@ -68,7 +68,6 @@ public class APIManager {
                                             else {
                                                 return
                                         }
-                                        
                                         let imageFile = user["profilePhoto"] as! PFFile
                                         self.pullPfrofilePhoto(file: imageFile)
                                             .continueWith(continuation: { (image) in
