@@ -152,9 +152,7 @@
 			children = (
 				8439D21C1F44002C00F00FF8 /* Lobster-Regular.ttf */,
 				8449BDFF1F2FEA7400DD9E20 /* briizeBGV.mp4 */,
-				8497E4E21FA045B2006F0DC4 /* ViewControllers */,
-				8497E4E51FA04664006F0DC4 /* Models */,
-				8401FFFA1F99ED0B005C0119 /* Managers */,
+				847D32701FB958380063D976 /* Main */,
 				8449BDDC1F2DBCC200DD9E20 /* AppDelegate.swift */,
 				8449BDE61F2DBCC300DD9E20 /* Assets.xcassets */,
 				8449BDE01F2DBCC200DD9E20 /* Main.storyboard */,
@@ -172,6 +170,16 @@
 				8449BDF61F2DBCC300DD9E20 /* Info.plist */,
 			);
 			path = BriizeTests;
+			sourceTree = "<group>";
+		};
+		847D32701FB958380063D976 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8497E4E21FA045B2006F0DC4 /* ViewControllers */,
+				8497E4E51FA04664006F0DC4 /* Models */,
+				8401FFFA1F99ED0B005C0119 /* Managers */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		8497E4E11FA04584006F0DC4 /* SignInAndCreateAccount */ = {
