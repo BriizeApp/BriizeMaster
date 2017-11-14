@@ -49,8 +49,8 @@ extension SubCategorySelectionViewController: UICollectionViewDelegate,UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        let manager = self.briizeManager
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subCategoryCell", for: indexPath) as! SubCategoryCollectionViewCell
+        //let manager = self.briizeManager
+        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subCategoryCell", for: indexPath) as! SubCategoryCollectionViewCell
         
         print("Sub category selected")
         self.performSegue(withIdentifier: "showExpertSearch", sender: self)
