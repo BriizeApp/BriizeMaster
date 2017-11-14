@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 import NVActivityIndicatorView
 
-class CategorySelectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CategorySelectViewController: UIViewController {
     
     @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var catTableView: UITableView!
@@ -20,6 +20,10 @@ class CategorySelectViewController: UIViewController, UITableViewDelegate, UITab
     fileprivate var overlay : UIView?
     fileprivate var loader  : NVActivityIndicatorView?
     
+    var menuOpened:Bool  = false
+    
+    let titles:[String]  = ["Make-Up", "Eyes & Brows", "Hair", "Nails"]
+    let pics  :[UIImage] = [#imageLiteral(resourceName: "cat2"),#imageLiteral(resourceName: "cat4"),#imageLiteral(resourceName: "cat3"),#imageLiteral(resourceName: "cat1")]
     let rxDisposeBag = DisposeBag()
     
     let blurEffectView = UIVisualEffectView()
@@ -107,13 +111,22 @@ class CategorySelectViewController: UIViewController, UITableViewDelegate, UITab
             .disposed(by: self.rxDisposeBag)
     }
     
-    //MARK: TableView Methods
-    var menuOpened:Bool  = false
-    let titles:[String]  = ["Make-Up", "Eyes & Brows", "Hair", "Nails"]
-    let pics  :[UIImage] = [#imageLiteral(resourceName: "cat2"),#imageLiteral(resourceName: "cat4"),#imageLiteral(resourceName: "cat3"),#imageLiteral(resourceName: "cat1")]
+    @IBAction func openMenuButtonPressed(_ sender: Any) {
+        //Add Blur When Menu Opens
+        menuOpened = true
+    }
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension CategorySelectViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
         guard  let cell  = tableView.cellForRow(at: indexPath) as? CategoryTableViewCell else {return}
         let image = cell.catImage.image!
         let text  = cell.catTitle.text!
@@ -128,7 +141,6 @@ class CategorySelectViewController: UIViewController, UITableViewDelegate, UITab
         return self.titles.count
     }
     
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -142,15 +154,5 @@ class CategorySelectViewController: UIViewController, UITableViewDelegate, UITab
         
         return cell
     }
-    
-    @IBAction func openMenuButtonPressed(_ sender: Any) {
-        //Add Blur When Menu Opens
-        menuOpened = true
-    }
-    
-    @IBAction func dismiss(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     
 }

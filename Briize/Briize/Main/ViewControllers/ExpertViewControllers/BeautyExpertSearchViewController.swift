@@ -34,12 +34,10 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
         self.beautyTableView.dataSource = self
         
         let req = URLRequest(url: URL(string: "https://jsonplaceholder.typicode.com/users")!)
-        
         let session = URLSession.shared
         
         DispatchQueue.global(qos: .utility).async {
             session.dataTask(with: req) {data, response, err in
-                
                 let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSArray
                 
                 for i in json {
@@ -51,18 +49,18 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
                     let add = dic["address"] as! NSDictionary
                     let zip = add["zipcode"] as! String
                     self.zipcodes.append(zip)
-                    
                 }
                 DispatchQueue.main.async {
                     self.beautyTableView.reloadData()
                 }
-                
                 print("\(json)")
                 }.resume()
         }
-        
     }
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.names.count
@@ -84,8 +82,6 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
         cell.expertDistance.text  = self.zipcodes[row]
         cell.expertImage.image    = self.imageArray[row]
         cell.expertImage.layer.cornerRadius = 25
-        
-        
         
         return cell
     }

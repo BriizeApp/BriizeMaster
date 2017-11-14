@@ -15,11 +15,13 @@ import NVActivityIndicatorView
 
 class ExpertProfilePageViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
     
-    @IBOutlet weak var expertNameLabel: UILabel!
-    @IBOutlet weak var expertClientLabel: UILabel!
+    @IBOutlet weak var expertNameLabel   : UILabel!
+    @IBOutlet weak var expertClientLabel : UILabel!
     @IBOutlet weak var expertRevenueLabel: UILabel!
-    @IBOutlet weak var expertRatingLabel: UILabel!
-    @IBOutlet weak var expertProfilePic: UIImageView!
+    @IBOutlet weak var expertRatingLabel : UILabel!
+    
+    @IBOutlet weak var expertProfilePic : UIImageView!
+    @IBOutlet weak var bgProfileImage   : UIImageView!
     @IBOutlet weak var phPic1: UIImageView!
     @IBOutlet weak var phPic2: UIImageView!
     @IBOutlet weak var phPic3: UIImageView!
@@ -44,9 +46,9 @@ class ExpertProfilePageViewController: UIViewController, UINavigationControllerD
     }
     
     private func setupUI() {
-        let expertModel = ExpertModel.shared
-    
         self.navigationController?.navigationBar.isHidden = true
+        
+        let expertModel = ExpertModel.shared
         
         guard let fullName = expertModel.fullName else {return}
         self.expertNameLabel.text    = fullName
@@ -57,9 +59,12 @@ class ExpertProfilePageViewController: UIViewController, UINavigationControllerD
         self.expertProfilePic.layer.cornerRadius = 100
         self.expertProfilePic.layer.borderColor  = UIColor.white.cgColor
         self.expertProfilePic.layer.borderWidth  = 2
+        
         if let photo = expertModel.profileImage {
             self.expertProfilePic.image = photo
+            self.bgProfileImage.image = photo
         }
+        
         //demoContent
         let picArray:[UIImageView] = [phPic1,phPic2,phPic3]
         self.picModifier(arrayOfImages: picArray)
@@ -127,7 +132,8 @@ class ExpertProfilePageViewController: UIViewController, UINavigationControllerD
         
         DispatchQueue.main.async {
             let photo = UIImage(data: compressedImageData)
-            self.expertProfilePic.image     = photo
+            self.expertProfilePic.image = photo
+            self.bgProfileImage.image = photo
             ExpertModel.shared.profileImage = photo
             
             kRxLoadingData.value = true
@@ -148,7 +154,6 @@ class ExpertProfilePageViewController: UIViewController, UINavigationControllerD
         }
     }
     
-    
     func picModifier(arrayOfImages:[UIImageView]) {
         for i in arrayOfImages {
             i.layer.cornerRadius = 50
@@ -156,6 +161,7 @@ class ExpertProfilePageViewController: UIViewController, UINavigationControllerD
             i.layer.borderWidth = 2
         }
     }
+    
     @IBAction func exitButtonPressed(_ sender: Any) {
         
     }

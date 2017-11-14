@@ -22,7 +22,7 @@ public class BriizeManager {
         
         switch category {
         case "Nails":
-            self.subCategoryArray = ["Manicure", "Pedicure", "French", "Nail Art", "Fill In", "Gel"]
+            self.subCategoryArray = ["Manicure", "Pedicure", "Nail Art", "Fill In"]
             
         case "Make-Up":
             self.subCategoryArray = ["Bridal", "Custume", "Airbrush", "Evening", "Glamorous", "Custom"]

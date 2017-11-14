@@ -44,6 +44,12 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.setupSubViewsAndPlayVideo()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.usernameTextview.text?.removeAll()
+        self.passwordTextview.text?.removeAll()
+    }
+    
     deinit {
         self.cleanupVC()
     }
@@ -57,9 +63,6 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     }
     
     private func cleanupVC() {
-        self.usernameTextview.text?.removeAll()
-        self.passwordTextview.text?.removeAll()
-        
         self.collapseLoading()
         NotificationCenter.default.removeObserver(self)
     }
@@ -183,9 +186,12 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
             self.present(alert, animated: true, completion: nil)
             return
         }
+        let user = self.usernameTextview.text!
+        let pass = self.passwordTextview.text!
+        
         let apiManager = APIManager()
-        apiManager.logIn(username: self.usernameTextview.text!,
-                         password: self.passwordTextview.text!,
+        apiManager.logIn(username: user,
+                         password: pass,
                          sender  : self)
     }
     
