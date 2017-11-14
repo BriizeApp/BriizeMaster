@@ -250,8 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */,
-				8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */,
 				847D326E1FB90D9B0063D976 /* BeautyExpertSettingsMenuViewController.swift */,
+				8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */,
 				847D32751FBAF8930063D976 /* Cells */,
 			);
 			path = ExpertViewControllers;

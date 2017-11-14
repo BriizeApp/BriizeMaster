@@ -41,6 +41,8 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
     
     //MARK: Helper Methods
     private func setupUI () {
+        SideMenuManager.menuFadeStatusBar = false
+        
         self.navigationController?.navigationBar.isHidden = true
         
         self.userTableView.delegate   = self
@@ -48,8 +50,6 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
         self.userProfileImage.layer.cornerRadius = 75
         self.userProfileImage.layer.borderWidth  = 1
         self.userProfileImage.layer.borderColor  = UIColor.white.cgColor
-        
-        SideMenuManager.menuFadeStatusBar = false
         
         let userModel = UserModel.shared
         if userModel.profileImage == nil {
