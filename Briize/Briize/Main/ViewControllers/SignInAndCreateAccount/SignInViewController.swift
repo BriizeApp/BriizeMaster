@@ -123,10 +123,9 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         vu.backgroundColor = .black
         vu.alpha = 0.6
         
-        guard let path = Bundle
-            .main
-            .path(forResource : "briizeBGV",
-                  ofType      : "mp4")
+        guard let path = Bundle.main.path(
+            forResource : "briizeBGV",
+            ofType: "mp4")
             else {
                 debugPrint("briizeBGV.mp4 not found")
                 return
@@ -171,7 +170,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     private func addBottomBorderToTextField(myTextField:UITextField) {
         let bottomLine   = CALayer()
         bottomLine.frame = CGRect(x:0.0,y: myTextField.frame.height - 1,
-                                  width  : myTextField.frame.width + 30,
+                                  width  : myTextField.frame.width,
                                   height : 1.0)
         bottomLine.backgroundColor = UIColor.white.cgColor
         
