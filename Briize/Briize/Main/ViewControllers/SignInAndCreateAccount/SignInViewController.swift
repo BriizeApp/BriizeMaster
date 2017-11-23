@@ -40,8 +40,9 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.setupSubViews()
+        self.playBGVideo()
         self.logOutCurrentUser()
-        self.setupSubViewsAndPlayVideo()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -136,11 +137,15 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         playerLayer.frame = self.view.frame
         playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         self.view.layer.addSublayer(playerLayer)
-        
         self.view.addSubview(vu)
     }
     
-    private func setupSubViewsAndPlayVideo() {
+    private func playBGVideo() {
+        self.player.play()
+        self.loopVideo(player: player)
+    }
+    
+    private func setupSubViews() {
         self.view.bringSubview(toFront: self.logoImageView)
         self.view.bringSubview(toFront: self.createAccountButtonOutlet)
         //self.view.bringSubview(toFront: self.eulaButtonOutlet)
@@ -149,9 +154,6 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.view.bringSubview(toFront: self.signInBUttonOutlet)
         self.view.bringSubview(toFront: self.forgotPasswordButtonOutlet)
         self.view.bringSubview(toFront: self.logInLabel)
-        
-        self.player.play()
-        self.loopVideo(player: player)
     }
     
     private func loopVideo(player:AVPlayer) {
