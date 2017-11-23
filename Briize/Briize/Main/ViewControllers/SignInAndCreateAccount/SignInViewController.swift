@@ -28,6 +28,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     @IBOutlet weak var forgotPasswordButtonOutlet: UIButton!
     @IBOutlet weak var logInLabel                : UILabel!
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
@@ -40,50 +41,44 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.setupSubViews()
         self.playBGVideo()
         self.logOutCurrentUser()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.usernameTextview.text?.removeAll()
-        self.passwordTextview.text?.removeAll()
+        self.cleanupVC()
     }
     
     deinit {
-        self.cleanupVC()
+        print("\(self.description) - deinit successful")
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+    //MARK: Helper Methods
     private func logOutCurrentUser() {
         PFUser.logOut()
     }
     
     private func cleanupVC() {
+        self.usernameTextview.text?.removeAll()
+        self.passwordTextview.text?.removeAll()
+        
         self.collapseLoading()
+        
         NotificationCenter.default.removeObserver(self)
     }
     
     private func setupUI() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                                 action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
         
         self.signInBUttonOutlet.layer.borderWidth  = 2
         self.signInBUttonOutlet.layer.borderColor  = UIColor.white.cgColor
         self.signInBUttonOutlet.layer.cornerRadius = 25
-        
-        self.usernameTextview.borderStyle = UITextBorderStyle.none
-        self.passwordTextview.borderStyle = UITextBorderStyle.none
-        
-        self.usernameTextview.attributedPlaceholder = NSAttributedString(string: "Email",
-                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white])
-        self.passwordTextview.attributedPlaceholder = NSAttributedString(string: "Password",
-                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white])
         self.createAccountButtonOutlet.layer.cornerRadius  = 10
         self.forgotPasswordButtonOutlet.layer.cornerRadius = 10
         self.createAccountButtonOutlet.layer.borderWidth   = 1.0
@@ -91,6 +86,17 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.forgotPasswordButtonOutlet.layer.borderWidth  = 1.0
         self.forgotPasswordButtonOutlet.layer.borderColor  = UIColor.white.cgColor
         
+        self.setupTextViews()
+        self.setupSubViews()
+    }
+    
+    private func setupTextViews() {
+        self.usernameTextview.borderStyle = UITextBorderStyle.none
+        self.passwordTextview.borderStyle = UITextBorderStyle.none
+        self.usernameTextview.attributedPlaceholder = NSAttributedString(string: "Email",
+                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white])
+        self.passwordTextview.attributedPlaceholder = NSAttributedString(string: "Password",
+                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white])
         self.addBottomBorderToTextField(myTextField: self.usernameTextview)
         self.addBottomBorderToTextField(myTextField: self.passwordTextview)
     }
@@ -108,7 +114,6 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
                                          padding: nil)
         loader!.center = overlay!.center
         overlay?.addSubview(loader!)
-        
         view.addSubview(overlay!)
         
         loader!.startAnimating()
@@ -117,6 +122,37 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     func collapseLoading() {
         loader!.stopAnimating()
         overlay?.removeFromSuperview()
+    }
+    
+    private func addBottomBorderToTextField(myTextField:UITextField) {
+        let bottomLine   = CALayer()
+        bottomLine.frame = CGRect(x:0.0,y: myTextField.frame.height - 1,
+                                  width  : myTextField.frame.width,
+                                  height : 1.0)
+        bottomLine.backgroundColor = UIColor.white.cgColor
+        
+        myTextField.borderStyle = UITextBorderStyle.none
+        myTextField.layer.addSublayer(bottomLine)
+    }
+    
+    private func login() {
+        guard self.usernameTextview.text != nil && self.passwordTextview.text != nil else {
+            let alertManager = AlertManager(VC:self)
+            let alert = alertManager.errorOnSignUp()
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        let user = self.usernameTextview.text!
+        let pass = self.passwordTextview.text!
+        
+        let apiManager = APIManager()
+        apiManager.logIn(username: user,
+                         password: pass,
+                         sender  : self)
+    }
+    
+    @objc private func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     private func setupBGVideo() {
@@ -169,37 +205,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         }
     }
     
-    private func addBottomBorderToTextField(myTextField:UITextField) {
-        let bottomLine   = CALayer()
-        bottomLine.frame = CGRect(x:0.0,y: myTextField.frame.height - 1,
-                                  width  : myTextField.frame.width,
-                                  height : 1.0)
-        bottomLine.backgroundColor = UIColor.white.cgColor
-        
-        myTextField.borderStyle = UITextBorderStyle.none
-        myTextField.layer.addSublayer(bottomLine)
-    }
-    
-    private func login() {
-        guard self.usernameTextview.text != nil && self.passwordTextview.text != nil else {
-            let alertManager = AlertManager(VC:self)
-            let alert = alertManager.errorOnSignUp()
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
-        let user = self.usernameTextview.text!
-        let pass = self.passwordTextview.text!
-        
-        let apiManager = APIManager()
-        apiManager.logIn(username: user,
-                         password: pass,
-                         sender  : self)
-    }
-    
-    @objc private func dismissKeyboard() {
-        self.view.endEditing(true)
-    }
-    
+    //MARK: Button Mthods
     @IBAction func createAccountButtonPressed(_ sender: Any) {
         let alertManager = AlertManager(VC: self)
         alertManager.openCreateAccountAlert()
