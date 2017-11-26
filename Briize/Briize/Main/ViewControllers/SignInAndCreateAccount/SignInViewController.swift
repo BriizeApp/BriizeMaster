@@ -66,7 +66,6 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     private func cleanupVC() {
         self.usernameTextview.text?.removeAll()
         self.passwordTextview.text?.removeAll()
-        
         self.collapseLoading()
         
         NotificationCenter.default.removeObserver(self)
