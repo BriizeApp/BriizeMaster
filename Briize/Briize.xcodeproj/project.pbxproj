@@ -36,6 +36,7 @@
 		84D4759C1F5B5BA400994D16 /* UserMenuProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */; };
 		95EC54819FAD28AB3CCB711A /* Pods_Briize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0751B44A8A60252C957F53 /* Pods_Briize.framework */; };
 		96992FF108BC72791D2FB28A /* Pods_BriizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A200BF1BCDD5E9FF84BAA44D /* Pods_BriizeTests.framework */; };
+		EDF8DB331FCB809600BE9428 /* SearchResultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8DB321FCB809600BE9428 /* SearchResultManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		A200BF1BCDD5E9FF84BAA44D /* Pods_BriizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BriizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB1F0811F17BD2AA33E2C39 /* Pods-Briize.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Briize.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Briize/Pods-Briize.debug.xcconfig"; sourceTree = "<group>"; };
 		CFC82FEB28FC10FD3C1AEB08 /* Pods-BriizeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BriizeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BriizeTests/Pods-BriizeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EDF8DB321FCB809600BE9428 /* SearchResultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				8401FFFB1F99ED25005C0119 /* APIManager.swift */,
 				8401FFFD1F99F659005C0119 /* AlertManager.swift */,
 				8497E4ED1FA1B8A5006F0DC4 /* BriizeManager.swift */,
+				EDF8DB321FCB809600BE9428 /* SearchResultManager.swift */,
 				8497E4EA1FA07AED006F0DC4 /* Constants.swift */,
 			);
 			path = Managers;
@@ -513,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				840100001F99F967005C0119 /* CreateAccountViewController.swift in Sources */,
+				EDF8DB331FCB809600BE9428 /* SearchResultManager.swift in Sources */,
 				8497E4EB1FA07AED006F0DC4 /* Constants.swift in Sources */,
 				84D4759C1F5B5BA400994D16 /* UserMenuProfileViewController.swift in Sources */,
 				8449BDDF1F2DBCC200DD9E20 /* SignInViewController.swift in Sources */,
@@ -688,6 +692,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WMVNZYDS86;
 				INFOPLIST_FILE = Briize/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.milesFishman.Briize-Admin";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -706,6 +711,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WMVNZYDS86;
 				INFOPLIST_FILE = Briize/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.milesFishman.Briize-Admin";
 				PRODUCT_NAME = "$(TARGET_NAME)";

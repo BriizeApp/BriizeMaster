@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -29,33 +30,33 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
         imageArray.append(#imageLiteral(resourceName: "i"))
         imageArray.append(#imageLiteral(resourceName: "j"))
         
-        
         self.beautyTableView.delegate = self
         self.beautyTableView.dataSource = self
         
-        let req = URLRequest(url: URL(string: "https://jsonplaceholder.typicode.com/users")!)
-        let session = URLSession.shared
         
-        DispatchQueue.global(qos: .utility).async {
-            session.dataTask(with: req) {data, response, err in
-                let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSArray
-                
-                for i in json {
-                    let dic = i as! NSDictionary
-                    
-                    self.names.append(dic["name"] as! String)
-                    self.specialties.append(dic["phone"] as! String)
-                    
-                    let add = dic["address"] as! NSDictionary
-                    let zip = add["zipcode"] as! String
-                    self.zipcodes.append(zip)
-                }
-                DispatchQueue.main.async {
-                    self.beautyTableView.reloadData()
-                }
-                print("\(json)")
-                }.resume()
-        }
+//        let req = URLRequest(url: URL(string: "https://jsonplaceholder.typicode.com/users")!)
+//        let session = URLSession.shared
+//
+//        DispatchQueue.global(qos: .utility).async {
+//            session.dataTask(with: req) {data, response, err in
+//                let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSArray
+//
+//                for i in json {
+//                    let dic = i as! NSDictionary
+//
+//                    self.names.append(dic["name"] as! String)
+//                    self.specialties.append(dic["phone"] as! String)
+//
+//                    let add = dic["address"] as! NSDictionary
+//                    let zip = add["zipcode"] as! String
+//                    self.zipcodes.append(zip)
+//                }
+//                DispatchQueue.main.async {
+//                    self.beautyTableView.reloadData()
+//                }
+//                print("\(json)")
+//                }.resume()
+//        }
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -63,7 +64,7 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.names.count
+        return SearchResultManager.shared.expertsToDisplay.count
     }
     
     
@@ -76,12 +77,12 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cece", for: indexPath) as! BeautyExpertResultTableCell
         let row = indexPath.row
+        let searchResults = SearchResultManager.shared
         
-        cell.expertName.text      = self.names[row]
-        cell.expertSpecialty.text = self.specialties[row]
-        cell.expertDistance.text  = self.zipcodes[row]
-        cell.expertImage.image    = self.imageArray[row]
-        cell.expertImage.layer.cornerRadius = 25
+        cell.expertName.text = searchResults.expertsToDisplay[row].fullName
+        cell.expertDistance.text = searchResults.expertsToDisplay[row].subCatPrice
+        
+        cell.expertImage.layer.cornerRadius = 50
         
         return cell
     }

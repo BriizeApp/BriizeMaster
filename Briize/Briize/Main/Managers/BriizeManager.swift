@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 public class BriizeManager {
+    
     static var shared:BriizeManager = BriizeManager()
     
     var subCategoryArray:[String] = []
@@ -22,16 +23,16 @@ public class BriizeManager {
         
         switch category {
         case "Nails":
-            self.subCategoryArray = ["Manicure", "Pedicure", "Nail Art", "Fill In"]
+            self.subCategoryArray = ["Manicure", "Pedicure", "Acrylic Fill", "Acrylic Full", "Design", "Gel/Acrylic Removal"]
             
         case "Make-Up":
-            self.subCategoryArray = ["Bridal", "Custume", "Airbrush", "Evening", "Glamorous", "Custom"]
+            self.subCategoryArray = ["Bridal", "Custume", "Airbrush", "Evening", "Glamorous"]
             
         case "Eyes & Brows":
-            self.subCategoryArray = ["Threading", "Extensions", "Eyebrow", "Tinting", "Eye Make-Up", "Custom"]
+            self.subCategoryArray = ["Threading", "Waxing", "Microblading", "Eye Brow Tinting", "Eye Lash Extensions", "Eye Lash Lift"]
   
         case "Hair":
-            self.subCategoryArray = ["Cut", "Blowdry", "Updue", "Color", "Braiding", "Custom"]
+            self.subCategoryArray = ["cut", "Blowdry", "Updue", "color", "Braiding", "Extensions"]
             
         default:
             print("Put alert view here since category doesn't exist")

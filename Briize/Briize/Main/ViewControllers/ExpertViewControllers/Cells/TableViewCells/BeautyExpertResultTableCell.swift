@@ -15,10 +15,15 @@ class BeautyExpertResultTableCell: UITableViewCell {
     @IBOutlet weak var expertName: UILabel!
     @IBOutlet weak var expertSpecialty: UILabel!
     @IBOutlet weak var expertDistance: UILabel!
+    @IBOutlet weak var requestButtonOutlet: UIButton!
+    @IBOutlet weak var schedRequestButtonOutlet: UIButton!
+    @IBOutlet weak var photosButtonOutlet: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        requestButtonOutlet.layer.cornerRadius = 8
+        schedRequestButtonOutlet.layer.cornerRadius = 8
+        photosButtonOutlet.layer.cornerRadius = 8
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

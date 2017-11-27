@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 var tempPic:UIImage  = #imageLiteral(resourceName: "c")
 var tempTitle:String = "title"
@@ -47,13 +48,40 @@ extension SubCategorySelectionViewController: UICollectionViewDelegate,UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        SearchResultManager.shared.expertsToDisplay.removeAll()
+        guard  let cell = collectionView.cellForItem(at: indexPath) as? SubCategoryCollectionViewCell else {return}
+        SearchResultManager.shared.subCatToSearchFor = cell.titleLabel.text!
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        //let manager = self.briizeManager
-        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subCategoryCell", for: indexPath) as! SubCategoryCollectionViewCell
+        let cat = SearchResultManager.shared.subCatToSearchFor
+        let chosenCat = SearchResultManager.shared.chosenCategory
         
-        print("Sub category selected")
-        self.performSegue(withIdentifier: "showExpertSearch", sender: self)
+        let query = PFQuery(className: chosenCat)
+        query.whereKeyExists(cat)
+        query.findObjectsInBackground(block: { (objects, error) in
+            if error == nil {
+                print("Successfully retrieved \(objects!.count) sub Categories / \(chosenCat) : \(cat)")
+                // The find succeeded.
+                
+                if let objects = objects {
+                    for object in objects {
+                        let name = object["expertName"] as! String
+                        let price = object["\(SearchResultManager.shared.subCatToSearchFor)"] as! String
+                        let model = ExpertModel(fullName: name, profileImage: nil, subCatPrice: price)
+                       
+                        SearchResultManager.shared.expertsToDisplay.append(model)
+                    }
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "showExpertSearch", sender: self)
+                    }
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.localizedDescription)")
+            }
+        })
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

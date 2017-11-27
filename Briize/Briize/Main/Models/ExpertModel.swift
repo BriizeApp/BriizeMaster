@@ -10,9 +10,12 @@ import Foundation
 import UIKit
 
 struct ExpertModel {
-    var fullName:String?
-    var profileImage: UIImage?
     
     static var shared:ExpertModel = ExpertModel()
     
+    var fullName: String?
+    var profileImage: UIImage?
+    
+    //For Search Results to User Only!
+    var subCatPrice: String = ""
 }

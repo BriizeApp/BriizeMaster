@@ -41,6 +41,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.setupSubViews()
         self.playBGVideo()
         self.logOutCurrentUser()
     }
@@ -84,9 +85,8 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.createAccountButtonOutlet.layer.borderColor   = UIColor.white.cgColor
         self.forgotPasswordButtonOutlet.layer.borderWidth  = 1.0
         self.forgotPasswordButtonOutlet.layer.borderColor  = UIColor.white.cgColor
-        
         self.setupTextViews()
-        self.setupSubViews()
+    
     }
     
     private func setupTextViews() {
