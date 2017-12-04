@@ -11,17 +11,16 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-//*** Constants ***//
+/// *** Public Constants *** ///
 
-//MARK: UI Contants
+// MARK: UI Contants
 public var kPinkColor = UIColor(red: 255.0/255.0, green: 195.0/255.0, blue: 225.0/255.0, alpha: 1.0)
 
-
-//Reactive Constants
+// MARK: Reactive Constants
 public var kRxMenuImage   = Variable<UIImage?>(UserModel.shared.profileImage)
 public var kRxLoadingData = Variable<Bool>(false)
 
-//Public Extensions
+// MARK: Public Extensions
 public extension UIImage {
     enum JPEGQuality: CGFloat {
         case lowest  = 0

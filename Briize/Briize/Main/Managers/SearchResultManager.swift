@@ -13,6 +13,6 @@ public class SearchResultManager {
     static var shared:SearchResultManager = SearchResultManager()
     
     var chosenCategory: String = ""
-    var subCatToSearchFor: String = ""
+    var subCatToSearchFor: [String] = []
     var expertsToDisplay: [ExpertModel] = []
 }

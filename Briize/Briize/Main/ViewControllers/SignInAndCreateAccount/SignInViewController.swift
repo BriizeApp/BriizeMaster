@@ -14,7 +14,9 @@ import Parse
 
 class SignInViewController: UIViewController,UINavigationControllerDelegate{
     
-    fileprivate var player = AVPlayer()
+    fileprivate var player  : AVPlayer!
+    fileprivate var playerLayer : AVPlayerLayer!
+    
     fileprivate var overlay : UIView?
     fileprivate var loader  : NVActivityIndicatorView?
     
@@ -32,17 +34,17 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.setupBGVideo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupBGVideo()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.setupVideoObserver()
         self.setupSubViews()
-        self.playBGVideo()
         self.logOutCurrentUser()
     }
     
@@ -65,14 +67,17 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     }
     
     private func cleanupVC() {
+        NotificationCenter.default.removeObserver(self)
+        
+        self.collapseLoading()
         self.usernameTextview.text?.removeAll()
         self.passwordTextview.text?.removeAll()
         self.collapseLoading()
-        
-        NotificationCenter.default.removeObserver(self)
     }
     
     private func setupUI() {
+        self.navigationController?.navigationBar.isHidden = true
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
@@ -86,18 +91,17 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.forgotPasswordButtonOutlet.layer.borderWidth  = 1.0
         self.forgotPasswordButtonOutlet.layer.borderColor  = UIColor.white.cgColor
         self.setupTextViews()
-    
     }
     
     private func setupTextViews() {
-        self.usernameTextview.borderStyle = UITextBorderStyle.none
-        self.passwordTextview.borderStyle = UITextBorderStyle.none
-        self.usernameTextview.attributedPlaceholder = NSAttributedString(string: "Email",
-                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white])
-        self.passwordTextview.attributedPlaceholder = NSAttributedString(string: "Password",
-                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white])
-        self.addBottomBorderToTextField(myTextField: self.usernameTextview)
-        self.addBottomBorderToTextField(myTextField: self.passwordTextview)
+            self.usernameTextview.borderStyle = UITextBorderStyle.none
+            self.passwordTextview.borderStyle = UITextBorderStyle.none
+            self.usernameTextview.attributedPlaceholder = NSAttributedString(string: "Email",
+                                                                             attributes: [NSForegroundColorAttributeName: UIColor.white])
+            self.passwordTextview.attributedPlaceholder = NSAttributedString(string: "Password",
+                                                                             attributes: [NSForegroundColorAttributeName: UIColor.white])
+            self.addBottomBorderToTextField(myTextField: self.usernameTextview)
+            self.addBottomBorderToTextField(myTextField: self.passwordTextview)
     }
     
     private func setupLoading() {
@@ -150,40 +154,9 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
                          sender  : self)
     }
     
-    @objc private func dismissKeyboard() {
-        self.view.endEditing(true)
-    }
-    
-    private func setupBGVideo() {
-        let vu = UIView(frame: self.view.frame)
-        vu.backgroundColor = .black
-        vu.alpha = 0.6
-        
-        guard let path = Bundle.main.path(
-            forResource : "briizeBGV",
-            ofType: "mp4")
-            else {
-                debugPrint("briizeBGV.mp4 not found")
-                return
-        }
-        let videoURL = URL(fileURLWithPath: path)
-        self.player = AVPlayer(url: videoURL)
-        let playerLayer = AVPlayerLayer(player: self.player)
-        playerLayer.frame = self.view.frame
-        playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-        self.view.layer.addSublayer(playerLayer)
-        self.view.addSubview(vu)
-    }
-    
-    private func playBGVideo() {
-        self.player.play()
-        self.loopVideo(player: player)
-    }
-    
     private func setupSubViews() {
         self.view.bringSubview(toFront: self.logoImageView)
         self.view.bringSubview(toFront: self.createAccountButtonOutlet)
-        //self.view.bringSubview(toFront: self.eulaButtonOutlet)
         self.view.bringSubview(toFront: self.usernameTextview)
         self.view.bringSubview(toFront: self.passwordTextview)
         self.view.bringSubview(toFront: self.signInBUttonOutlet)
@@ -191,17 +164,38 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.view.bringSubview(toFront: self.logInLabel)
     }
     
-    private func loopVideo(player:AVPlayer) {
+    @objc private func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    //Background Video Methods
+    private func setupVideoObserver() {
+        self.player.play()
+        
         NotificationCenter
             .default
-            .addObserver(forName : NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                         object  : nil,
-                         queue   : nil) { notification in
-                            DispatchQueue.main.async {
-                                player.seek(to: kCMTimeZero)
-                                player.play()
-                            }
-        }
+            .addObserver(self,
+                         selector: #selector(playerItemReachedEnd(notification:)),
+                         name    : NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                         object  : self.player.currentItem)
+    }
+    
+    private func setupBGVideo() {
+        let url = Bundle.main.url(forResource : "briizeBGV", withExtension: "mp4")
+        self.player = AVPlayer.init(url: url!)
+        
+        self.playerLayer = AVPlayerLayer(player: self.player)
+        self.playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        self.playerLayer.frame = self.view.layer.frame
+        
+        self.player.actionAtItemEnd = .none
+        self.player.play()
+        
+        self.view.layer.insertSublayer(self.playerLayer, at: 0)
+    }
+
+    func playerItemReachedEnd(notification: NSNotification) {
+        self.player.seek(to: kCMTimeZero)
     }
     
     //MARK: Button Mthods

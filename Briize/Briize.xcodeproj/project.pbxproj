@@ -30,7 +30,7 @@
 		8494A02C1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */; };
 		8497E4E71FA0468E006F0DC4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4E61FA0468E006F0DC4 /* UserModel.swift */; };
 		8497E4E91FA0469A006F0DC4 /* ExpertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4E81FA0469A006F0DC4 /* ExpertModel.swift */; };
-		8497E4EB1FA07AED006F0DC4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4EA1FA07AED006F0DC4 /* Constants.swift */; };
+		8497E4EB1FA07AED006F0DC4 /* PublicConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4EA1FA07AED006F0DC4 /* PublicConstants.swift */; };
 		8497E4EE1FA1B8A5006F0DC4 /* BriizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E4ED1FA1B8A5006F0DC4 /* BriizeManager.swift */; };
 		84ADB6B41F5F418500ED0C75 /* SubCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */; };
 		84D4759C1F5B5BA400994D16 /* UserMenuProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */; };
@@ -79,7 +79,7 @@
 		8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpertProfilePageViewController.swift; sourceTree = "<group>"; };
 		8497E4E61FA0468E006F0DC4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8497E4E81FA0469A006F0DC4 /* ExpertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertModel.swift; sourceTree = "<group>"; };
-		8497E4EA1FA07AED006F0DC4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8497E4EA1FA07AED006F0DC4 /* PublicConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicConstants.swift; sourceTree = "<group>"; };
 		8497E4ED1FA1B8A5006F0DC4 /* BriizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriizeManager.swift; sourceTree = "<group>"; };
 		84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategorySelectionViewController.swift; sourceTree = "<group>"; };
 		84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMenuProfileViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +127,6 @@
 				8401FFFD1F99F659005C0119 /* AlertManager.swift */,
 				8497E4ED1FA1B8A5006F0DC4 /* BriizeManager.swift */,
 				EDF8DB321FCB809600BE9428 /* SearchResultManager.swift */,
-				8497E4EA1FA07AED006F0DC4 /* Constants.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -180,6 +179,7 @@
 		847D32701FB958380063D976 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8497E4EA1FA07AED006F0DC4 /* PublicConstants.swift */,
 				8497E4E21FA045B2006F0DC4 /* ViewControllers */,
 				8497E4E51FA04664006F0DC4 /* Models */,
 				8401FFFA1F99ED0B005C0119 /* Managers */,
@@ -517,7 +517,7 @@
 			files = (
 				840100001F99F967005C0119 /* CreateAccountViewController.swift in Sources */,
 				EDF8DB331FCB809600BE9428 /* SearchResultManager.swift in Sources */,
-				8497E4EB1FA07AED006F0DC4 /* Constants.swift in Sources */,
+				8497E4EB1FA07AED006F0DC4 /* PublicConstants.swift in Sources */,
 				84D4759C1F5B5BA400994D16 /* UserMenuProfileViewController.swift in Sources */,
 				8449BDDF1F2DBCC200DD9E20 /* SignInViewController.swift in Sources */,
 				8439D2191F43FA6000F00FF8 /* CategorySelectViewController.swift in Sources */,

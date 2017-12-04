@@ -17,5 +17,5 @@ struct ExpertModel {
     var profileImage: UIImage?
     
     //For Search Results to User Only!
-    var subCatPrice: String = ""
+    var subCatPrice: Int = 0
 }

@@ -19,44 +19,13 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
     var imageArray:[UIImage] = []
     
     override func viewDidLoad() {
-        imageArray.append(#imageLiteral(resourceName: "a"))
-        imageArray.append(#imageLiteral(resourceName: "b"))
-        imageArray.append(#imageLiteral(resourceName: "c"))
-        imageArray.append(#imageLiteral(resourceName: "d"))
-        imageArray.append(#imageLiteral(resourceName: "e"))
-        imageArray.append(#imageLiteral(resourceName: "f"))
-        imageArray.append(#imageLiteral(resourceName: "g"))
-        imageArray.append(#imageLiteral(resourceName: "h"))
-        imageArray.append(#imageLiteral(resourceName: "i"))
-        imageArray.append(#imageLiteral(resourceName: "j"))
-        
+        super.viewDidLoad()
         self.beautyTableView.delegate = self
         self.beautyTableView.dataSource = self
-        
-        
-//        let req = URLRequest(url: URL(string: "https://jsonplaceholder.typicode.com/users")!)
-//        let session = URLSession.shared
-//
-//        DispatchQueue.global(qos: .utility).async {
-//            session.dataTask(with: req) {data, response, err in
-//                let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSArray
-//
-//                for i in json {
-//                    let dic = i as! NSDictionary
-//
-//                    self.names.append(dic["name"] as! String)
-//                    self.specialties.append(dic["phone"] as! String)
-//
-//                    let add = dic["address"] as! NSDictionary
-//                    let zip = add["zipcode"] as! String
-//                    self.zipcodes.append(zip)
-//                }
-//                DispatchQueue.main.async {
-//                    self.beautyTableView.reloadData()
-//                }
-//                print("\(json)")
-//                }.resume()
-//        }
+    }
+    
+    deinit {
+        print("\(self.description) - deinit successful")
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -74,14 +43,12 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cece", for: indexPath) as! BeautyExpertResultTableCell
         let row = indexPath.row
         let searchResults = SearchResultManager.shared
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cece", for: indexPath) as! BeautyExpertResultTableCell
         cell.expertName.text = searchResults.expertsToDisplay[row].fullName
-        cell.expertDistance.text = searchResults.expertsToDisplay[row].subCatPrice
-        
+        cell.expertDistance.text = String("$" + "\(searchResults.expertsToDisplay[row].subCatPrice)")
         cell.expertImage.layer.cornerRadius = 50
         
         return cell

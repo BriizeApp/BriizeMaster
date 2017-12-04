@@ -10,33 +10,91 @@ import Foundation
 import UIKit
 import Parse
 
-var tempPic:UIImage  = #imageLiteral(resourceName: "c")
-var tempTitle:String = "title"
-
 class SubCategorySelectionViewController: UIViewController {
-    fileprivate let briizeManager = BriizeManager.shared
+    
+    fileprivate var chosenSubCategories:[String] = []
     
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var suategoryCollectionView: UICollectionView!
     @IBOutlet weak var mainPhoto: UIImageView!
+    @IBOutlet weak var submitButtonOutlet: UIButton!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        SearchResultManager.shared.expertsToDisplay.removeAll()
+        SearchResultManager.shared.subCatToSearchFor.removeAll()
+    }
+    
+    deinit {
+        print("\(self.description) - deinit successful")
+    }
+    
     private func setupUI() {
+        let briizeManager = BriizeManager.shared
+        guard let img = briizeManager.categoryImage else {return}
+        let title = briizeManager.chosenCategoryTitle
+        
         self.suategoryCollectionView.delegate   = self
         self.suategoryCollectionView.dataSource = self
         
-        guard let img = self.briizeManager.categoryImage else {return}
-        let title = self.briizeManager.chosenCategoryTitle
-        
+        self.submitButtonOutlet.layer.cornerRadius = 12
         self.mainPhoto.image = img
         self.subTitle.text = title
     }
     
+    // MARK: Button Pressed Methods
     @IBAction func closeButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func submitButtonPressed(_ sender: Any) {
+        let cats = SearchResultManager.shared.subCatToSearchFor
+        let chosenCat = SearchResultManager.shared.chosenCategory
+        
+        if cats.count >= 0 {
+            let query = PFQuery(className: chosenCat)
+            query.findObjectsInBackground(block: { (objects, error) in
+                if error == nil {
+                    print("Successfully retrieved")
+                    if let objects = objects {
+                        var totalPrice:Int = 0
+                        
+                        for object in objects {
+                            //let sumPrice:Int = 0
+                            var model:ExpertModel?
+                            var objToUse:PFObject?
+                            
+                            for c in cats {
+                                let price = object[c] as? Int ?? 0
+                                if price != 0 {
+                                    totalPrice += price
+                                    objToUse = object
+                                } else {
+                                    continue
+                                }
+                            }
+                            if objToUse != nil {
+                                let name = objToUse!["expertName"] as! String
+                                model = ExpertModel(fullName: name, profileImage: nil, subCatPrice: totalPrice)
+                                SearchResultManager.shared.expertsToDisplay.append(model!)
+                            }
+                        }
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "showExpertSearch", sender: self)
+                        }
+                    }
+                } else {
+                    print("Error: \(error!) \(error!.localizedDescription)")
+                }
+            })
+        } else {
+            print("No Sub Categories Selected")
+        }
     }
     
 }
@@ -48,49 +106,22 @@ extension SubCategorySelectionViewController: UICollectionViewDelegate,UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        SearchResultManager.shared.expertsToDisplay.removeAll()
         guard  let cell = collectionView.cellForItem(at: indexPath) as? SubCategoryCollectionViewCell else {return}
-        SearchResultManager.shared.subCatToSearchFor = cell.titleLabel.text!
+        SearchResultManager.shared.expertsToDisplay.removeAll()
+        SearchResultManager.shared.subCatToSearchFor.append(cell.titleLabel.text!)
         collectionView.deselectItem(at: indexPath, animated: true)
-        
-        let cat = SearchResultManager.shared.subCatToSearchFor
-        let chosenCat = SearchResultManager.shared.chosenCategory
-        
-        let query = PFQuery(className: chosenCat)
-        query.whereKeyExists(cat)
-        query.findObjectsInBackground(block: { (objects, error) in
-            if error == nil {
-                print("Successfully retrieved \(objects!.count) sub Categories / \(chosenCat) : \(cat)")
-                // The find succeeded.
-                
-                if let objects = objects {
-                    for object in objects {
-                        let name = object["expertName"] as! String
-                        let price = object["\(SearchResultManager.shared.subCatToSearchFor)"] as! String
-                        let model = ExpertModel(fullName: name, profileImage: nil, subCatPrice: price)
-                       
-                        SearchResultManager.shared.expertsToDisplay.append(model)
-                    }
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "showExpertSearch", sender: self)
-                    }
-                }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.localizedDescription)")
-            }
-        })
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.briizeManager.subCategoryArray.count
+        let briizeManager = BriizeManager.shared
+        return briizeManager.subCategoryArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let briizeManager = BriizeManager.shared
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subCategoryCell", for: indexPath) as! SubCategoryCollectionViewCell
-        cell.titleLabel.text = self.briizeManager.subCategoryArray[indexPath.row]
+        cell.titleLabel.text = briizeManager.subCategoryArray[indexPath.row]
         
         return cell
     }

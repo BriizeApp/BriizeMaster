@@ -24,12 +24,15 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
     var imagePicker: UIImagePickerController!
     var imageToSave: UIImage?
     
-    //MARK:
+    // MARK: Lifecycle
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         userProfileImage.isUserInteractionEnabled = true
         userProfileImage.addGestureRecognizer(tapGestureRecognizer)
@@ -39,7 +42,7 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
         return .lightContent
     }
     
-    //MARK: Helper Methods
+    // MARK: Helper Methods
     private func setupUI () {
         SideMenuManager.menuFadeStatusBar = false
         
@@ -68,7 +71,7 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
         present(imagePicker, animated: true, completion: nil)
     }
     
-    //MARK: UIPicker Delegate Methods
+    // MARK: UIPicker Delegate Methods
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage,
             let compressedImageData = image.jpeg(.lowest)

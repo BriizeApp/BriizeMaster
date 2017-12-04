@@ -16,6 +16,7 @@ class CategorySelectViewController: UIViewController {
     
     @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var catTableView: UITableView!
+    @IBOutlet weak var opnMenuButtonOutlet: UIButton!
     
     fileprivate var overlay : UIView?
     fileprivate var loader  : NVActivityIndicatorView?
@@ -24,11 +25,13 @@ class CategorySelectViewController: UIViewController {
     
     let titles:[String]  = ["Make-Up", "Eyes & Brows", "Hair", "Nails"]
     let pics  :[UIImage] = [#imageLiteral(resourceName: "cat2"),#imageLiteral(resourceName: "cat4"),#imageLiteral(resourceName: "cat3"),#imageLiteral(resourceName: "cat1")]
+    
     let rxDisposeBag = DisposeBag()
     
     let blurEffectView = UIVisualEffectView()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.setupUI()
         self.bindObservables()
     }
@@ -44,10 +47,17 @@ class CategorySelectViewController: UIViewController {
         return .lightContent
     }
     
+    deinit {
+        print("\(self.description) - deinit successful")
+    }
+    
     private func setupUI() {
+        self.navigationController?.navigationBar.isHidden = true
+        
         self.menuImage.layer.cornerRadius = 25
         self.menuImage.layer.borderColor = UIColor.white.cgColor
         self.menuImage.layer.borderWidth = 2.0
+        
         self.catTableView.delegate = self
         self.catTableView.dataSource = self
     }
@@ -117,7 +127,7 @@ class CategorySelectViewController: UIViewController {
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
 }

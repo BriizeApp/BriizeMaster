@@ -32,7 +32,7 @@ public class BriizeManager {
             self.subCategoryArray = ["Threading", "Waxing", "Microblading", "Eye Brow Tinting", "Eye Lash Extensions", "Eye Lash Lift"]
   
         case "Hair":
-            self.subCategoryArray = ["cut", "Blowdry", "Updue", "color", "Braiding", "Extensions"]
+            self.subCategoryArray = ["Cut", "Blowdry", "Updue", "Color", "Braiding", "Extensions"]
             
         default:
             print("Put alert view here since category doesn't exist")
