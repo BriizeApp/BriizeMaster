@@ -48,7 +48,7 @@ class ExpertProfilePageViewController: UIViewController, UINavigationControllerD
     private func setupUI() {
         self.navigationController?.navigationBar.isHidden = true
         
-        let expertModel = ExpertModel.shared
+        let expertModel = ExpertModel.current
         
         guard let fullName = expertModel.fullName else {return}
         self.expertNameLabel.text    = fullName
@@ -134,7 +134,7 @@ class ExpertProfilePageViewController: UIViewController, UINavigationControllerD
             let photo = UIImage(data: compressedImageData)
             self.expertProfilePic.image = photo
             self.bgProfileImage.image = photo
-            ExpertModel.shared.profileImage = photo
+            ExpertModel.current.profileImage = photo
             
             kRxLoadingData.value = true
             

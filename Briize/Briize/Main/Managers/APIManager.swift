@@ -12,7 +12,7 @@ import BoltsSwift
 
 public class APIManager {
     
-    func createUserAccount(firstname:String,lastname:String,email:String,password:String,phone:String, sender:UIViewController) {
+    func createUserAccount(firstname:String, lastname:String, email:String, password:String, phone:String, state:String, sender:UIViewController) {
         let isExpert     = UserDefaults.standard.bool(forKey: "isExpert")
         
         let user = PFUser()
@@ -32,8 +32,8 @@ public class APIManager {
         user.signUpInBackground(block: { (success, error) in
             if error != nil {
                 print(error!.localizedDescription)
+                
                 DispatchQueue.main.async {
-                    
                     let alert = alertManager.errorOnSignUp()
                     sender.present(alert, animated: true, completion: nil)
                     return
@@ -78,19 +78,18 @@ public class APIManager {
                                                 if user["isExpert"] as? Bool == true {
                                                     DispatchQueue.main.async {
                                                         if let img = picture {
-                                                            ExpertModel.shared.profileImage = img
+                                                            ExpertModel.current.profileImage = img
                                                         }
-                                                        ExpertModel.shared.fullName = fullName
+                                                        ExpertModel.current.fullName = fullName
                                                         sender.performSegue(withIdentifier: "showExpertProfile", sender: sender)
                                                     }
-                                                }
-                                                else {
+                                                } else {
                                                     DispatchQueue.main.async {
                                                         if let img = picture {
                                                             kRxMenuImage.value = img
-                                                            UserModel.shared.profileImage = img
+                                                            UserModel.current.profileImage = img
                                                         }
-                                                        UserModel.shared.fullName = fullName
+                                                        UserModel.current.fullName = fullName
                                                         sender.performSegue(withIdentifier: "showUserProfile", sender: sender)
                                                     }
                                                 }

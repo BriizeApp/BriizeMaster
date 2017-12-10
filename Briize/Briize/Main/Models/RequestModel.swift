@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct RequestModel {
     var expertName:String
     var serviceType:String

@@ -69,10 +69,12 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     private func cleanupVC() {
         NotificationCenter.default.removeObserver(self)
         
-        self.collapseLoading()
+        if self.loader != nil {
+            self.collapseLoading()
+        }
         self.usernameTextview.text?.removeAll()
         self.passwordTextview.text?.removeAll()
-        self.collapseLoading()
+        self.player.pause()
     }
     
     private func setupUI() {
@@ -81,9 +83,9 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
-        self.signInBUttonOutlet.layer.borderWidth  = 2
-        self.signInBUttonOutlet.layer.borderColor  = UIColor.white.cgColor
-        self.signInBUttonOutlet.layer.cornerRadius = 25
+        self.signInBUttonOutlet.layer.borderWidth          = 2
+        self.signInBUttonOutlet.layer.borderColor          = kPinkColor.cgColor
+        self.signInBUttonOutlet.layer.cornerRadius         = 25
         self.createAccountButtonOutlet.layer.cornerRadius  = 10
         self.forgotPasswordButtonOutlet.layer.cornerRadius = 10
         self.createAccountButtonOutlet.layer.borderWidth   = 1.0
@@ -94,14 +96,14 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     }
     
     private func setupTextViews() {
-            self.usernameTextview.borderStyle = UITextBorderStyle.none
-            self.passwordTextview.borderStyle = UITextBorderStyle.none
-            self.usernameTextview.attributedPlaceholder = NSAttributedString(string: "Email",
-                                                                             attributes: [NSForegroundColorAttributeName: UIColor.white])
-            self.passwordTextview.attributedPlaceholder = NSAttributedString(string: "Password",
-                                                                             attributes: [NSForegroundColorAttributeName: UIColor.white])
-            self.addBottomBorderToTextField(myTextField: self.usernameTextview)
-            self.addBottomBorderToTextField(myTextField: self.passwordTextview)
+        self.usernameTextview.borderStyle = UITextBorderStyle.none
+        self.passwordTextview.borderStyle = UITextBorderStyle.none
+        self.usernameTextview.attributedPlaceholder = NSAttributedString(string: "Email",
+                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white])
+        self.passwordTextview.attributedPlaceholder = NSAttributedString(string: "Password",
+                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white])
+        self.addBottomBorderToTextField(myTextField: self.usernameTextview)
+        self.addBottomBorderToTextField(myTextField: self.passwordTextview)
     }
     
     private func setupLoading() {
@@ -168,7 +170,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         self.view.endEditing(true)
     }
     
-    //Background Video Methods
+    // Background Video Methods
     private func setupVideoObserver() {
         self.player.play()
         
@@ -193,7 +195,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         
         self.view.layer.insertSublayer(self.playerLayer, at: 0)
     }
-
+    
     func playerItemReachedEnd(notification: NSNotification) {
         self.player.seek(to: kCMTimeZero)
     }

@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-struct ExpertModel {
+public struct ExpertModel {
     
-    static var shared:ExpertModel = ExpertModel()
+    static var current:ExpertModel = ExpertModel()
     
     var fullName: String?
     var profileImage: UIImage?

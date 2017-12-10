@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 import BoltsSwift
 
-class CreateAccountViewController:UIViewController, UITextFieldDelegate {
-    
-    private var myTextFields:[UITextField] = []
+class CreateAccountViewController:UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -21,10 +19,16 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var photoOfCertButtonOutlet: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var stateTextField: UITextField!
+    
+    private var states:[String] = kUSStates
+    private var selectedState = ""
+    private var myTextFields:[UITextField] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.setupPicker()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +50,7 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
         self.myTextFields.append(self.emailTextField)
         self.myTextFields.append(self.passwordTextField)
         self.myTextFields.append(self.phoneNumberTextField)
+        self.myTextFields.append(self.stateTextField)
         self.setupTextFields(textFields: self.myTextFields)
         
         NotificationCenter.default.addObserver(self,
@@ -54,6 +59,34 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardWillHide),
                                                name    : NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    private func setupPicker(){
+        let statesPickerView                     = UIPickerView()
+        statesPickerView.showsSelectionIndicator = true
+        statesPickerView.backgroundColor         = .white
+        statesPickerView.delegate                = self
+        statesPickerView.dataSource              = self
+        
+        let toolBar             = UIToolbar()
+        toolBar.barStyle        = UIBarStyle.default
+        toolBar.isTranslucent   = true
+        toolBar.tintColor       = .red
+        toolBar.backgroundColor = .white
+        toolBar.sizeToFit()
+        
+        let spaceButton  = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let spaceButton2 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton   = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.donePickerAction))
+        toolBar.setItems([spaceButton, doneButton, spaceButton2], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        self.stateTextField.inputView = statesPickerView
+        self.stateTextField.inputAccessoryView = toolBar
+    }
+    
+    func donePickerAction() {
+        self.stateTextField.resignFirstResponder()
     }
     
     private func signingUpAsExpert() {
@@ -71,7 +104,7 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
             field.delegate = self
             
             let bottomLine   = CALayer()
-            bottomLine.frame = CGRect(x: 0.0,y: field.frame.height - 1, width: field.frame.width + 30, height: 1.0)
+            bottomLine.frame = CGRect(x: 0.0,y: field.frame.height - 1, width: field.frame.width, height: 1.0)
             bottomLine.backgroundColor = UIColor.white.cgColor
             
             field.borderStyle = UITextBorderStyle.none
@@ -93,6 +126,10 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
             case phoneNumberTextField:
                 field.attributedPlaceholder = NSAttributedString(string: "Phone Number",
                                                                  attributes: [NSForegroundColorAttributeName: UIColor.white])
+                
+            case stateTextField:
+                field.attributedPlaceholder = NSAttributedString(string: "State You Live In",
+                                                                 attributes: [NSForegroundColorAttributeName: UIColor.white])
             default:
                 fatalError("textFields Magically don't exist on create account controller")
             }
@@ -105,7 +142,8 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
             let lastName     = self.lastNameTextField.text,
             let email        = self.emailTextField.text,
             let password     = self.passwordTextField.text,
-            let phoneNumber  = self.phoneNumberTextField.text
+            let phoneNumber  = self.phoneNumberTextField.text,
+            let state        = self.stateTextField.text
             else {
                 return
         }
@@ -114,18 +152,19 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
                                      email    : email,
                                      password : password,
                                      phone    : phoneNumber,
+                                     state    : state,
                                      sender   : self)
     }
     
     func keyboardWillShow(notification: NSNotification) {
+        var contentInset:UIEdgeInsets    = scrollView.contentInset
+        contentInset.bottom              = 250
+        scrollView.contentInset          = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+        
         guard let userInfo = notification.userInfo else { return }
         guard var keyboardFrame: CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        
-        var contentInset:UIEdgeInsets    = scrollView.contentInset
-        contentInset.bottom              = 226
-        scrollView.contentInset          = contentInset
-        scrollView.scrollIndicatorInsets = contentInset
     }
     
     func keyboardWillHide(notification: NSNotification) {
@@ -138,7 +177,7 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     
-    //Textfield Delegate
+    // Textfield Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         scrollView.becomeFirstResponder()
@@ -146,7 +185,7 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
         return false
     }
     
-    //Button Methods
+    // Button Methods
     @IBAction func photoOfCertButtonPressed(_ sender: Any) {
         //Upload Image Certification
     }
@@ -159,4 +198,23 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate {
     @IBAction func exitButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: Picker Delegate Methods
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.states.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.states[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedState = self.states[row]
+        self.stateTextField.text = selectedState
+    }
+    
 }

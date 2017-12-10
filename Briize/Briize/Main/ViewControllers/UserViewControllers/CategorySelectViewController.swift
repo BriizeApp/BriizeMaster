@@ -142,6 +142,7 @@ extension CategorySelectViewController : UITableViewDelegate, UITableViewDataSou
         let text  = cell.catTitle.text!
         let txt   = text
         let img   = image
+        
         SearchResultManager.shared.chosenCategory = txt
         BriizeManager.shared.subCategoriesForCategory(category: txt, img:img)
         

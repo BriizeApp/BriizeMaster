@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-struct UserModel {
+public struct UserModel {
+    
+    static var current:UserModel = UserModel()
+    
     var fullName:String?
     var profileImage:UIImage?
-    
-    static var shared:UserModel = UserModel()
-    
 }

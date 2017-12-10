@@ -65,7 +65,6 @@ class SubCategorySelectionViewController: UIViewController {
                         var totalPrice:Int = 0
                         
                         for object in objects {
-                            //let sumPrice:Int = 0
                             var model:ExpertModel?
                             var objToUse:PFObject?
                             

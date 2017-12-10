@@ -44,21 +44,21 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
     
     // MARK: Helper Methods
     private func setupUI () {
-        SideMenuManager.menuFadeStatusBar = false
-        
         self.navigationController?.navigationBar.isHidden = true
+        
+        SideMenuManager.menuFadeStatusBar = false
         
         self.userTableView.delegate   = self
         self.userTableView.dataSource = self
+        
         self.userProfileImage.layer.cornerRadius = 75
         self.userProfileImage.layer.borderWidth  = 1
         self.userProfileImage.layer.borderColor  = UIColor.white.cgColor
         
-        let userModel = UserModel.shared
+        let userModel = UserModel.current
         if userModel.profileImage == nil {
             return
-        }
-        else {
+        } else {
             guard let profilePic = userModel.profileImage else {return}
             self.userProfileImage.image = profilePic
         }
@@ -83,9 +83,9 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
         
         DispatchQueue.main.async {
             let photo = UIImage(data: compressedImageData)
-            UserModel.shared.profileImage = photo
-            kRxMenuImage.value            = photo
-            kRxLoadingData.value          = true
+            UserModel.current.profileImage = photo
+            kRxMenuImage.value             = photo
+            kRxLoadingData.value           = true
             
             self.imagePicker.dismiss(animated: true, completion: nil)
         }
@@ -102,7 +102,7 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
             }
         }
     }
- 
+    
 }
 
 extension UserMenuProfileViewController : UITableViewDelegate, UITableViewDataSource {
