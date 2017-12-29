@@ -126,7 +126,6 @@ class CreateAccountViewController:UIViewController, UITextFieldDelegate, UIPicke
             case phoneNumberTextField:
                 field.attributedPlaceholder = NSAttributedString(string: "Phone Number",
                                                                  attributes: [NSForegroundColorAttributeName: UIColor.white])
-                
             case stateTextField:
                 field.attributedPlaceholder = NSAttributedString(string: "State You Live In",
                                                                  attributes: [NSForegroundColorAttributeName: UIColor.white])

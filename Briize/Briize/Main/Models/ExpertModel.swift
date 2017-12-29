@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 public struct ExpertModel {
     
@@ -15,7 +16,9 @@ public struct ExpertModel {
     
     var fullName: String?
     var profileImage: UIImage?
+    var profilePicFile: PFFile?
+    var currentLocation: PFGeoPoint?
     
-    //For Search Results to User Only!
+    //For Search Results Only
     var subCatPrice: Int = 0
 }

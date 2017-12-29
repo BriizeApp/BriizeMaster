@@ -22,6 +22,7 @@ public var kRxLoadingData        = Variable<Bool>(false)
 public var kRxUserProfileState   = Variable<String>("default")
 public var kRxExpertProfileState = Variable<String>("default")
 
+// MARK: Public Helper Constants
 public var kUSStates:[String] = [ "Alabama",
                                   "Alaska",
                                   "American Samoa",

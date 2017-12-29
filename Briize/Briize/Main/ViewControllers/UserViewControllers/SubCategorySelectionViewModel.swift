@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import BoltsSwift
 
 class SubCategorySelectionViewModel {
     var bindedController:SubCategorySelectionViewController
@@ -17,52 +18,60 @@ class SubCategorySelectionViewModel {
         self.bindedController = sender
     }
     
-    func findExperts(category:String, subCategories:[String]) -> [ExpertModel]? {
-        let cats = subCategories
-        let chosenCat = category
+    func findExperts(state:String, category:String, subCategories:[String]) -> Task<[ExpertModel]?> {
+        let completionTask = TaskCompletionSource<[ExpertModel]?>()
         
-        if cats.count >= 0 {
-            let query = PFQuery(className: chosenCat)
-            query.findObjectsInBackground(block: { [weak self] (objects, error) in
-                guard let strongSelf = self else {return}
-                
-                if error == nil {
-                    print("Successfully retrieved")
-                    if let objects = objects {
-                        var totalPrice:Int = 0
-           
-                        for object in objects {
-                            var model:ExpertModel?
-                            var objToUse:PFObject?
-                            
-                            for c in cats {
-                                let price = object[c] as? Int ?? 0
-                                if price != 0 {
-                                    totalPrice += price
-                                    objToUse = object
-                                } else {
-                                    objToUse = nil
+        let apiManager = APIManager()
+        apiManager
+            .findLiveExpertsInUserState(state:state,
+                                        category: category,
+                                        subCategories: subCategories)
+            
+            .continueWith(continuation: { names in
+                switch names.error == nil {
+                case true:
+                    guard let experts = names.result else {return}
+                    let user = UserModel.current
+                    
+                    apiManager
+                        .findExpertsClosestToUser(userLocation : user.currentLocation!,
+                                                  experts      : experts!,
+                                                  category     : category,
+                                                  subCategories: subCategories)
+                        
+                        .continueWith(continuation: { expertArray in
+                            switch expertArray.error == nil {
+                            case true:
+                                if expertArray.result != nil {
+                                    apiManager
+                                        .matchExpertsToChosenSubCategories(names        : expertArray.result!!,
+                                                                           category     : category,
+                                                                           subCategories: subCategories)
+                                        
+                                        .continueWith(continuation: { experts in
+                                            switch experts.error == nil {
+                                            case true:
+                                                completionTask.set(result: experts.result!)
+                                                print("Did it")
+                                                
+                                            case false:
+                                                print("error")
+                                            }
+                                        })
                                 }
+                                
+                            case false:
+                                print("error")
                             }
-                            if objToUse != nil {
-                                var experts:[ExpertModel] = []
-                                let name = objToUse!["expertName"] as! String
-                                model = ExpertModel(fullName: name, profileImage: nil, subCatPrice: totalPrice)
-                                experts.append(model!)
-                            }
-                        }
-                        DispatchQueue.main.async {
-                            strongSelf.bindedController.performSegue(withIdentifier: "showExpertSearch", sender: self)
-                        }
+                        })
+                    
+                case false:
+                    if let error = names.error {
+                        print(error.localizedDescription)
+                        //Handle Error
                     }
-                } else {
-                    print("Error: \(error!) \(error!.localizedDescription)")
                 }
             })
-        } else {
-            print("No Sub Categories Selected")
-        }
-        return nil
+        return completionTask.task
     }
-    
 }

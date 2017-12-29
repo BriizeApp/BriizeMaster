@@ -13,9 +13,10 @@ public class BriizeManager {
     
     static var shared:BriizeManager = BriizeManager()
     
-    var subCategoryArray:[String] = []
-    var categoryImage:UIImage?
-    var chosenCategoryTitle:String = ""
+    var subCategoryArray          :[String] = []
+    var categoryImage             :UIImage?
+    var chosenCategoryTitle       :String = ""
+    var currentSessionProfileState:String = ""
     
     func subCategoriesForCategory(category:String, img:UIImage) {
         self.chosenCategoryTitle = category
@@ -23,7 +24,7 @@ public class BriizeManager {
         
         switch category {
         case "Nails":
-            self.subCategoryArray = ["Manicure", "Pedicure", "Acrylic Fill", "Acrylic Full", "Design", "Gel/Acrylic Removal"]
+            self.subCategoryArray = ["Manicure", "Pedicure", "Acrylic Fill", "Acrylic Full", "Design", "Gel/Acrylic Removal", "La la land"]
             
         case "Make-Up":
             self.subCategoryArray = ["Bridal", "Custume", "Airbrush", "Evening", "Glamorous"]

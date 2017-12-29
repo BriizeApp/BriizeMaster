@@ -125,10 +125,8 @@
 		8401FFFA1F99ED0B005C0119 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				8401FFFB1F99ED25005C0119 /* APIManager.swift */,
-				8401FFFD1F99F659005C0119 /* AlertManager.swift */,
-				8497E4ED1FA1B8A5006F0DC4 /* BriizeManager.swift */,
-				EDF8DB321FCB809600BE9428 /* SearchResultManager.swift */,
+				84731F4E1FDE9DD100267D44 /* API */,
+				84731F4F1FDE9DE000267D44 /* Internal */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -176,6 +174,24 @@
 				8449BDF61F2DBCC300DD9E20 /* Info.plist */,
 			);
 			path = BriizeTests;
+			sourceTree = "<group>";
+		};
+		84731F4E1FDE9DD100267D44 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8401FFFB1F99ED25005C0119 /* APIManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		84731F4F1FDE9DE000267D44 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				8401FFFD1F99F659005C0119 /* AlertManager.swift */,
+				8497E4ED1FA1B8A5006F0DC4 /* BriizeManager.swift */,
+				EDF8DB321FCB809600BE9428 /* SearchResultManager.swift */,
+			);
+			path = Internal;
 			sourceTree = "<group>";
 		};
 		847D32701FB958380063D976 /* Main */ = {

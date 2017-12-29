@@ -12,7 +12,7 @@ import AVFoundation
 import NVActivityIndicatorView
 import Parse
 
-class SignInViewController: UIViewController,UINavigationControllerDelegate{
+class SignInViewController: UIViewController,UINavigationControllerDelegate, NVActivityIndicatorViewable {
     
     fileprivate var player  : AVPlayer!
     fileprivate var playerLayer : AVPlayerLayer!
@@ -69,9 +69,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
     private func cleanupVC() {
         NotificationCenter.default.removeObserver(self)
         
-        if self.loader != nil {
-            self.collapseLoading()
-        }
+        self.collapseLoading()
         self.usernameTextview.text?.removeAll()
         self.passwordTextview.text?.removeAll()
         self.player.pause()
@@ -112,20 +110,23 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         overlay = UIView(frame: view.frame)
         overlay!.backgroundColor = .black
         overlay!.alpha = 0.8
-        
-        loader = NVActivityIndicatorView(frame  : CGRect(x: 0,y: 0,width: 60.0,height: 60.0),
-                                         type   : .ballGridPulse,
-                                         color  : kPinkColor,
-                                         padding: nil)
-        loader!.center = overlay!.center
-        overlay?.addSubview(loader!)
         view.addSubview(overlay!)
         
-        loader!.startAnimating()
+        let loaderSize = CGSize(width: 60.0, height: 60.0)
+        startAnimating(loaderSize,
+                       message: "Loading Profile...",
+                       messageFont: nil,
+                       type: .ballGridPulse,
+                       color: kPinkColor,
+                       padding: nil,
+                       displayTimeThreshold: nil,
+                       minimumDisplayTime: nil,
+                       backgroundColor: nil,
+                       textColor: .white)
     }
     
     func collapseLoading() {
-        loader!.stopAnimating()
+        stopAnimating()
         overlay?.removeFromSuperview()
     }
     
@@ -134,6 +135,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         bottomLine.frame = CGRect(x:0.0,y: myTextField.frame.height - 1,
                                   width  : myTextField.frame.width,
                                   height : 1.0)
+        
         bottomLine.backgroundColor = UIColor.white.cgColor
         
         myTextField.borderStyle = UITextBorderStyle.none
@@ -144,7 +146,9 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate{
         guard self.usernameTextview.text != nil && self.passwordTextview.text != nil else {
             let alertManager = AlertManager(VC:self)
             let alert = alertManager.errorOnSignUp()
+            
             self.present(alert, animated: true, completion: nil)
+            
             return
         }
         let user = self.usernameTextview.text!

@@ -36,7 +36,6 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
         return SearchResultManager.shared.expertsToDisplay.count
     }
     
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -47,10 +46,11 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
         let searchResults = SearchResultManager.shared
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cece", for: indexPath) as! BeautyExpertResultTableCell
-        cell.expertName.text = searchResults.expertsToDisplay[row].fullName
-        cell.expertDistance.text = String("$" + "\(searchResults.expertsToDisplay[row].subCatPrice)")
         cell.expertImage.layer.cornerRadius = 50
-        
+        cell.expertName.text                = searchResults.expertsToDisplay[row].fullName
+        cell.expertDistance.text            = String("$" + "\(searchResults.expertsToDisplay[row].subCatPrice)")
+        cell.expertImage.image              = searchResults.expertsToDisplay[row].profileImage
+
         return cell
     }
     

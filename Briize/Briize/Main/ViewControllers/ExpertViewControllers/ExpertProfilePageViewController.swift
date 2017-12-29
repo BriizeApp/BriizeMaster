@@ -140,6 +140,8 @@ class ExpertProfilePageViewController: UIViewController, UINavigationControllerD
             
             self.imagePicker.dismiss(animated: true, completion: nil)
         }
+        
+        //change to save to experts class
         guard let userPhoto = PFUser.current() else {return}
         userPhoto["profilePhoto"] = imageFile
         userPhoto.saveInBackground { (success, error) in

@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         
         let configuration = ParseClientConfiguration {
-            $0.applicationId = " bri00"
-            $0.clientKey = "00bri"
+            $0.applicationId = " bri009"
+            $0.clientKey = "009bri"
             $0.server = "https://briize.herokuapp.com/parse"
         }
         Parse.initialize(with: configuration)

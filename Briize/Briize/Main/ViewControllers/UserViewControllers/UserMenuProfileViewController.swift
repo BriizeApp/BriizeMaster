@@ -20,7 +20,7 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
     fileprivate var overlay : UIView?
     fileprivate var loader  : NVActivityIndicatorView?
     
-    var randomArray: [String] = ["Find An Expert","Previous Orders","Settings","Log Out"]
+    var randomArray: [String] = ["Orders","Promo Code","Support","Log Out"]
     var imagePicker: UIImagePickerController!
     var imageToSave: UIImage?
     
@@ -89,6 +89,8 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
             
             self.imagePicker.dismiss(animated: true, completion: nil)
         }
+        
+        //change to save to clietns class
         guard let userPhoto = PFUser.current() else {return}
         userPhoto["profilePhoto"] = imageFile
         userPhoto.saveInBackground { (success, error) in
@@ -118,10 +120,40 @@ extension UserMenuProfileViewController : UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.font          = UIFont(name: "Lobster-Regular", size: 26.0)
+        cell.textLabel?.textColor     = .white
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.text          = self.randomArray[indexPath.row]
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)!
+        
+        switch cell.textLabel!.text! {
+            
+        case "Orders":
+            print("Profile Session - Orders")
+            
+        case "Promo Code":
+            print("Profile Session - promo Code")
+            
+        case "Support":
+            print("Profile Session - support")
+            
+        case "Log Out":
+            print("Profile Session - Log Out")
+            BriizeManager.shared.currentSessionProfileState = "Log Out"
+            kRxUserProfileState.value = BriizeManager.shared.currentSessionProfileState
+            
+        default:
+            print("Profile Session - Default")
+        }
+        
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     
 }

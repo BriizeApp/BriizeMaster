@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 public struct UserModel {
     
@@ -15,4 +16,5 @@ public struct UserModel {
     
     var fullName:String?
     var profileImage:UIImage?
+    var currentLocation:PFGeoPoint?
 }
