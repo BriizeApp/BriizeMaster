@@ -44,6 +44,7 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
     
     // MARK: Helper Methods
     private func setupUI () {
+         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.navigationController?.navigationBar.isHidden = true
         
         SideMenuManager.menuFadeStatusBar = false
@@ -90,16 +91,27 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
             self.imagePicker.dismiss(animated: true, completion: nil)
         }
         
-        //change to save to clietns class
+        //change to save to clients class
         guard let userPhoto = PFUser.current() else {return}
-        userPhoto["profilePhoto"] = imageFile
-        userPhoto.saveInBackground { (success, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            else {
-                DispatchQueue.main.async {
-                    kRxLoadingData.value = false
+        let name = userPhoto["fullName"] as! String
+        
+        let query = PFQuery(className: "Clients")
+        query.whereKey("fullName", equalTo: name)
+        query.findObjectsInBackground { (objects, error) in
+            if let objects = objects {
+                for o in objects {
+                    o["profilePic"] = imageFile
+                    o.saveInBackground(block: { (done, error) in
+                        if let error = error {
+                            print (error.localizedDescription)
+                        } else {
+                            if done == true {
+                                DispatchQueue.main.async {
+                                    kRxLoadingData.value = false
+                                }
+                            }
+                        }
+                    })
                 }
             }
         }
@@ -149,7 +161,6 @@ extension UserMenuProfileViewController : UITableViewDelegate, UITableViewDataSo
         default:
             print("Profile Session - Default")
         }
-        
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
         }

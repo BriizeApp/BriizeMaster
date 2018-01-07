@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewModel.swift"
-            timestampString = "536247488.072519"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "536912113.8976671"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "findExperts(state:category:subCategories:)"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "bindObservables()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +89,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewModel.swift"
-            timestampString = "536247488.072611"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "536912113.897756"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "findExperts(state:category:subCategories:)"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "bindObservables()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;Briize.ExpertModel&gt;) -&gt; () in Briize.SubCategorySelectionViewController.(bindObservables in _77E4806387224A9326D3BEAC011DD574)() -&gt; ()"
+                  moduleName = "Briize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/BriizeMaster/Briize/Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+                  timestampString = "536912114.01443"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #2 (Swift.Array&lt;Briize.ExpertModel&gt;) -&gt; () in Briize.SubCategorySelectionViewController.(bindObservables in _77E4806387224A9326D3BEAC011DD574)() -&gt; ()"
+                  moduleName = "Briize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/BriizeMaster/Briize/Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+                  timestampString = "536912114.01644"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "536912113.897831"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "bindObservables()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

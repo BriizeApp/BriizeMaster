@@ -60,6 +60,7 @@ public class APIManager {
                 var expertArray:[ExpertModel] = []
                 
                 for o in objects! {
+                
                     let online = o["isOnline"] as! Bool
                     if online == true  {
                         let name            = o["fullName"] as! String

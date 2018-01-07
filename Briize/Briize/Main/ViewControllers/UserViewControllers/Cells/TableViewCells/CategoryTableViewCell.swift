@@ -12,9 +12,17 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var catImage: UIImageView!
     @IBOutlet weak var catTitle: UILabel!
 
+    var category: MainCategory? {
+        didSet {
+            guard let title = category else { return }
+            catTitle.text = title.title
+            catImage.image = title.image
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

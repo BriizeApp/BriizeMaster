@@ -12,13 +12,15 @@ import AVFoundation
 import NVActivityIndicatorView
 import Parse
 
-class SignInViewController: UIViewController,UINavigationControllerDelegate, NVActivityIndicatorViewable {
+class SignInViewController: UIViewController, UINavigationControllerDelegate, NVActivityIndicatorViewable {
     
     fileprivate var player  : AVPlayer!
     fileprivate var playerLayer : AVPlayerLayer!
     
     fileprivate var overlay : UIView?
     fileprivate var loader  : NVActivityIndicatorView?
+    
+    let thisLoader = NVActivityIndicatorPresenter.sharedInstance
     
     @IBOutlet weak var logoImageView             : UIImageView!
     @IBOutlet weak var usernameTextview          : UITextField!
@@ -81,15 +83,21 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate, NVA
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
+        self.overlay = UIView(frame: view.frame)
+        self.overlay!.backgroundColor = .black
+        self.overlay!.alpha = 0.6
+        
         self.signInBUttonOutlet.layer.borderWidth          = 2
         self.signInBUttonOutlet.layer.borderColor          = kPinkColor.cgColor
         self.signInBUttonOutlet.layer.cornerRadius         = 25
+        
         self.createAccountButtonOutlet.layer.cornerRadius  = 10
         self.forgotPasswordButtonOutlet.layer.cornerRadius = 10
         self.createAccountButtonOutlet.layer.borderWidth   = 1.0
         self.createAccountButtonOutlet.layer.borderColor   = UIColor.white.cgColor
         self.forgotPasswordButtonOutlet.layer.borderWidth  = 1.0
         self.forgotPasswordButtonOutlet.layer.borderColor  = UIColor.white.cgColor
+        
         self.setupTextViews()
     }
     
@@ -102,32 +110,6 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate, NVA
                                                                          attributes: [NSForegroundColorAttributeName: UIColor.white])
         self.addBottomBorderToTextField(myTextField: self.usernameTextview)
         self.addBottomBorderToTextField(myTextField: self.passwordTextview)
-    }
-    
-    private func setupLoading() {
-        self.player.pause()
-        
-        overlay = UIView(frame: view.frame)
-        overlay!.backgroundColor = .black
-        overlay!.alpha = 0.8
-        view.addSubview(overlay!)
-        
-        let loaderSize = CGSize(width: 60.0, height: 60.0)
-        startAnimating(loaderSize,
-                       message: "Loading Profile...",
-                       messageFont: nil,
-                       type: .ballGridPulse,
-                       color: kPinkColor,
-                       padding: nil,
-                       displayTimeThreshold: nil,
-                       minimumDisplayTime: nil,
-                       backgroundColor: nil,
-                       textColor: .white)
-    }
-    
-    func collapseLoading() {
-        stopAnimating()
-        overlay?.removeFromSuperview()
     }
     
     private func addBottomBorderToTextField(myTextField:UITextField) {
@@ -161,6 +143,7 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate, NVA
     }
     
     private func setupSubViews() {
+        self.view.insertSubview(self.overlay!, at: 1)
         self.view.bringSubview(toFront: self.logoImageView)
         self.view.bringSubview(toFront: self.createAccountButtonOutlet)
         self.view.bringSubview(toFront: self.usernameTextview)
@@ -172,6 +155,27 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate, NVA
     
     @objc private func dismissKeyboard() {
         self.view.endEditing(true)
+    }
+    
+    private func setupLoading() {
+        self.player.pause()
+        
+        let loaderSize   = CGSize(width: 60.0, height: 60.0)
+        startAnimating(loaderSize,
+                       message: "Loading Profile...",
+                       messageFont: nil,
+                       type: .ballGridPulse,
+                       color: kPinkColor,
+                       padding: nil,
+                       displayTimeThreshold: nil,
+                       minimumDisplayTime: nil,
+                       backgroundColor: nil,
+                       textColor: .white)
+    }
+    
+    func collapseLoading() {
+        stopAnimating()
+        
     }
     
     // Background Video Methods
@@ -211,6 +215,9 @@ class SignInViewController: UIViewController,UINavigationControllerDelegate, NVA
     }
     
     @IBAction func signInButtonPressed(_ sender: Any) {
+        self.usernameTextview.text = "miles.fishman@yahoo.com"
+        self.passwordTextview.text = "devguy123"
+        
         self.setupLoading()
         self.login()
     }

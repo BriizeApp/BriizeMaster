@@ -29,6 +29,8 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
+        kRxExpertArray.value = []
+        
         self.dismiss(animated: true, completion: nil)
     }
     

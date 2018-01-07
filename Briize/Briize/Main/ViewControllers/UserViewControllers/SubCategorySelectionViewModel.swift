@@ -9,13 +9,22 @@
 import Foundation
 import Parse
 import BoltsSwift
+import RxSwift
+import RxCocoa
+
+public struct SubCategory {
+    var title:String = "N/A"
+}
 
 class SubCategorySelectionViewModel {
-    var bindedController:SubCategorySelectionViewController
+    let titles = Variable<[SubCategory]>([])
+
     var expertsToUse:[ExpertModel] = []
     
-    init(sender:SubCategorySelectionViewController) {
-        self.bindedController = sender
+    init() {
+        let briizeManager     = BriizeManager.shared
+        let subCategoryArray  = briizeManager.subCategoryArray
+        self.titles.value     = subCategoryArray
     }
     
     func findExperts(state:String, category:String, subCategories:[String]) -> Task<[ExpertModel]?> {

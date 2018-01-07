@@ -25,32 +25,21 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
     var locationManager = CLLocationManager()
     var menuOpened:Bool = false
     
-    let titles:[String]  = ["Make-Up", "Eyes & Brows", "Hair", "Nails"]
-    let pics  :[UIImage] = [#imageLiteral(resourceName: "cat2"),#imageLiteral(resourceName: "cat4"),#imageLiteral(resourceName: "cat3"),#imageLiteral(resourceName: "cat1")]
-    let blurEffectView   = UIVisualEffectView()
-    
+    let viewModel         = CategorySelectViewModel()
     let rxDisposeBag      = DisposeBag()
     let rxLocationChecker = Variable<PFGeoPoint?>(UserModel.current.currentLocation)
-    let rxProfileState    = Variable<String> (BriizeManager.shared.currentSessionProfileState)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.configureTableView()
         self.bindObservables()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if menuOpened == true {
-            menuOpened = false
-            blurEffectView.removeFromSuperview()
-        }
+        self.bindProfileStateObservable()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        kRxUserProfileState.value = "Default"
+        self.cleanUp()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -65,43 +54,86 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.navigationController?.navigationBar.isHidden = true
         
-        self.menuImage.layer.cornerRadius = 25
-        self.menuImage.layer.borderColor = UIColor.white.cgColor
-        self.menuImage.layer.borderWidth = 2.0
+        self.menuImage.layer.cornerRadius = 20
+        self.menuImage.layer.borderColor  = UIColor.lightGray.cgColor
+        self.menuImage.layer.borderWidth  = 1.0
         
-        self.catTableView.delegate = self
-        self.catTableView.dataSource = self
+        self.catTableView.layer.cornerRadius = 14
+        self.catTableView.layer.borderWidth  = 1.0
+        self.catTableView.layer.borderColor  = UIColor.lightGray.cgColor
         
         self.locationManager.delegate = self
         self.locationManager.requestAlwaysAuthorization()
     }
     
-    func setupLoading() {
-        overlay = UIView(frame: view.frame)
-        overlay!.backgroundColor = .black
-        overlay!.alpha = 0.8
-        
-        loader = NVActivityIndicatorView(frame  : CGRect(x: 0,y: 0,width: 60.0,height: 60.0),
-                                         type   : .ballGridPulse,
-                                         color  : kPinkColor,
-                                         padding: nil)
-        loader!.center = overlay!.center
-        overlay?.addSubview(loader!)
-        
-        view.addSubview(overlay!)
-        
-        loader!.startAnimating()
-    }
     
-    func collapseLoading() {
-        if loader != nil {
-            loader!.stopAnimating()
-            overlay?.removeFromSuperview()
-        }
+    private func configureTableView() {
+        self.catTableView.rowHeight = 193
+        self.catTableView
+            .rx
+            .itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let this = self else {return}
+                let cell = this.catTableView.cellForRow(at: indexPath) as! CategoryTableViewCell
+                let image = cell.catImage.image!
+                let text  = cell.catTitle.text!
+                
+                let txt   = text
+                let img   = image
+                SearchResultManager.shared.chosenCategory = txt
+                BriizeManager.shared.subCategoriesForCategory(category: txt, img:img)
+                
+                DispatchQueue.main.async {
+                    this.catTableView.deselectRow(at: indexPath, animated: true)
+                    this.performSegue(withIdentifier: "openSubCats", sender: self)
+                }
+            })
+            .disposed(by: self.rxDisposeBag)
     }
     
     func bindObservables() {
-        kRxMenuImage
+        self.viewModel
+            .categories
+            .asObservable()
+            .bind(to: self.catTableView.rx.items(
+                cellIdentifier: "coco",
+                cellType: CategoryTableViewCell.self)){ row, mainCategory, cell in
+                    cell.alpha = 0
+                    cell.category = mainCategory
+                    
+                    UIView.animate(withDuration: 1.0) {
+                        cell.alpha = 1.0
+                    }
+            }
+            .disposed(by: self.rxDisposeBag)
+        
+        self.rxLocationChecker
+            .asObservable()
+            .subscribe(onNext: {(geoPoint) in
+                switch geoPoint == nil {
+                case true:
+                    _ = PFGeoPoint.geoPointForCurrentLocation(inBackground: { (currentPoint, error) in
+                        if error == nil {
+                            print(currentPoint!)
+                            
+                            let currentLocationGeoPoint = currentPoint!
+                            UserModel.current.currentLocation = currentLocationGeoPoint
+                            
+                        } else {
+                            print(error!.localizedDescription) //No error either
+                        }
+                    })
+                    
+                case false:
+                    print("User has currentLocation")
+                }
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            
+            .disposed(by: self.rxDisposeBag)
+        
+        BriizeManager
+            .shared
+            .rxProfileImage
             .asObservable()
             .subscribe(onNext: { [weak self] (profilePicture) in
                 guard let strongSelf = self else {return}
@@ -118,7 +150,9 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.rxDisposeBag)
         
-        kRxLoadingData
+        BriizeManager
+            .shared
+            .rxLoadingData
             .asObservable()
             .subscribe(onNext: { [weak self] (loading) in
                 guard let strongSelf = self else {return}
@@ -135,29 +169,12 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
                 }
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.rxDisposeBag)
-        
-        self.rxLocationChecker
-            .asObservable()
-            .subscribe(onNext: {(geoPoint) in
-                switch geoPoint == nil {
-                case true:
-                    _ = PFGeoPoint.geoPointForCurrentLocation(inBackground: { (currentPoint, error) in
-                        if error == nil {
-                            print(currentPoint!)
-                            UserModel.current.currentLocation = currentPoint
-                            
-                        } else {
-                            print(error!.localizedDescription) //No error either
-                        }
-                    })
-                    
-                case false:
-                    print("User has currentLocation")
-                }
-            }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .disposed(by: self.rxDisposeBag)
-        
-        kRxUserProfileState
+    }
+    
+    func bindProfileStateObservable() {
+        BriizeManager
+            .shared
+            .rxClientProfileState
             .asObservable()
             .subscribe(onNext: { [weak self] (stateString) in
                 guard let strongSelf = self else {return}
@@ -186,13 +203,42 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
     func handleLogout() {
         self.setupLoading()
         PFUser.logOutInBackground(block: { [weak self] (error) in
+            guard let strongSelf = self else {return}
             if error == nil {
                 DispatchQueue.main.async {
-                    self?.collapseLoading()
-                    self?.navigationController?.popToRootViewController(animated: true)
+                    strongSelf.collapseLoading()
+                    strongSelf.navigationController?.popToRootViewController(animated: true)
                 }
             }
         })
+    }
+    
+    func cleanUp() {
+        BriizeManager.shared.rxClientProfileState.value = "Default"
+    }
+    
+    func setupLoading() {
+        overlay = UIView(frame: view.frame)
+        overlay!.backgroundColor = .black
+        overlay!.alpha = 0.8
+        
+        loader = NVActivityIndicatorView(frame  : CGRect(x: 0,y: 0,width: 60.0,height: 60.0),
+                                         type   : .ballGridPulse,
+                                         color  : kPinkColor,
+                                         padding: nil)
+        loader!.center = overlay!.center
+        overlay?.addSubview(loader!)
+        
+        view.addSubview(overlay!)
+        
+        loader!.startAnimating()
+    }
+    
+    func collapseLoading() {
+        if loader != nil {
+            loader!.stopAnimating()
+            overlay?.removeFromSuperview()
+        }
     }
     
     @IBAction func openMenuButtonPressed(_ sender: Any) {
@@ -202,44 +248,6 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
     
     @IBAction func dismiss(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-}
-
-extension CategorySelectViewController : UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        guard  let cell  = tableView.cellForRow(at: indexPath) as? CategoryTableViewCell else {return}
-        let image = cell.catImage.image!
-        let text  = cell.catTitle.text!
-        let txt   = text
-        let img   = image
-        
-        SearchResultManager.shared.chosenCategory = txt
-        BriizeManager.shared.subCategoriesForCategory(category: txt, img:img)
-        
-        self.performSegue(withIdentifier: "openSubCats", sender: self)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.titles.count
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "coco", for: indexPath) as! CategoryTableViewCell
-        let row = indexPath.row
-        
-        cell.layoutSubviews()
-        cell.catTitle.text  = titles[row]
-        cell.catImage.image = pics[row]
-        
-        return cell
     }
     
 }

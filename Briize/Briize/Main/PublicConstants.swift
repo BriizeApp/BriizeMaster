@@ -15,12 +15,14 @@ import RxCocoa
 
 // MARK: UI Contants
 public var kPinkColor = UIColor(red: 255.0/255.0, green: 195.0/255.0, blue: 225.0/255.0, alpha: 1.0)
+public var kGoldColor = UIColor(red: 192.0/255.0, green: 178.0/255.0, blue: 131.0/255.0, alpha: 1.0)
 
 // MARK: Public Reactive Observables
 public var kRxMenuImage          = Variable<UIImage?>(UserModel.current.profileImage)
 public var kRxLoadingData        = Variable<Bool>(false)
 public var kRxUserProfileState   = Variable<String>("default")
 public var kRxExpertProfileState = Variable<String>("default")
+public var kRxExpertArray        = Variable<[ExpertModel]>([])
 
 // MARK: Public Helper Constants
 public var kUSStates:[String] = [ "Alabama",
