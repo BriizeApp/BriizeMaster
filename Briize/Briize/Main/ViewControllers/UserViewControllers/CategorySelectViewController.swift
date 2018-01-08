@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MessageUI
 import RxSwift
 import RxCocoa
 import NVActivityIndicatorView
@@ -188,6 +189,7 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
                     
                 case "Support":
                     print("Profile Session - support")
+                    strongSelf.handleSupportSetting()
                     
                 case "Log Out":
                     print("Profile Session - Log Out")
@@ -202,15 +204,22 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
     
     func handleLogout() {
         self.setupLoading()
+        
         PFUser.logOutInBackground(block: { [weak self] (error) in
             guard let strongSelf = self else {return}
+            
             if error == nil {
                 DispatchQueue.main.async {
-                    strongSelf.collapseLoading()
                     strongSelf.navigationController?.popToRootViewController(animated: true)
                 }
+            } else {
+                print(error!.localizedDescription)
             }
         })
+    }
+    
+    func handleSupportSetting() {
+       self.sendEmail()
     }
     
     func cleanUp() {
@@ -251,3 +260,23 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
     }
     
 }
+
+extension CategorySelectViewController: MFMailComposeViewControllerDelegate {
+    
+    func sendEmail() {
+        let composeVC = MFMailComposeViewController()
+        composeVC.mailComposeDelegate = self
+        composeVC.setToRecipients(["Briizebeauty@gmail.com"])
+        composeVC.setSubject("Inquiry")
+        composeVC.setMessageBody("How can we help?", isHTML: false)
+        // Present the view controller modally.
+        self.present(composeVC, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+

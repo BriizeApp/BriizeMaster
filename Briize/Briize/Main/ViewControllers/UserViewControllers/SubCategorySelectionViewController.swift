@@ -80,11 +80,11 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     }
     
     private func initialLoadAnimation() {
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 0.3,
                        delay: 0.1,
                        options: .curveEaseInOut,
                        animations: {
-                        self.collecTionViewHeightConstraint.constant = 300
+                        self.collecTionViewHeightConstraint.constant = 275
                         self.view.layoutIfNeeded()
         },
                        completion: nil)

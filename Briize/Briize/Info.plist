@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<string>com.briannaCuba.Briize-Admin</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -18,8 +18,25 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Please let Briize access your camera to be able to change and update your profile photo.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Briize needs to access the location settings on your iPhone to determine potential clients for you near by.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Briize needs to access the location settings on your iPhone to determine potential clients for you near by.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Briize needs to access the location settings on your iPhone to determine potential clients for you near by.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please let Briize access your photo library to be able to change and update your profile photo.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lobster-Regular.ttf</string>
@@ -38,22 +55,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSCameraUsageDescription</key>
-	<string>Please let Briize access your camera to be able to change and update your profile photo.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Please let Briize access your photo library to be able to change and update your profile photo.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Briize needs to access the location settings on your iPhone to determine potential clients for you near by.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Briize needs to access the location settings on your iPhone to determine potential clients for you near by.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Briize needs to access the location settings on your iPhone to determine potential clients for you near by.</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 </dict>
 </plist>

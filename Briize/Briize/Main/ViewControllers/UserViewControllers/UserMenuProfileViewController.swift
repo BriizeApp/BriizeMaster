@@ -152,11 +152,11 @@ extension UserMenuProfileViewController : UITableViewDelegate, UITableViewDataSo
             
         case "Support":
             print("Profile Session - support")
+            BriizeManager.shared.rxExpertProfileState.value = "Support"
             
         case "Log Out":
             print("Profile Session - Log Out")
-            BriizeManager.shared.currentSessionProfileState = "Log Out"
-            kRxUserProfileState.value = BriizeManager.shared.currentSessionProfileState
+            BriizeManager.shared.rxExpertProfileState.value = "Log Out"
             
         default:
             print("Profile Session - Default")
