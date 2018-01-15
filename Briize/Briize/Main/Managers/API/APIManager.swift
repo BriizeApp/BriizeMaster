@@ -205,7 +205,7 @@ public class APIManager {
                                                     }
                                                 } else {
                                                     if let img = picture {
-                                                        kRxMenuImage.value = img
+                                                        BriizeManager.shared.rxProfileImage.value = img
                                                         UserModel.current.profileImage = img
                                                     }
                                                     DispatchQueue.main.async {

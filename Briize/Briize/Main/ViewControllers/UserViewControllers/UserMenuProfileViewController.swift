@@ -44,7 +44,7 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
     
     // MARK: Helper Methods
     private func setupUI () {
-         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.navigationController?.navigationBar.isHidden = true
         
         SideMenuManager.menuFadeStatusBar = false
@@ -79,35 +79,36 @@ class UserMenuProfileViewController : UIViewController, UINavigationControllerDe
             else {
                 return
         }
+        let photo     = UIImage(data: compressedImageData)
         let imageData = compressedImageData
         let imageFile = PFFile(name:"profileImage.png", data:imageData)
         
+        UserModel.current.profileImage            = photo
+        BriizeManager.shared.rxProfileImage.value = photo
+        BriizeManager.shared.rxLoadingData.value  = true
+        
         DispatchQueue.main.async {
-            let photo = UIImage(data: compressedImageData)
-            UserModel.current.profileImage = photo
-            kRxMenuImage.value             = photo
-            kRxLoadingData.value           = true
-            
             self.imagePicker.dismiss(animated: true, completion: nil)
         }
         
-        //change to save to clients class
         guard let userPhoto = PFUser.current() else {return}
         let name = userPhoto["fullName"] as! String
         
         let query = PFQuery(className: "Clients")
         query.whereKey("fullName", equalTo: name)
         query.findObjectsInBackground { (objects, error) in
+            
             if let objects = objects {
-                for o in objects {
-                    o["profilePic"] = imageFile
-                    o.saveInBackground(block: { (done, error) in
+                _ = objects.map {
+                    $0["profilePic"] = imageFile
+                    $0.saveInBackground(block: { (done, error) in
+                        
                         if let error = error {
                             print (error.localizedDescription)
                         } else {
                             if done == true {
                                 DispatchQueue.main.async {
-                                    kRxLoadingData.value = false
+                                    BriizeManager.shared.rxLoadingData.value = false
                                 }
                             }
                         }
@@ -140,29 +141,36 @@ extension UserMenuProfileViewController : UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var profileState:String = "Default"
+        
         let cell = tableView.cellForRow(at: indexPath)!
+        cell.backgroundColor = kPinkColor
         
         switch cell.textLabel!.text! {
-            
         case "Orders":
             print("Profile Session - Orders")
+            profileState = "Orders"
             
         case "Promo Code":
             print("Profile Session - promo Code")
+            profileState = "Promo Code"
             
         case "Support":
             print("Profile Session - support")
-            BriizeManager.shared.rxExpertProfileState.value = "Support"
+            profileState = "Support"
             
         case "Log Out":
             print("Profile Session - Log Out")
-            BriizeManager.shared.rxExpertProfileState.value = "Log Out"
+            profileState = "Log Out"
             
         default:
+            // Idle profile state.
             print("Profile Session - Default")
         }
         DispatchQueue.main.async {
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true) {
+                BriizeManager.shared.rxClientProfileState.value = profileState
+            }
         }
     }
     

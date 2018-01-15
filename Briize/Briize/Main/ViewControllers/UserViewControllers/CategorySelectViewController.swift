@@ -81,6 +81,7 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
                 
                 let txt   = text
                 let img   = image
+                
                 SearchResultManager.shared.chosenCategory = txt
                 BriizeManager.shared.subCategoriesForCategory(category: txt, img:img)
                 
@@ -177,6 +178,7 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
             .shared
             .rxClientProfileState
             .asObservable()
+            .delaySubscription(2.0, scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] (stateString) in
                 guard let strongSelf = self else {return}
                 
@@ -269,6 +271,7 @@ extension CategorySelectViewController: MFMailComposeViewControllerDelegate {
         composeVC.setToRecipients(["Briizebeauty@gmail.com"])
         composeVC.setSubject("Inquiry")
         composeVC.setMessageBody("How can we help?", isHTML: false)
+        
         // Present the view controller modally.
         self.present(composeVC, animated: true, completion: nil)
     }

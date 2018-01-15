@@ -270,11 +270,12 @@
 		8497E4E31FA045EC006F0DC4 /* UserViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */,
 				8439D2181F43FA6000F00FF8 /* CategorySelectViewController.swift */,
 				8464DE411FFC90A700DB49D1 /* CategorySelectViewModel.swift */,
 				84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */,
 				84E347AA1FD91FAF006C3964 /* SubCategorySelectionViewModel.swift */,
-				84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */,
+				8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */,
 				8497E4EC1FA1B5B7006F0DC4 /* Cells */,
 			);
 			path = UserViewControllers;
@@ -285,7 +286,6 @@
 			children = (
 				8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */,
 				8464DE431FFF6A5800DB49D1 /* ExpertProfilePageViewModel.swift */,
-				8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */,
 				847D32751FBAF8930063D976 /* Cells */,
 			);
 			path = ExpertViewControllers;

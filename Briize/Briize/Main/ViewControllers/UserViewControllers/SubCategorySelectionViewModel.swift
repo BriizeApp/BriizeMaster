@@ -32,8 +32,8 @@ class SubCategorySelectionViewModel {
         
         let apiManager = APIManager()
         apiManager
-            .findLiveExpertsInUserState(state:state,
-                                        category: category,
+            .findLiveExpertsInUserState(state        :state,
+                                        category     : category,
                                         subCategories: subCategories)
             
             .continueWith(continuation: { names in
@@ -58,7 +58,7 @@ class SubCategorySelectionViewModel {
                                                                            subCategories: subCategories)
                                         
                                         .continueWith(continuation: { experts in
-                                            switch experts.error == nil {
+                                            switch experts.error == nil && experts.result != nil {
                                             case true:
                                                 completionTask.set(result: experts.result!)
                                                 print("Did it")

@@ -215,8 +215,8 @@ class SignInViewController: UIViewController, UINavigationControllerDelegate, NV
     }
     
     @IBAction func signInButtonPressed(_ sender: Any) {
-//        self.usernameTextview.text = "miles.fishman@yahoo.com"
-//        self.passwordTextview.text = "devguy123"
+        self.usernameTextview.text = "miles.fishman@yahoo.com"
+        self.passwordTextview.text = "devguy123"
         
         self.setupLoading()
         self.login()
