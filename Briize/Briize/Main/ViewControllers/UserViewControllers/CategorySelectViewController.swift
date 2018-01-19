@@ -178,7 +178,7 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
             .shared
             .rxClientProfileState
             .asObservable()
-            .delaySubscription(2.0, scheduler: MainScheduler.instance)
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] (stateString) in
                 guard let strongSelf = self else {return}
                 
@@ -221,7 +221,9 @@ class CategorySelectViewController: UIViewController, CLLocationManagerDelegate 
     }
     
     func handleSupportSetting() {
-       self.sendEmail()
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] _ in
+            self?.sendEmail()
+        }
     }
     
     func cleanUp() {

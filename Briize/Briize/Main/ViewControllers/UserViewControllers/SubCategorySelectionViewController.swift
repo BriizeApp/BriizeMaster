@@ -17,8 +17,8 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     
     fileprivate var overlay             :UIView?
     fileprivate var chosenSubCategories :[String] = []
-    fileprivate var count               :Int? = nil
-    fileprivate var counter             :Int? = nil
+    fileprivate var count               :Int? = 0
+    fileprivate var counter             :Int? = 0
     fileprivate var finalGroupOfExperts :[ExpertModel] = []
     
     private let rxDisposebag  = DisposeBag()
@@ -49,11 +49,7 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("gone")
-        let cells = self.suategoryCollectionView.visibleCells
-        for cell in cells {
-            cell.layer.borderColor = UIColor.clear.cgColor
-        }
+        self.cleanUp()
     }
     
     deinit {
@@ -117,20 +113,26 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
         self.count     = self.counter
         let arrayCount = self.count
         
+        print(arrayCount!, modelArray.count)
+        
         switch modelArray.count == arrayCount {
         case true:
             SearchResultManager.shared.expertsToDisplay = modelArray
-            
-            self.collapseLoading()
-            self.count   = 0
-            self.counter = 0
+            print("im hererererere")
             
             DispatchQueue.main.async {
+                self.collapseLoading()
+                self.count   = 0
+                self.counter = 0
+                
                 self.performSegue(withIdentifier: "showExpertSearch", sender: self)
             }
             
         case false:
-            return
+            print("im ahhhhhhh")
+            self.collapseLoading()
+            
+            break
         }
     }
     
@@ -155,7 +157,7 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
             cell.layer.borderColor = UIColor.clear.cgColor
             
             let myArray = SearchResultManager.shared.subCatToSearchFor
-            SearchResultManager.shared.subCatToSearchFor = myArray.filter{
+            SearchResultManager.shared.subCatToSearchFor = myArray.filter {
                 $0 != cell.titleLabel.text!
             }
             return
@@ -170,6 +172,7 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     
     private func convertExpertPicDataToImage(experts:[ExpertModel]) {
         self.counter = experts.count
+        print(self.counter!)
         
         for e in experts {
             let file = e.profilePicFile!
@@ -190,6 +193,17 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
         let cats      = SearchResultManager.shared.subCatToSearchFor
         let chosenCat = SearchResultManager.shared.chosenCategory
         
+        if cats.isEmpty {
+            let alertManager = AlertManager(VC: self)
+            let alert = alertManager.error(message: "Please select at least 1 one service")
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+            
+        } else {
+            self.setupLoading()
+        }
+        
         self.viewModel
             .findExperts(state        : "California",
                          category     : chosenCat,
@@ -197,15 +211,20 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
             .continueWith { [weak self] (experts) in
                 guard let strongSelf = self else {return}
                 
-                switch experts.result != nil {
-                case true:
-                    guard let exps = experts.result else {return}
-                    strongSelf.convertExpertPicDataToImage(experts: exps!)
-                    
-                case false:
-                    if experts.error != nil {
-                        //Handle Error
+                DispatchQueue.main.async {
+                    switch experts.result != nil {
+                    case true:
+                        guard let exps = experts.result else {return}
+                        strongSelf.convertExpertPicDataToImage(experts: exps!)
+                        
+                    case false:
+                        if experts.error != nil {
+                            let alertmanager = AlertManager(VC: strongSelf)
+                            let alert = alertmanager.error(message: "\(experts.error!.localizedDescription)")
+                            strongSelf.present(alert, animated: true, completion: nil)
+                        }
                     }
+                    strongSelf.collapseLoading()
                 }
         }
     }
@@ -215,12 +234,15 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
         SearchResultManager.shared.subCatToSearchFor.removeAll()
     }
     
-    private func setupLoading() {
-        overlay = UIView(frame: view.frame)
-        overlay!.backgroundColor = .black
-        overlay!.alpha = 0.8
-        view.addSubview(overlay!)
+    private func cleanUp() {
+        BriizeManager.shared.rxExpertModelArray.value.removeAll()
         
+        let cells = self.suategoryCollectionView.visibleCells
+        for cell in cells {
+            cell.layer.borderColor = UIColor.clear.cgColor
+        }
+    }
+    private func setupLoading() {
         let loaderSize = CGSize(width: 60.0, height: 60.0)
         startAnimating(loaderSize,
                        message: "Finding Experts...",
@@ -236,7 +258,6 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     
     private func collapseLoading() {
         stopAnimating()
-        overlay?.removeFromSuperview()
     }
     
     // MARK: Button Pressed Methods
@@ -245,7 +266,6 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     }
     
     @IBAction func submitButtonPressed(_ sender: Any) {
-        self.setupLoading()
         self.submitSubCategoriesAndFindExpert()
     }
     

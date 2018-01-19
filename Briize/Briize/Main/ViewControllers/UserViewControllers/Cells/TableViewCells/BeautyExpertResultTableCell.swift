@@ -21,9 +21,18 @@ class BeautyExpertResultTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        requestButtonOutlet.layer.cornerRadius = 8
-        schedRequestButtonOutlet.layer.cornerRadius = 8
-        photosButtonOutlet.layer.cornerRadius = 8
+        
+        requestButtonOutlet.layer.cornerRadius      = 25
+        requestButtonOutlet.layer.borderWidth       = 1.0
+        requestButtonOutlet.layer.borderColor       = kGoldColor.cgColor
+        expertImage.layer.borderWidth               = 1.0
+        expertImage.layer.borderColor               = kGoldColor.cgColor
+        schedRequestButtonOutlet.layer.borderWidth  = 1.0
+        schedRequestButtonOutlet.layer.borderColor  = kGoldColor.cgColor
+        schedRequestButtonOutlet.layer.cornerRadius = 25
+        photosButtonOutlet.layer.borderColor        = kGoldColor.cgColor
+        photosButtonOutlet.layer.cornerRadius       = 8
+        photosButtonOutlet.layer.cornerRadius       = 25
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

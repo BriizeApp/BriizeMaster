@@ -51,6 +51,18 @@ public class AlertManager {
         return alert
     }
     
+    func error(message: String) -> UIAlertController {
+        let alert = UIAlertController(title: "Something went wrong",
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        let actionOne = UIAlertAction(title: "Ok",
+                                      style: .destructive)
+        alert.addAction(actionOne)
+        
+        return alert
+    }
+    
     func successOnSignUp() -> UIAlertController {
         let alert = UIAlertController(title: "Congrats!",
                                       message: "Please go ahead and login using the email and password you registered with ",

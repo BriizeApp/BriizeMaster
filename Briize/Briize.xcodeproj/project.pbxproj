@@ -218,6 +218,7 @@
 		847D32731FBAF8720063D976 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				8439D2141F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift */,
 				8439D21A1F43FD2200F00FF8 /* CategoryTableViewCell.swift */,
 			);
 			path = TableViewCells;
@@ -234,18 +235,17 @@
 		847D32751FBAF8930063D976 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				847D32761FBAF89B0063D976 /* TableViewCells */,
-				8464DE451FFF6C6100DB49D1 /* ExpertSettingCollectionViewCell.swift */,
+				847D32761FBAF89B0063D976 /* CollectionViewCells */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		847D32761FBAF89B0063D976 /* TableViewCells */ = {
+		847D32761FBAF89B0063D976 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				8439D2141F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift */,
+				8464DE451FFF6C6100DB49D1 /* ExpertSettingCollectionViewCell.swift */,
 			);
-			path = TableViewCells;
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		8497E4E11FA04584006F0DC4 /* SignInAndCreateAccount */ = {
