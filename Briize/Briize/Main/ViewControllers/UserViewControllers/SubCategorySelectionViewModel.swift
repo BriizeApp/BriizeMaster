@@ -11,6 +11,7 @@ import Parse
 import BoltsSwift
 import RxSwift
 import RxCocoa
+import NVActivityIndicatorView
 
 public struct SubCategory {
     var title:String = "N/A"
@@ -42,6 +43,8 @@ class SubCategorySelectionViewModel {
                     guard let experts = names.result else {return}
                     let user = UserModel.current
                     
+                    NVActivityIndicatorPresenter.sharedInstance.setMessage("Finding Experts...30%")
+                    
                     apiManager
                         .findExpertsClosestToUser(userLocation : user.currentLocation!,
                                                   experts      : experts!,
@@ -52,6 +55,8 @@ class SubCategorySelectionViewModel {
                             switch expertArray.error == nil {
                             case true:
                                 if expertArray.result != nil {
+                                    NVActivityIndicatorPresenter.sharedInstance.setMessage("Finding Experts...97%")
+                                    
                                     apiManager
                                         .matchExpertsToChosenSubCategories(names        : expertArray.result!!,
                                                                            category     : category,
@@ -60,6 +65,8 @@ class SubCategorySelectionViewModel {
                                         .continueWith(continuation: { experts in
                                             switch experts.error == nil && experts.result != nil {
                                             case true:
+                                                NVActivityIndicatorPresenter.sharedInstance.setMessage("Finding Experts...99%")
+                                                
                                                 completionTask.set(result: experts.result!)
                                                 print("Did it")
                                                 

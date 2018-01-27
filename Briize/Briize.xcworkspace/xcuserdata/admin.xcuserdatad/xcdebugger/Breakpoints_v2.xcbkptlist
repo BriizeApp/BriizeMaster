@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.266089"
+            timestampString = "538706267.14446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "bindObservables()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.2661771"
+            timestampString = "538706267.1445529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "prepareDataWithExpertModelArray(modelArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.2662539"
+            timestampString = "538706267.14463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "submitSubCategoriesAndFindExpert()"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.266325"
+            timestampString = "538706267.1447051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "submitSubCategoriesAndFindExpert()"
             landmarkType = "7">
             <Locations>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.266396"
+            timestampString = "538706267.144779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "submitSubCategoriesAndFindExpert()"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.266466"
+            timestampString = "538706267.144853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "submitSubCategoriesAndFindExpert()"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.266537"
+            timestampString = "538706267.144927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "submitSubCategoriesAndFindExpert()"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.266608"
+            timestampString = "538706267.145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "submitSubCategoriesAndFindExpert()"
             landmarkType = "7">
             <Locations>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.266678"
+            timestampString = "538706267.1450731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "submitSubCategoriesAndFindExpert()"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.266803"
+            timestampString = "538706267.145146"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "submitSubCategoriesAndFindExpert()"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.266898"
+            timestampString = "538706267.145218"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "prepareDataWithExpertModelArray(modelArray:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "538043543.266983"
+            timestampString = "538706267.14529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "prepareDataWithExpertModelArray(modelArray:)"
             landmarkType = "7">
             <Locations>
@@ -353,22 +353,6 @@
                   offsetFromSymbolStart = "12">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Briize/Main/ViewControllers/UserViewControllers/BeautyExpertSearchViewController.swift"
-            timestampString = "538043543.267065"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "setupUI()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

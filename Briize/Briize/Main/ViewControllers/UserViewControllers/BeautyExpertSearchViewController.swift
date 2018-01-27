@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 import Parse
+import MapKit
 
 class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var expertFilterSegmentControl: UISegmentedControl!
-    @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var tableContainerView: UIView!
     @IBOutlet weak var beautyTableView: UITableView!
     @IBOutlet weak var tableContainerTopConstraint: NSLayoutConstraint!
@@ -26,6 +27,7 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.setupMap()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +40,7 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
         super.viewDidAppear(animated)
         
         UIView.animate(withDuration: 0.3, animations: {
-            self.tableContainerTopConstraint.constant = -93
+            //self.tableContainerTopConstraint.constant = -93
             self.view.layoutIfNeeded()
         }) {
             finished in
@@ -52,11 +54,14 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
     }
     
     deinit {
+        self.mapView.removeFromSuperview()
+        self.mapView = nil
+        
         print("\(self.description) - deinit successful")
     }
     
     private func setupUI(){
-        self.tableContainerTopConstraint.constant = -45
+        //self.tableContainerTopConstraint.constant = -45
         
         self.beautyTableView.delegate   = self
         self.beautyTableView.dataSource = self
@@ -65,12 +70,24 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
         self.beautyTableView.layer.borderColor = UIColor.white.cgColor
         self.beautyTableView.layer.cornerRadius    = 18
         self.tableContainerView.layer.cornerRadius = 18
+    }
+    
+    private func setupMap() {
+        self.mapView.mapType = MKMapType.standard
         
-        let frameSize = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.headerImageView.frame.height)
-        let overlay = UIView(frame: frameSize)
-        overlay.backgroundColor = .black
-        overlay.alpha = 0.7
-        self.headerImageView.insertSubview(overlay, at: 0)
+        let location = CLLocationCoordinate2D(latitude: 23.0225,longitude: 72.5714)
+        
+        // 3)
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let region = MKCoordinateRegion(center: location, span: span)
+        mapView.setRegion(region, animated: true)
+        
+        // 4)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        annotation.title = "Miles Fishman"
+        annotation.subtitle = "ios"
+        mapView.addAnnotation(annotation)
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -93,7 +110,7 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
         let searchResults = SearchResultManager.shared
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cece", for: indexPath) as! BeautyExpertResultTableCell
-        cell.expertImage.layer.cornerRadius = 60
+        cell.expertImage.layer.cornerRadius = 50
         cell.expertName.text                = searchResults.expertsToDisplay[row].fullName
         cell.expertDistance.text            = String("$" + "\(searchResults.expertsToDisplay[row].subCatPrice)")
         cell.expertImage.image              = searchResults.expertsToDisplay[row].profileImage

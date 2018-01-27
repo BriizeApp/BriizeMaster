@@ -9,6 +9,7 @@
 import Foundation
 import Parse
 import BoltsSwift
+import NVActivityIndicatorView
 
 public class APIManager {
     
@@ -57,10 +58,11 @@ public class APIManager {
             if let error = error {
                 print(error.localizedDescription)
             } else {
+                NVActivityIndicatorPresenter.sharedInstance.setMessage("FindingExperts...20%")
                 var expertArray:[ExpertModel] = []
                 
                 for o in objects! {
-                
+                    
                     let online = o["isOnline"] as! Bool
                     if online == true  {
                         let name            = o["fullName"] as! String
@@ -83,6 +85,8 @@ public class APIManager {
         let completionTask = TaskCompletionSource<[ExpertModel]?>()
         
         var expertsToUse:[ExpertModel] = []
+        
+        NVActivityIndicatorPresenter.sharedInstance.setMessage("FindingExperts...29%")
         
         for e in experts {
             let distanceInMiles = e.currentLocation?.distanceInMiles(to: userLocation)
@@ -113,6 +117,8 @@ public class APIManager {
             query.findObjectsInBackground(block: { (objects, error) in
                 if error == nil {
                     print("Successfully retrieved")
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.setMessage("FindingExperts...55%")
                     
                     if let objects = objects {
                         objectsCounted = objects.count
@@ -154,6 +160,8 @@ public class APIManager {
                             }
                         }
                         if totalObjects == objectsCounted {
+                            NVActivityIndicatorPresenter.sharedInstance.setMessage("FindingExperts...85%")
+                            
                             completionTask.set(result: experts)
                         }
                     }

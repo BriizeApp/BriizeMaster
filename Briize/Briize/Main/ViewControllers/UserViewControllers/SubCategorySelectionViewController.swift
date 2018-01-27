@@ -32,6 +32,7 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setupUI()
         self.bindObservables()
         self.configureCollectionView()
@@ -39,16 +40,19 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.refresh()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         self.initialLoadAnimation()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         self.cleanUp()
     }
     
@@ -69,13 +73,18 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
         self.submitButtonOutlet.layer.borderWidth  = 2.0
         self.submitButtonOutlet.layer.borderColor  = kGoldColor.cgColor
         self.submitButtonOutlet.setTitleColor(kGoldColor, for: .normal)
+        
+        self.suategoryCollectionView.alpha = 0
     }
     
     private func initialLoadAnimation() {
-        UIView.animate(withDuration: 0.3,
-                       delay: 0.1,
+        UIView.animate(withDuration: 1.0,
+                       delay: 0.0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 5.0,
                        options: .curveEaseInOut,
                        animations: {
+                        self.suategoryCollectionView.alpha = 1
                         self.collecTionViewHeightConstraint.constant = 275
                         self.view.layoutIfNeeded()
         },
@@ -121,6 +130,8 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
             print("im hererererere")
             
             DispatchQueue.main.async {
+        NVActivityIndicatorPresenter.sharedInstance.setMessage("FindingExperts...100%")
+                
                 self.collapseLoading()
                 self.count   = 0
                 self.counter = 0
@@ -137,7 +148,6 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     }
     
     private func configureCollectionView() {
-        self.collecTionViewHeightConstraint.constant    = 350
         self.suategoryCollectionView.layer.cornerRadius = 18
         
         self.suategoryCollectionView
@@ -209,11 +219,14 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
                          category     : chosenCat,
                          subCategories: cats)
             .continueWith { [weak self] (experts) in
+                
                 guard let strongSelf = self else {return}
                 
                 DispatchQueue.main.async {
                     switch experts.result != nil {
                     case true:
+                        NVActivityIndicatorPresenter.sharedInstance.setMessage("Finding Experts...90%")
+                        
                         guard let exps = experts.result else {return}
                         strongSelf.convertExpertPicDataToImage(experts: exps!)
                         
@@ -245,7 +258,7 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     private func setupLoading() {
         let loaderSize = CGSize(width: 60.0, height: 60.0)
         startAnimating(loaderSize,
-                       message: "Finding Experts...",
+                       message: "Finding Experts...11%",
                        messageFont: nil,
                        type: .ballGridPulse,
                        color: kPinkColor,
