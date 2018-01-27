@@ -11,7 +11,7 @@ import UIKit
 import Parse
 import MapKit
 
-class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var expertFilterSegmentControl: UISegmentedControl!
@@ -54,6 +54,7 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
     }
     
     deinit {
+        self.mapView.delegate = nil
         self.mapView.removeFromSuperview()
         self.mapView = nil
         
@@ -73,6 +74,7 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
     }
     
     private func setupMap() {
+        self.mapView.delegate = self
         self.mapView.mapType = MKMapType.standard
         
         let location = CLLocationCoordinate2D(latitude: 23.0225,longitude: 72.5714)

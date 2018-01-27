@@ -1,16 +1,22 @@
 PODS:
   - Bolts-Swift (1.3.0)
-  - Bolts/Tasks (1.8.4)
-  - NVActivityIndicatorView (3.6.1)
-  - Parse (1.15.3):
-    - Bolts/Tasks (~> 1.8)
-  - RxCocoa (4.0.0):
+  - Bolts/Tasks (1.9.0)
+  - Mapbox-iOS-SDK (3.7.3)
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
+  - Parse (1.16.0):
+    - Parse/Core (= 1.16.0)
+  - Parse/Core (1.16.0):
+    - Bolts/Tasks (~> 1.9)
+  - RxCocoa (4.1.1):
     - RxSwift (~> 4.0)
-  - RxSwift (4.0.0)
-  - SideMenu (2.3.2)
+  - RxSwift (4.1.1)
+  - SideMenu (3.1.5)
 
 DEPENDENCIES:
   - Bolts-Swift
+  - Mapbox-iOS-SDK (~> 3.7)
   - NVActivityIndicatorView
   - Parse
   - RxCocoa (~> 4.0)
@@ -18,14 +24,15 @@ DEPENDENCIES:
   - SideMenu
 
 SPEC CHECKSUMS:
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Bolts-Swift: fa98d1b59fc1acea9b21a21306dcdca1c85e3737
-  NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
-  Parse: cdc0f1f975ee8be0409e66f21b05df4ae067047c
-  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
-  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
-  SideMenu: 3fa07dd05d4bade2b6f9889fb1877e312e1ba319
+  Mapbox-iOS-SDK: 5304bd9605babe6da9050ea4cb23c1671420b737
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
+  Parse: 5b36dc2c2f0a2fd82a257ae018bc3d68cf2c24e7
+  RxCocoa: fd0862fd2df95fa55562ad28ffd2522c25eb4a85
+  RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
+  SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
 
-PODFILE CHECKSUM: e19dce54519f4472ee2226fb55aa9f2b7f6ebd82
+PODFILE CHECKSUM: 7dd9f81fa9b04ac70b69f2e7d581fee8fb90b19d
 
 COCOAPODS: 1.3.1
