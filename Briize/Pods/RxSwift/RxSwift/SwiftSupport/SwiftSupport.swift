@@ -22,7 +22,7 @@ import Foundation
   
     extension Array {
         public mutating func swapAt(_ i: Int, _ j: Int) {
-            swap(&self[i], &self[j])
+            self.swapAt(i, j)
         }
     }
   

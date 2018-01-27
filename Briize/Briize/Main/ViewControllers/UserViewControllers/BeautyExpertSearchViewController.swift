@@ -9,15 +9,17 @@
 import Foundation
 import UIKit
 import Parse
-import MapKit
+import Mapbox
 
-class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
+class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, MGLMapViewDelegate {
     
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var myMapView: UIView!
     @IBOutlet weak var expertFilterSegmentControl: UISegmentedControl!
     @IBOutlet weak var tableContainerView: UIView!
     @IBOutlet weak var beautyTableView: UITableView!
     @IBOutlet weak var tableContainerTopConstraint: NSLayoutConstraint!
+    
+    var map: MGLMapView?
     
     var names:[String] = []
     var specialties:[String] = []
@@ -26,6 +28,7 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setupUI()
         self.setupMap()
     }
@@ -54,9 +57,9 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
     }
     
     deinit {
-        self.mapView.delegate = nil
-        self.mapView.removeFromSuperview()
-        self.mapView = nil
+        self.map?.delegate = nil
+        self.map?.removeFromSuperview()
+        self.map = nil
         
         print("\(self.description) - deinit successful")
     }
@@ -71,25 +74,32 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
         self.beautyTableView.layer.borderColor = UIColor.white.cgColor
         self.beautyTableView.layer.cornerRadius    = 18
         self.tableContainerView.layer.cornerRadius = 18
+        self.expertFilterSegmentControl.layer.cornerRadius = 4
+        self.expertFilterSegmentControl.layer.borderWidth = 0
     }
     
     private func setupMap() {
-        self.mapView.delegate = self
-        self.mapView.mapType = MKMapType.standard
+        self.map = MGLMapView(frame: self.myMapView.bounds, styleURL: URL(string:"mapbox://styles/mapbox/dark-v9")!)
         
-        let location = CLLocationCoordinate2D(latitude: 23.0225,longitude: 72.5714)
+        map?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        map?.attributionButton.isHidden = true
         
-        // 3)
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegion(center: location, span: span)
-        mapView.setRegion(region, animated: true)
+        // Set the map’s center coordinate and zoom level.
+        map?.setCenter(CLLocationCoordinate2D(latitude: 40.7326808, longitude: -73.9843407), zoomLevel: 12, animated: false)
         
-        // 4)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location
-        annotation.title = "Miles Fishman"
-        annotation.subtitle = "ios"
-        mapView.addAnnotation(annotation)
+        // Set the delegate property of our map view to `self` after instantiating it.
+        map?.delegate = self
+        self.myMapView.addSubview(self.map!)
+        
+        
+        // Declare the marker `hello` and set its coordinates, title, and subtitle.
+        let hello = MGLPointAnnotation()
+        hello.coordinate = CLLocationCoordinate2D(latitude: 40.7326808, longitude: -73.9843407)
+        hello.title = "Hello world!"
+        hello.subtitle = "Welcome to my marker"
+        
+        // Add marker `hello` to the map.
+        map?.addAnnotation(hello)
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -120,4 +130,59 @@ class BeautyExpertSearchViewController : UIViewController, UITableViewDelegate, 
         return cell
     }
     
+    // MARK: - Mapbox Delegates
+    
+    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+        // This example is only concerned with point annotations.
+        guard annotation is MGLPointAnnotation else {
+            return nil
+        }
+        
+        // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
+        let reuseIdentifier = "\(annotation.coordinate.longitude)"
+        
+        // For better performance, always try to reuse existing annotations.
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        // If there’s no reusable annotation view available, initialize a new one.
+        if annotationView == nil {
+            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
+            annotationView!.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+            
+            // Set the annotation view’s background color to a value determined by its longitude.
+            annotationView!.backgroundColor = kPinkColor
+        }
+        
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
+    }
 }
+
+class CustomAnnotationView: MGLAnnotationView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // Force the annotation view to maintain a constant size when the map is tilted.
+        scalesWithViewingDistance = false
+        
+        // Use CALayer’s corner radius to turn this view into a circle.
+        layer.cornerRadius = frame.width / 2
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.white.cgColor
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Animate the border width in/out, creating an iris effect.
+        let animation = CABasicAnimation(keyPath: "borderWidth")
+        animation.duration = 0.1
+        layer.borderWidth = selected ? frame.width / 4 : 2
+        layer.add(animation, forKey: "borderWidth")
+    }
+}
+
+
