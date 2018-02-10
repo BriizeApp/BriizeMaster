@@ -375,7 +375,7 @@
 				TargetAttributes = {
 					8449BDD81F2DBCC200DD9E20 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = WMVNZYDS86;
+						DevelopmentTeam = CNUA8JREHJ;
 						ProvisioningStyle = Automatic;
 					};
 					8449BDEF1F2DBCC300DD9E20 = {
@@ -727,7 +727,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WMVNZYDS86;
+				DEVELOPMENT_TEAM = CNUA8JREHJ;
 				INFOPLIST_FILE = Briize/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -747,7 +747,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WMVNZYDS86;
+				DEVELOPMENT_TEAM = CNUA8JREHJ;
 				INFOPLIST_FILE = Briize/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
