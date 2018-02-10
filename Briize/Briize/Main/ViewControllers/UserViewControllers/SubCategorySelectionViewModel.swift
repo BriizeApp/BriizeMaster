@@ -11,6 +11,7 @@ import Parse
 import BoltsSwift
 import RxSwift
 import RxCocoa
+import NVActivityIndicatorView
 
 public struct SubCategory {
     var title:String = "N/A"
@@ -32,8 +33,8 @@ class SubCategorySelectionViewModel {
         
         let apiManager = APIManager()
         apiManager
-            .findLiveExpertsInUserState(state:state,
-                                        category: category,
+            .findLiveExpertsInUserState(state        :state,
+                                        category     : category,
                                         subCategories: subCategories)
             
             .continueWith(continuation: { names in
@@ -41,6 +42,8 @@ class SubCategorySelectionViewModel {
                 case true:
                     guard let experts = names.result else {return}
                     let user = UserModel.current
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.setMessage("Finding Experts...30%")
                     
                     apiManager
                         .findExpertsClosestToUser(userLocation : user.currentLocation!,
@@ -52,14 +55,18 @@ class SubCategorySelectionViewModel {
                             switch expertArray.error == nil {
                             case true:
                                 if expertArray.result != nil {
+                                    NVActivityIndicatorPresenter.sharedInstance.setMessage("Finding Experts...97%")
+                                    
                                     apiManager
                                         .matchExpertsToChosenSubCategories(names        : expertArray.result!!,
                                                                            category     : category,
                                                                            subCategories: subCategories)
                                         
                                         .continueWith(continuation: { experts in
-                                            switch experts.error == nil {
+                                            switch experts.error == nil && experts.result != nil {
                                             case true:
+                                                NVActivityIndicatorPresenter.sharedInstance.setMessage("Finding Experts...99%")
+                                                
                                                 completionTask.set(result: experts.result!)
                                                 print("Did it")
                                                 

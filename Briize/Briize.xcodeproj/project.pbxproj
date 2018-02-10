@@ -218,6 +218,7 @@
 		847D32731FBAF8720063D976 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				8439D2141F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift */,
 				8439D21A1F43FD2200F00FF8 /* CategoryTableViewCell.swift */,
 			);
 			path = TableViewCells;
@@ -234,18 +235,17 @@
 		847D32751FBAF8930063D976 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				847D32761FBAF89B0063D976 /* TableViewCells */,
-				8464DE451FFF6C6100DB49D1 /* ExpertSettingCollectionViewCell.swift */,
+				847D32761FBAF89B0063D976 /* CollectionViewCells */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		847D32761FBAF89B0063D976 /* TableViewCells */ = {
+		847D32761FBAF89B0063D976 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				8439D2141F43CD9E00F00FF8 /* BeautyExpertResultTableCell.swift */,
+				8464DE451FFF6C6100DB49D1 /* ExpertSettingCollectionViewCell.swift */,
 			);
-			path = TableViewCells;
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		8497E4E11FA04584006F0DC4 /* SignInAndCreateAccount */ = {
@@ -270,11 +270,12 @@
 		8497E4E31FA045EC006F0DC4 /* UserViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */,
 				8439D2181F43FA6000F00FF8 /* CategorySelectViewController.swift */,
 				8464DE411FFC90A700DB49D1 /* CategorySelectViewModel.swift */,
 				84ADB6B31F5F418500ED0C75 /* SubCategorySelectionViewController.swift */,
 				84E347AA1FD91FAF006C3964 /* SubCategorySelectionViewModel.swift */,
-				84D4759B1F5B5BA400994D16 /* UserMenuProfileViewController.swift */,
+				8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */,
 				8497E4EC1FA1B5B7006F0DC4 /* Cells */,
 			);
 			path = UserViewControllers;
@@ -285,7 +286,6 @@
 			children = (
 				8494A02B1F5CEDA900AAC7E1 /* ExpertProfilePageViewController.swift */,
 				8464DE431FFF6A5800DB49D1 /* ExpertProfilePageViewModel.swift */,
-				8439D2161F43D89500F00FF8 /* BeautyExpertSearchViewController.swift */,
 				847D32751FBAF8930063D976 /* Cells */,
 			);
 			path = ExpertViewControllers;
@@ -505,6 +505,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Briize/Pods-Briize-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -515,6 +517,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",

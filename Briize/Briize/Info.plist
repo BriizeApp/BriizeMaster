@@ -55,5 +55,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoibWlsZXNmIiwiYSI6ImNpd2VlNHFxdTA1cmEydG9iemJyM2w2OHIifQ.8Oh3H8U9-A93Lj1Iz3II-A</string>
+	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
+	<true/>
 </dict>
 </plist>

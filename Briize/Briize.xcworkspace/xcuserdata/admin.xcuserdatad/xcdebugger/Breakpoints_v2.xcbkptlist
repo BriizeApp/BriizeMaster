@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "536912113.8976671"
+            timestampString = "538706267.14446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "bindObservables()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,43 +90,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "536912113.897756"
+            timestampString = "538706267.1445529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "bindObservables()"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "prepareDataWithExpertModelArray(modelArray:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "538706267.14463"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "submitSubCategoriesAndFindExpert()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "538706267.1447051"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "submitSubCategoriesAndFindExpert()"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Array&lt;Briize.ExpertModel&gt;) -&gt; () in Briize.SubCategorySelectionViewController.(bindObservables in _77E4806387224A9326D3BEAC011DD574)() -&gt; ()"
+                  symbolName = "Briize.SubCategorySelectionViewController.(submitSubCategoriesAndFindExpert in _77E4806387224A9326D3BEAC011DD574)() -&gt; ()"
                   moduleName = "Briize"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Desktop/BriizeMaster/Briize/Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-                  timestampString = "536912114.01443"
+                  timestampString = "537940747.5175591"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
-                  offsetFromSymbolStart = "344">
+                  startingLineNumber = "211"
+                  endingLineNumber = "211"
+                  offsetFromSymbolStart = "1236">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #2 (Swift.Array&lt;Briize.ExpertModel&gt;) -&gt; () in Briize.SubCategorySelectionViewController.(bindObservables in _77E4806387224A9326D3BEAC011DD574)() -&gt; ()"
+                  symbolName = "closure #1 (BoltsSwift.Task&lt;Swift.Optional&lt;Swift.Array&lt;Briize.ExpertModel&gt;&gt;&gt;) -&gt; () in Briize.SubCategorySelectionViewController.(submitSubCategoriesAndFindExpert in _77E4806387224A9326D3BEAC011DD574)() -&gt; ()"
                   moduleName = "Briize"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Desktop/BriizeMaster/Briize/Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-                  timestampString = "536912114.01644"
+                  timestampString = "537940747.519492"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "24">
+                  startingLineNumber = "211"
+                  endingLineNumber = "211"
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -138,13 +170,189 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
-            timestampString = "536912113.897831"
+            timestampString = "538706267.144779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "bindObservables()"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "submitSubCategoriesAndFindExpert()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "538706267.144853"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "submitSubCategoriesAndFindExpert()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "538706267.144927"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "submitSubCategoriesAndFindExpert()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "538706267.145"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "submitSubCategoriesAndFindExpert()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (BoltsSwift.Task&lt;Swift.Optional&lt;Swift.Array&lt;Briize.ExpertModel&gt;&gt;&gt;) -&gt; () in Briize.SubCategorySelectionViewController.(submitSubCategoriesAndFindExpert in _77E4806387224A9326D3BEAC011DD574)() -&gt; ()"
+                  moduleName = "Briize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/BriizeMaster/Briize/Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+                  timestampString = "537940747.535288"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "218"
+                  endingLineNumber = "218"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (BoltsSwift.Task&lt;Swift.Optional&lt;Swift.Array&lt;Briize.ExpertModel&gt;&gt;&gt;) -&gt; () in Briize.SubCategorySelectionViewController.(submitSubCategoriesAndFindExpert in _77E4806387224A9326D3BEAC011DD574)() -&gt; ()"
+                  moduleName = "Briize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/BriizeMaster/Briize/Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+                  timestampString = "537940747.537141"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "218"
+                  endingLineNumber = "218"
+                  offsetFromSymbolStart = "496">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "538706267.1450731"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "submitSubCategoriesAndFindExpert()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "538706267.145146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "submitSubCategoriesAndFindExpert()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "538706267.145218"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "prepareDataWithExpertModelArray(modelArray:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+            timestampString = "538706267.14529"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "prepareDataWithExpertModelArray(modelArray:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Briize.SubCategorySelectionViewController.(prepareDataWithExpertModelArray in _77E4806387224A9326D3BEAC011DD574)(modelArray: Swift.Array&lt;Briize.ExpertModel&gt;) -&gt; ()"
+                  moduleName = "Briize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/BriizeMaster/Briize/Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+                  timestampString = "537851333.815536"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "462">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Briize.SubCategorySelectionViewController.(prepareDataWithExpertModelArray in _77E4806387224A9326D3BEAC011DD574)(modelArray: Swift.Array&lt;Briize.ExpertModel&gt;) -&gt; ()"
+                  moduleName = "Briize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/BriizeMaster/Briize/Briize/Main/ViewControllers/UserViewControllers/SubCategorySelectionViewController.swift"
+                  timestampString = "537851333.817803"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

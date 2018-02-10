@@ -17,13 +17,12 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     
     fileprivate var overlay             :UIView?
     fileprivate var chosenSubCategories :[String] = []
-    fileprivate var count               :Int? = nil
-    fileprivate var counter             :Int? = nil
+    fileprivate var count               :Int? = 0
+    fileprivate var counter             :Int? = 0
     fileprivate var finalGroupOfExperts :[ExpertModel] = []
     
-    var rxExpertArray = Variable<[ExpertModel]>([])
-    let rxDisposebag  = DisposeBag()
-    let viewModel     = SubCategorySelectionViewModel()
+    private let rxDisposebag  = DisposeBag()
+    private let viewModel     = SubCategorySelectionViewModel()
     
     @IBOutlet weak var collecTionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var subTitle: UILabel!
@@ -33,6 +32,7 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setupUI()
         self.bindObservables()
         self.configureCollectionView()
@@ -40,24 +40,20 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.rxExpertArray.value.removeAll()
-        print("appeared")
-        SearchResultManager.shared.expertsToDisplay.removeAll()
-        SearchResultManager.shared.subCatToSearchFor.removeAll()
+        
+        self.refresh()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         self.initialLoadAnimation()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("gone")
-        let cells = self.suategoryCollectionView.visibleCells
-        for cell in cells {
-            cell.layer.borderColor = UIColor.clear.cgColor
-        }
+        
+        self.cleanUp()
     }
     
     deinit {
@@ -77,47 +73,22 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
         self.submitButtonOutlet.layer.borderWidth  = 2.0
         self.submitButtonOutlet.layer.borderColor  = kGoldColor.cgColor
         self.submitButtonOutlet.setTitleColor(kGoldColor, for: .normal)
+        
+        self.suategoryCollectionView.alpha = 0
     }
     
     private func initialLoadAnimation() {
-        UIView.animate(withDuration: 0.3,
-                       delay: 0.1,
+        UIView.animate(withDuration: 1.0,
+                       delay: 0.0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 5.0,
                        options: .curveEaseInOut,
                        animations: {
+                        self.suategoryCollectionView.alpha = 1
                         self.collecTionViewHeightConstraint.constant = 275
                         self.view.layoutIfNeeded()
         },
                        completion: nil)
-    }
-    
-    private func configureCollectionView() {
-        self.collecTionViewHeightConstraint.constant    = 350
-        
-        self.suategoryCollectionView.layer.cornerRadius = 18
-        self.suategoryCollectionView
-            .rx
-            .itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
-                guard  let cell = self?.suategoryCollectionView.cellForItem(at: indexPath) as? SubCategoryCollectionViewCell else {return}
-                
-                if  cell.layer.borderColor == kPinkColor.cgColor {
-                    cell.layer.borderColor = UIColor.clear.cgColor
-                    
-                    let myArray = SearchResultManager.shared.subCatToSearchFor
-                    SearchResultManager.shared.subCatToSearchFor = myArray.filter{
-                        $0 != cell.titleLabel.text!
-                    }
-                    return
-                    
-                } else {
-                    cell.layer.borderWidth = 4.0
-                    cell.layer.borderColor = kPinkColor.cgColor
-                    
-                    SearchResultManager.shared.subCatToSearchFor.append(cell.titleLabel.text!)
-                }
-                self?.suategoryCollectionView.deselectItem(at: indexPath, animated: true)
-            })
-            .disposed(by: self.rxDisposebag)
     }
     
     private func bindObservables() {
@@ -133,36 +104,86 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
             }
             .disposed(by: self.rxDisposebag)
         
-        kRxExpertArray
+        BriizeManager
+            .shared
+            .rxExpertModelArray
             .asObservable()
             .subscribe(onNext: { [weak self] (modelArray) in
                 guard let this = self else {return}
                 
                 if modelArray.isEmpty == false {
-                    this.count     = this.counter
-                    let arrayCount = this.count
-                    
-                    switch modelArray.count == arrayCount {
-                    case true:
-                        DispatchQueue.main.async {
-                            SearchResultManager.shared.expertsToDisplay = modelArray
-                            
-                            this.collapseLoading()
-                            this.count   = 0
-                            this.counter = 0
-                            this.performSegue(withIdentifier: "showExpertSearch", sender: self)
-                        }
-                        
-                    case false:
-                        return
-                    }
+                    this.prepareDataWithExpertModelArray(modelArray: modelArray)
                 }
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.rxDisposebag)
     }
     
+    private func prepareDataWithExpertModelArray(modelArray:[ExpertModel]) {
+        self.count     = self.counter
+        let arrayCount = self.count
+        
+        print(arrayCount!, modelArray.count)
+        
+        switch modelArray.count == arrayCount {
+        case true:
+            SearchResultManager.shared.expertsToDisplay = modelArray
+            print("im hererererere")
+            
+            DispatchQueue.main.async {
+        NVActivityIndicatorPresenter.sharedInstance.setMessage("FindingExperts...100%")
+                
+                self.collapseLoading()
+                self.count   = 0
+                self.counter = 0
+                
+                self.performSegue(withIdentifier: "showExpertSearch", sender: self)
+            }
+            
+        case false:
+            print("im ahhhhhhh")
+            self.collapseLoading()
+            
+            break
+        }
+    }
+    
+    private func configureCollectionView() {
+        self.suategoryCollectionView.layer.cornerRadius = 18
+        
+        self.suategoryCollectionView
+            .rx
+            .itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard  let cell = self?.suategoryCollectionView.cellForItem(at: indexPath) as? SubCategoryCollectionViewCell else {return}
+                
+                self?.configureSelectedCellData(cell)
+                self?.suategoryCollectionView.deselectItem(at: indexPath, animated: true)
+            })
+            .disposed(by: self.rxDisposebag)
+    }
+    
+    private func configureSelectedCellData(_ cell: SubCategoryCollectionViewCell) {
+        if  cell.layer.borderColor == kPinkColor.cgColor {
+            cell.layer.borderColor = UIColor.clear.cgColor
+            
+            let myArray = SearchResultManager.shared.subCatToSearchFor
+            SearchResultManager.shared.subCatToSearchFor = myArray.filter {
+                $0 != cell.titleLabel.text!
+            }
+            return
+            
+        } else {
+            cell.layer.borderWidth = 4.0
+            cell.layer.borderColor = kPinkColor.cgColor
+            
+            SearchResultManager.shared.subCatToSearchFor.append(cell.titleLabel.text!)
+        }
+    }
+    
     private func convertExpertPicDataToImage(experts:[ExpertModel]) {
         self.counter = experts.count
+        print(self.counter!)
+        
         for e in experts {
             let file = e.profilePicFile!
             file.getDataInBackground(block: { (data, error) in
@@ -171,7 +192,8 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
                     
                     var expert = e
                     expert.profileImage = image
-                    kRxExpertArray.value.append(expert)
+                    
+                    BriizeManager.shared.rxExpertModelArray.value.append(expert)
                 }
             })
         }
@@ -181,35 +203,62 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
         let cats      = SearchResultManager.shared.subCatToSearchFor
         let chosenCat = SearchResultManager.shared.chosenCategory
         
+        if cats.isEmpty {
+            let alertManager = AlertManager(VC: self)
+            let alert = alertManager.error(message: "Please select at least 1 one service")
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+            
+        } else {
+            self.setupLoading()
+        }
+        
         self.viewModel
             .findExperts(state        : "California",
                          category     : chosenCat,
                          subCategories: cats)
             .continueWith { [weak self] (experts) in
+                
                 guard let strongSelf = self else {return}
                 
-                switch experts.result != nil {
-                case true:
-                    guard let exps = experts.result else {return}
-                    strongSelf.convertExpertPicDataToImage(experts: exps!)
-                    
-                case false:
-                    if experts.error != nil {
-                        //Handle Error
+                DispatchQueue.main.async {
+                    switch experts.result != nil {
+                    case true:
+                        NVActivityIndicatorPresenter.sharedInstance.setMessage("Finding Experts...90%")
+                        
+                        guard let exps = experts.result else {return}
+                        strongSelf.convertExpertPicDataToImage(experts: exps!)
+                        
+                    case false:
+                        if experts.error != nil {
+                            let alertmanager = AlertManager(VC: strongSelf)
+                            let alert = alertmanager.error(message: "\(experts.error!.localizedDescription)")
+                            strongSelf.present(alert, animated: true, completion: nil)
+                        }
                     }
+                    strongSelf.collapseLoading()
                 }
         }
     }
     
-    private func setupLoading() {
-        overlay = UIView(frame: view.frame)
-        overlay!.backgroundColor = .black
-        overlay!.alpha = 0.8
-        view.addSubview(overlay!)
+    private func refresh(){
+        SearchResultManager.shared.expertsToDisplay.removeAll()
+        SearchResultManager.shared.subCatToSearchFor.removeAll()
+    }
+    
+    private func cleanUp() {
+        BriizeManager.shared.rxExpertModelArray.value.removeAll()
         
+        let cells = self.suategoryCollectionView.visibleCells
+        for cell in cells {
+            cell.layer.borderColor = UIColor.clear.cgColor
+        }
+    }
+    private func setupLoading() {
         let loaderSize = CGSize(width: 60.0, height: 60.0)
         startAnimating(loaderSize,
-                       message: "Finding Experts...",
+                       message: "Finding Experts...11%",
                        messageFont: nil,
                        type: .ballGridPulse,
                        color: kPinkColor,
@@ -222,7 +271,6 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     
     private func collapseLoading() {
         stopAnimating()
-        overlay?.removeFromSuperview()
     }
     
     // MARK: Button Pressed Methods
@@ -231,7 +279,6 @@ class SubCategorySelectionViewController: UIViewController, NVActivityIndicatorV
     }
     
     @IBAction func submitButtonPressed(_ sender: Any) {
-        self.setupLoading()
         self.submitSubCategoriesAndFindExpert()
     }
     
